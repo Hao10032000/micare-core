@@ -1,0 +1,300 @@
+{
+	"icons": [
+"icon-micare2-toggle-on",
+  "icon-micare2-facebook",
+  
+  "icon-micare2-Asset-11",
+  
+  "icon-micare2-Asset-21",
+  
+  "icon-micare2-Asset-31",
+  
+  "icon-micare2-Asset-41",
+  
+  "icon-micare2-Asset-51",
+  
+  "icon-micare2-Asset-61",
+  
+  "icon-micare2-Asset-71",
+  
+  "icon-micare2-Asset-81",
+  
+  "icon-micare2-Asset-91",
+  
+  "icon-micare2-Asset-101",
+  
+  "icon-micare2-Asset-111",
+  
+  "icon-micare2-Asset-121",
+  
+  "icon-micare2-Asset-131",
+  
+  "icon-micare2-Asset-141",
+  
+  "icon-micare2-Asset-151",
+  
+  "icon-micare2-Asset-161",
+  
+  "icon-micare2-Asset-171",
+  
+  "icon-micare2-Asset-181",
+  
+  "icon-micare2-Asset-191",
+  
+  "icon-micare2-Asset-201",
+  
+  "icon-micare2-Asset-211",
+  
+  "icon-micare2-Asset-221",
+  
+  "icon-micare2-Asset-231",
+  
+  "icon-micare2-Asset-241",
+  
+  "icon-micare2-Asset-251",
+  
+  "icon-micare2-Asset-261",
+  
+  "icon-micare2-Asset-271",
+  
+  "icon-micare2-Asset-281",
+  
+  "icon-micare2-Asset-291",
+  
+  "icon-micare2-Asset-301",
+  
+  "icon-micare2-Asset-311",
+  
+  "icon-micare2-Asset-321",
+  
+  "icon-micare2-Asset-331",
+  
+  "icon-micare2-bonds",
+  
+  "icon-micare2-cashbook",
+  
+  "icon-micare2-charity",
+  
+  "icon-micare2-collectibles",
+  
+  "icon-micare2-community-grants",
+  
+  "icon-micare2-economic-improvement",
+  
+  "icon-micare2-equity-security",
+  
+  "icon-micare2-fund-accounting",
+  
+  "icon-micare2-in-inventory",
+  
+  "icon-micare2-ledger",
+  
+  "icon-micare2-merchant-account",
+  
+  "icon-micare2-welfare",
+  
+  "icon-micare2-Asset-management",
+  
+  "icon-micare2-ATM",
+  
+  "icon-micare2-Audit",
+  
+  "icon-micare2-Bank-building",
+  
+  "icon-micare2-Banknote",
+  
+  "icon-micare2-Budget",
+  
+  "icon-micare2-Calculator",
+  
+  "icon-micare2-Cash-flow",
+  
+  "icon-micare2-Chart",
+  
+  "icon-micare2-Coins",
+  
+  "icon-micare2-Dividend",
+  
+  "icon-micare2-Expenses",
+  
+  "icon-micare2-Financial-planning",
+  
+  "icon-micare2-Graph",
+  
+  "icon-micare2-Interest-rate",
+  
+  "icon-micare2-Investment",
+  
+  "icon-micare2-Invoice",
+  
+  "icon-micare2-Loan",
+  
+  "icon-micare2-Loss",
+  
+  "icon-micare2-Money-bag",
+  
+  "icon-micare2-Mortgage",
+  
+  "icon-micare2-Mutual-funds",
+  
+  "icon-micare2-Profit",
+  
+  "icon-micare2-Receipt",
+  
+  "icon-micare2-Revenue",
+  
+  "icon-micare2-Risk-management",
+  
+  "icon-micare2-Savings",
+  
+  "icon-micare2-Stock-market",
+  
+  "icon-micare2-Tax",
+  
+  "icon-micare2-Wallet",
+  
+  "icon-micare2-bonds1",
+  
+  "icon-micare2-cashbook1",
+  
+  "icon-micare2-charity1",
+  
+  "icon-micare2-collectibles1",
+  
+  "icon-micare2-community-grants1",
+  
+  "icon-micare2-economic-improvement1",
+  
+  "icon-micare2-equity-security1",
+  
+  "icon-micare2-fund-accounting1",
+  
+  "icon-micare2-in-inventory1",
+  
+  "icon-micare2-ledger1",
+  
+  "icon-micare2-merchant-account1",
+  
+  "icon-micare2-welfare1",
+  
+  "icon-micare2-Credit-Card",
+  
+  "icon-micare2-Emergency-Finance",
+  
+  "icon-micare2-Finance-Analyst",
+  
+  "icon-micare2-Finance-Growth",
+  
+  "icon-micare2-Finance-Insurance",
+  
+  "icon-micare2-Finance-Investment",
+  
+  "icon-micare2-Finance-Mail",
+  
+  "icon-micare2-Finance-Report",
+  
+  "icon-micare2-Financial-Bag",
+  
+  "icon-micare2-Financial-Idea",
+  
+  "icon-micare2-Financial-Institue",
+  
+  "icon-micare2-Money-Coin",
+  
+  "icon-micare2-Money-Exchange",
+  
+  "icon-micare2-Online-Finance",
+  
+  "icon-micare2-Piggy-Bank",
+  
+  "icon-micare2-Time-Money",
+  
+  "icon-micare2-Asset-management1",
+  
+  "icon-micare2-ATM1",
+  
+  "icon-micare2-Audit1",
+  
+  "icon-micare2-Bank-building1",
+  
+  "icon-micare2-Banknote1",
+  
+  "icon-micare2-Budget1",
+  
+  "icon-micare2-Calculator1",
+  
+  "icon-micare2-Cash-flow1",
+  
+  "icon-micare2-Chart1",
+  
+  "icon-micare2-Coins1",
+  
+  "icon-micare2-Dividend1",
+  
+  "icon-micare2-Expenses1",
+  
+  "icon-micare2-Financial-planning1",
+  
+  "icon-micare2-Graph1",
+  
+  "icon-micare2-Interest-rate1",
+  
+  "icon-micare2-Investment1",
+  
+  "icon-micare2-Invoice1",
+  
+  "icon-micare2-Loan1",
+  
+  "icon-micare2-Loss1",
+  
+  "icon-micare2-Money-bag1",
+  
+  "icon-micare2-Mortgage1",
+  
+  "icon-micare2-Mutual-funds1",
+  
+  "icon-micare2-Profit1",
+  
+  "icon-micare2-Receipt1",
+  
+  "icon-micare2-Revenue1",
+  
+  "icon-micare2-Risk-management1",
+  
+  "icon-micare2-Savings1",
+  
+  "icon-micare2-Stock-market1",
+  
+  "icon-micare2-Tax1",
+  
+  "icon-micare2-Wallet1",
+  
+  "icon-micare2-bonds2",
+  
+  "icon-micare2-cashbook2",
+  
+  "icon-micare2-charity2",
+  
+  "icon-micare2-collectibles2",
+  
+  "icon-micare2-community-grants2",
+  
+  "icon-micare2-economic-improvement2",
+  
+  "icon-micare2-equity-security2",
+  
+  "icon-micare2-fund-accounting2",
+  
+  "icon-micare2-in-inventory2",
+  
+  "icon-micare2-ledger2",
+  
+  "icon-micare2-merchant-account2",
+  
+  "icon-micare2-welfare2"
+  
+	]
+}
+  
+
+  

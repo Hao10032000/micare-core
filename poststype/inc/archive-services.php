@@ -1,0 +1,197 @@
+<?php
+
+/**
+
+ * The template for displaying archive services.
+
+ *
+
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+
+ *
+
+ * @package micare
+
+ */
+
+
+
+get_header(); ?>
+
+<?php 
+
+$services_number_post = themesflat_get_opt( 'services_number_post' ) ? themesflat_get_opt( 'services_number_post' ) : 6;
+
+$columns = themesflat_get_opt('services_grid_columns');
+
+$themesflat_paging_style = themesflat_get_opt('services_archive_pagination_style');
+
+$orderby = themesflat_get_opt('services_order_by');
+
+$order = themesflat_get_opt('services_order_direction');
+
+$exclude = themesflat_get_opt('services_exclude');
+
+$show_filter = themesflat_get_opt('services_show_filter');
+
+$filter_category_order = themesflat_get_opt('services_filter_category_order');	
+
+$terms_slug = wp_list_pluck( get_terms( 'services_category','hide_empty=0'), 'slug' );
+
+$filters = wp_list_pluck( get_terms( 'services_category','hide_empty=0'), 'name','slug' );
+
+$show_filter_class = '';
+
+
+
+$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
+
+
+$query_args = array(
+
+    'post_type' => 'services',
+
+    'orderby'   => $orderby,
+
+    'order' => $order,    
+
+    'paged' => $paged,    
+
+    'posts_per_page' => $services_number_post,  
+
+    'tax_query' => array(
+
+        array(
+
+            'taxonomy' => 'services_category',   
+
+            'field'    => 'slug',                   
+
+        	'terms'    => $terms_slug,
+
+        ),
+
+    ),
+
+);	
+
+
+
+if ( ! empty( $exclude ) ) {				
+
+	if ( ! is_array( $exclude ) )
+
+		$exclude = explode( ',', $exclude );
+
+
+
+	$query_args['post__not_in'] = $exclude;
+
+}
+
+$query = new WP_Query( $query_args );
+$icon = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( themesflat_get_opt_elementor('services_post_icon') );
+?>
+
+
+
+<div class="themesflat-services-taxonomy sv-page">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="wrap-content-area">
+
+                    <div id="primary" class="content-area"> 
+
+                        <main id="main" class="main-content" role="main"> 
+
+                        <div class="tf-services-wrap style2">
+
+
+                            <div class="wrap-services-post row column-4 ">
+
+                                <?php 
+
+                                
+
+                                if( $query->have_posts() ) {
+
+                                    while ( $query->have_posts() ) : $query->the_post();                	
+
+                                    	?>           
+
+<div class="item">				
+
+<div class="services-post">
+
+
+    <div class="content"> 
+
+        <?php if(!empty($icon)): ?>
+            <div class="icon">
+                <?php echo $icon; ?>
+            </div>
+        <?php endif; ?>
+
+        
+
+        <h5 class="title">
+
+            <a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a>
+
+        </h5>
+
+            <p class="description"><?php echo wp_trim_words( get_the_content(), 15, '' ); ?></p>
+
+    </div>
+
+</div>
+
+</div>         
+
+                                        <?php 
+
+                                    endwhile;
+
+                                } else {
+
+                                    get_template_part( 'template-parts/content', 'none' );
+
+                                }
+
+                                ?>            
+
+                            </div>
+
+
+                            <?php 
+
+                                themesflat_pagination_posttype($query);
+
+                                wp_reset_postdata();
+
+                            ?>  
+                        </div>
+
+                        </main><!-- #main -->
+
+                    </div><!-- #primary -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div><!-- /.themesflat-services-taxonomy -->
+
+
+
+<?php get_footer(); ?>
