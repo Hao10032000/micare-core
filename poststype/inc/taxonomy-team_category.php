@@ -4,9 +4,9 @@ get_header();
 
 $term_slug = $wp_query->tax_query->queries[0]['terms'][0];
 
-$team_number_post = themesflat_get_opt( 'team_number_post' ) ? themesflat_get_opt( 'team_number_post' ) : 9;
+$doctor_number_post = themesflat_get_opt( 'doctor_number_post' ) ? themesflat_get_opt( 'doctor_number_post' ) : 9;
 
-$columns = themesflat_get_opt('team_grid_columns');
+$columns = themesflat_get_opt('doctor_grid_columns');
 
 $paged = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
 
@@ -14,11 +14,11 @@ $paged = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
 
 $args = array(
 
-    'post_type' => 'team',
+    'post_type' => 'doctor',
 
     'paged'     => $paged,
 
-    'posts_per_page' => $team_number_post,
+    'posts_per_page' => $doctor_number_post,
 
 );
 
@@ -26,7 +26,7 @@ $args['tax_query'] = array(
 
     array(
 
-        'taxonomy' => 'team_category',
+        'taxonomy' => 'doctor_category',
 
         'field'    => 'slug',
 
@@ -40,7 +40,7 @@ $query = new WP_Query($args);
 
 ?>
 
-<div class="themesflat-team-taxonomy pj-page">
+<div class="themesflat-doctor-taxonomy pj-page">
 
     <div class="container">
 
@@ -54,7 +54,7 @@ $query = new WP_Query($args);
 
                         <main id="main" class="main-content" role="main">
 
-                        <div class="container-archive tf-team-wrap style1">
+                        <div class="container-archive tf-doctor-wrap style1">
 
 <?php 
 
@@ -64,17 +64,17 @@ if( $query->have_posts() ) {
 
     global $post;
 
-    $facebook = get_post_meta($post->ID, 'facebook_team_value', true);
+    $facebook = get_post_meta($post->ID, 'facebook_doctor_value', true);
 
-    $twitter = get_post_meta($post->ID, 'twitter_team_value', true);
+    $twitter = get_post_meta($post->ID, 'twitter_doctor_value', true);
 
-    $linkedin = get_post_meta($post->ID, 'linkedin_team_value', true);
+    $linkedin = get_post_meta($post->ID, 'linkedin_doctor_value', true);
 
-    $youtube = get_post_meta($post->ID, 'youtube_team_value', true);
+    $youtube = get_post_meta($post->ID, 'youtube_doctor_value', true);
 
-    $custom1 = get_post_meta($post->ID, 'custom1_team_value', true);
+    $custom1 = get_post_meta($post->ID, 'custom1_doctor_value', true);
 
-    $custom2 = get_post_meta($post->ID, 'custom2_team_value', true);
+    $custom2 = get_post_meta($post->ID, 'custom2_doctor_value', true);
 
     $facebook_icon = get_post_meta($post->ID, 'facebook_icon_value', true);
 
@@ -92,7 +92,7 @@ if( $query->have_posts() ) {
 
 <div class="item">
 
-<div class="team-post hover-flash scale-hover">
+<div class="doctor-post hover-flash scale-hover">
 
 <div class="featured-post">
 <a href="<?php echo get_the_permalink(); ?>">
@@ -202,9 +202,9 @@ class="icon-micare-<?php echo esc_attr($custom2_icon); ?>"></i></a>
 
 </h5>
 
-<div class="category-team">
+<div class="category-doctor">
 
-<?php echo esc_attr ( the_terms( get_the_ID(), 'team_category', '', ', ', '' ) ); ?></div>
+<?php echo esc_attr ( the_terms( get_the_ID(), 'doctor_category', '', ', ', '' ) ); ?></div>
 
 </div>
 
@@ -252,6 +252,6 @@ wp_reset_postdata();
 
     </div>
 
-</div><!-- /.themesflat-team-taxonomy -->
+</div><!-- /.themesflat-doctor-taxonomy -->
 
 <?php get_footer(); ?>

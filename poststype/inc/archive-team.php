@@ -2,7 +2,7 @@
 
 /**
 
- * The template for displaying archive team.
+ * The template for displaying archive doctor.
 
  *
 
@@ -20,17 +20,17 @@ get_header(); ?>
 
 <?php 
 
-$team_number_post = themesflat_get_opt( 'team_number_post' ) ? themesflat_get_opt( 'team_number_post' ) : 9;
+$doctor_number_post = themesflat_get_opt( 'doctor_number_post' ) ? themesflat_get_opt( 'doctor_number_post' ) : 9;
 
-$columns = themesflat_get_opt('team_grid_columns');
+$columns = themesflat_get_opt('doctor_grid_columns');
 
-$orderby = themesflat_get_opt('team_order_by');
+$orderby = themesflat_get_opt('doctor_order_by');
 
-$order = themesflat_get_opt('team_order_direction');
+$order = themesflat_get_opt('doctor_order_direction');
 
-$exclude = themesflat_get_opt('team_exclude');
+$exclude = themesflat_get_opt('doctor_exclude');
 
-$terms_slug = wp_list_pluck( get_terms( 'team_category','hide_empty=0'), 'slug' );
+$terms_slug = wp_list_pluck( get_terms( 'doctor_category','hide_empty=0'), 'slug' );
 
 
 
@@ -40,7 +40,7 @@ $paged = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
 
 $args = array(
 
-    'post_type' => 'team',
+    'post_type' => 'doctor',
 
     'orderby'   => $orderby,
 
@@ -48,13 +48,13 @@ $args = array(
 
     'paged' => $paged,
 
-    'posts_per_page' => $team_number_post,
+    'posts_per_page' => $doctor_number_post,
 
     'tax_query' => array(
 
         array(
 
-            'taxonomy' => 'team_category',   
+            'taxonomy' => 'doctor_category',   
 
             'field'    => 'slug',                   
 
@@ -86,7 +86,7 @@ $query = new WP_Query( $args );
 
 ?>
 
-<div class="themesflat-team-taxonomy pj-page">
+<div class="themesflat-doctor-taxonomy pj-page">
 
     <div class="container">
 
@@ -100,7 +100,7 @@ $query = new WP_Query( $args );
 
                         <main id="main" class="main-content" role="main">
 
-                            <div class="container-archive tf-team-wrap style1">
+                            <div class="container-archive tf-doctor-wrap style1">
 
                                 <?php 
 
@@ -110,17 +110,17 @@ $query = new WP_Query( $args );
 
                                     global $post;
 
-                                    $facebook = get_post_meta($post->ID, 'facebook_team_value', true);
+                                    $facebook = get_post_meta($post->ID, 'facebook_doctor_value', true);
 
-                                    $twitter = get_post_meta($post->ID, 'twitter_team_value', true);
+                                    $twitter = get_post_meta($post->ID, 'twitter_doctor_value', true);
 
-                                    $linkedin = get_post_meta($post->ID, 'linkedin_team_value', true);
+                                    $linkedin = get_post_meta($post->ID, 'linkedin_doctor_value', true);
 
-                                    $youtube = get_post_meta($post->ID, 'youtube_team_value', true);
+                                    $youtube = get_post_meta($post->ID, 'youtube_doctor_value', true);
 
-                                    $custom1 = get_post_meta($post->ID, 'custom1_team_value', true);
+                                    $custom1 = get_post_meta($post->ID, 'custom1_doctor_value', true);
 
-                                    $custom2 = get_post_meta($post->ID, 'custom2_team_value', true);
+                                    $custom2 = get_post_meta($post->ID, 'custom2_doctor_value', true);
 
                                     $facebook_icon = get_post_meta($post->ID, 'facebook_icon_value', true);
 
@@ -138,7 +138,7 @@ $query = new WP_Query( $args );
 
 <div class="item">
 
-<div class="team-post hover-flash scale-hover">
+<div class="doctor-post hover-flash scale-hover">
 
     <div class="featured-post">
     <a href="<?php echo get_the_permalink(); ?>">
@@ -248,9 +248,9 @@ $query = new WP_Query( $args );
 
         </h5>
 
-        <div class="category-team">
+        <div class="category-doctor">
 
-            <?php echo esc_attr ( the_terms( get_the_ID(), 'team_category', '', ', ', '' ) ); ?></div>
+            <?php echo esc_attr ( the_terms( get_the_ID(), 'doctor_category', '', ', ', '' ) ); ?></div>
 
     </div>
 
@@ -298,6 +298,6 @@ $query = new WP_Query( $args );
 
     </div>
 
-</div><!-- /.themesflat-team-taxonomy -->
+</div><!-- /.themesflat-doctor-taxonomy -->
 
 <?php get_footer(); ?>

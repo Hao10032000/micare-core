@@ -1,6 +1,6 @@
 <?php
 
-add_action('init', 'themesflat_register_team_post_type');
+add_action('init', 'themesflat_register_doctor_post_type');
 
 /**
 
@@ -8,39 +8,39 @@ add_action('init', 'themesflat_register_team_post_type');
 
 */
 
-function themesflat_register_team_post_type() {
+function themesflat_register_doctor_post_type() {
 
-    /*team*/
+    /*doctor*/
 
-    $team_slug = themesflat_get_opt('team_slug', 'team');
+    $doctor_slug = 'doctor';
 
     $labels = array(
 
-        'name'                  => esc_html__( 'Team', 'themesflat' ),
+        'name'                  => esc_html__( 'Doctor', 'themesflat' ),
 
-        'singular_name'         => esc_html__( 'Team', 'themesflat' ),
+        'singular_name'         => esc_html__( 'Doctor', 'themesflat' ),
 
-        'menu_name'             => esc_html__( 'Team', 'themesflat' ),
+        'menu_name'             => esc_html__( 'Doctor', 'themesflat' ),
 
-        'add_new'               => esc_html__( 'New Team', 'themesflat' ),
+        'add_new'               => esc_html__( 'New Doctor', 'themesflat' ),
 
-        'add_new_item'          => esc_html__( 'Add New Team', 'themesflat' ),
+        'add_new_item'          => esc_html__( 'Add New Doctor', 'themesflat' ),
 
-        'new_item'              => esc_html__( 'New Team Item', 'themesflat' ),
+        'new_item'              => esc_html__( 'New Doctor Item', 'themesflat' ),
 
-        'edit_item'             => esc_html__( 'Edit Team Item', 'themesflat' ),
+        'edit_item'             => esc_html__( 'Edit Doctor Item', 'themesflat' ),
 
-        'view_item'             => esc_html__( 'View Team', 'themesflat' ),
+        'view_item'             => esc_html__( 'View Doctor', 'themesflat' ),
 
-        'all_items'             => esc_html__( 'All Team', 'themesflat' ),
+        'all_items'             => esc_html__( 'All Doctor', 'themesflat' ),
 
-        'search_items'          => esc_html__( 'Search Team', 'themesflat' ),
+        'search_items'          => esc_html__( 'Search Doctor', 'themesflat' ),
 
-        'not_found'             => esc_html__( 'No Team Items Found', 'themesflat' ),
+        'not_found'             => esc_html__( 'No Doctor Items Found', 'themesflat' ),
 
-        'not_found_in_trash'    => esc_html__( 'No Team Items Found In Trash', 'themesflat' ),
+        'not_found_in_trash'    => esc_html__( 'No Doctor Items Found In Trash', 'themesflat' ),
 
-        'parent_item_colon'     => esc_html__( 'Parent Team:', 'themesflat' )
+        'parent_item_colon'     => esc_html__( 'Parent Doctor:', 'themesflat' )
 
 
 
@@ -50,7 +50,7 @@ function themesflat_register_team_post_type() {
 
         'labels'        => $labels,
 
-        'rewrite'       => array( 'slug' => $team_slug ),        
+        'rewrite'       => array( 'slug' => $doctor_slug ),        
 
         'supports'    => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'elementor' ),
 
@@ -62,7 +62,7 @@ function themesflat_register_team_post_type() {
 
     );
 
-    register_post_type( 'team', $args );
+    register_post_type( 'doctor', $args );
 
     flush_rewrite_rules();
 
@@ -70,41 +70,41 @@ function themesflat_register_team_post_type() {
 
 
 
-add_filter( 'post_updated_messages', 'themesflat_team_updated_messages' );
+add_filter( 'post_updated_messages', 'themesflat_doctor_updated_messages' );
 
 /**
 
-  * team update messages.
+  * doctor update messages.
 
 */
 
-function themesflat_team_updated_messages ( $messages ) {
+function themesflat_doctor_updated_messages ( $messages ) {
 
     Global $post, $post_ID;
 
-    $messages[esc_html__( 'team' )] = array(
+    $messages[esc_html__( 'doctor' )] = array(
 
         0  => '',
 
-        1  => sprintf( esc_html__( 'team Updated. <a href="%s">View team</a>', 'themesflat' ), esc_url( get_permalink( $post_ID ) ) ),
+        1  => sprintf( esc_html__( 'doctor Updated. <a href="%s">View doctor</a>', 'themesflat' ), esc_url( get_permalink( $post_ID ) ) ),
 
         2  => esc_html__( 'Custom Field Updated.', 'themesflat' ),
 
         3  => esc_html__( 'Custom Field Deleted.', 'themesflat' ),
 
-        4  => esc_html__( 'team Updated.', 'themesflat' ),
+        4  => esc_html__( 'doctor Updated.', 'themesflat' ),
 
-        5  => isset( $_GET['revision']) ? sprintf( esc_html__( 'team Restored To Revision From %s', 'themesflat' ), wp_post_revision_title((int)$_GET['revision'], false)) : false,
+        5  => isset( $_GET['revision']) ? sprintf( esc_html__( 'doctor Restored To Revision From %s', 'themesflat' ), wp_post_revision_title((int)$_GET['revision'], false)) : false,
 
-        6  => sprintf( esc_html__( 'team Published. <a href="%s">View team</a>', 'themesflat' ), esc_url( get_permalink( $post_ID ) ) ),
+        6  => sprintf( esc_html__( 'doctor Published. <a href="%s">View doctor</a>', 'themesflat' ), esc_url( get_permalink( $post_ID ) ) ),
 
-        7  => esc_html__( 'team Saved.', 'themesflat' ),
+        7  => esc_html__( 'doctor Saved.', 'themesflat' ),
 
-        8  => sprintf( esc_html__('team Submitted. <a target="_blank" href="%s">Preview team</a>', 'themesflat' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+        8  => sprintf( esc_html__('doctor Submitted. <a target="_blank" href="%s">Preview doctor</a>', 'themesflat' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
 
-        9  => sprintf( esc_html__( 'team Scheduled For: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview team</a>', 'themesflat' ),date_i18n( esc_html__( 'M j, Y @ G:i', 'themesflat' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ) ),
+        9  => sprintf( esc_html__( 'doctor Scheduled For: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview doctor</a>', 'themesflat' ),date_i18n( esc_html__( 'M j, Y @ G:i', 'themesflat' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ) ),
 
-        10 => sprintf( esc_html__( 'team Draft Updated. <a target="_blank" href="%s">Preview team</a>', 'themesflat' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+        10 => sprintf( esc_html__( 'doctor Draft Updated. <a target="_blank" href="%s">Preview doctor</a>', 'themesflat' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
 
     );
 
@@ -114,23 +114,23 @@ function themesflat_team_updated_messages ( $messages ) {
 
 
 
-add_action( 'init', 'themesflat_register_team_taxonomy' );
+add_action( 'init', 'themesflat_register_doctor_taxonomy' );
 
 /**
 
-  * Register team taxonomy
+  * Register doctor taxonomy
 
 */
 
-function themesflat_register_team_taxonomy() {
+function themesflat_register_doctor_taxonomy() {
 
-    /*team Categories*/
+    /*doctor Categories*/
 
-    $team_cat_slug = 'team_category';    
+    $doctor_cat_slug = 'doctor_category';    
 
     $labels = array(
 
-        'name'                       => esc_html__( 'Team Categories', 'themesflat' ),
+        'name'                       => esc_html__( 'Doctor Categories', 'themesflat' ),
 
         'singular_name'              => esc_html__( 'Categories', 'themesflat' ),
 
@@ -166,7 +166,7 @@ function themesflat_register_team_taxonomy() {
 
         'labels'        => $labels,
 
-        'rewrite'       => array('slug'=>$team_cat_slug),
+        'rewrite'       => array('slug'=>$doctor_cat_slug),
 
         'hierarchical'  => true,
 
@@ -174,7 +174,7 @@ function themesflat_register_team_taxonomy() {
 
     );
 
-    register_taxonomy( 'team_category', 'team', $args );
+    register_taxonomy( 'doctor_category', 'doctor', $args );
 
     flush_rewrite_rules();
 
@@ -182,7 +182,7 @@ function themesflat_register_team_taxonomy() {
 
 
 
-add_action( 'init', 'themesflat_register_team_tag' );
+add_action( 'init', 'themesflat_register_doctor_tag' );
 
 /**
 
@@ -190,17 +190,17 @@ add_action( 'init', 'themesflat_register_team_tag' );
 
  */
 
-function themesflat_register_team_tag() {
+function themesflat_register_doctor_tag() {
 
-    $team_tag_slug = 'team_tag';
+    $doctor_tag_slug = 'doctor_tag';
 
 
 
     $labels = array(
 
-        'name'                       => esc_html__( 'Team Tags', 'themesflat' ),
+        'name'                       => esc_html__( 'Doctor Tags', 'themesflat' ),
 
-        'singular_name'              => esc_html__( 'Team Tags', 'themesflat' ),
+        'singular_name'              => esc_html__( 'Doctor Tags', 'themesflat' ),
 
         'search_items'               => esc_html__( 'Search Tags', 'themesflat' ),        
 
@@ -222,7 +222,7 @@ function themesflat_register_team_tag() {
 
         'labels'       => $labels,
 
-        'rewrite'       => array('slug'=>$team_tag_slug),
+        'rewrite'       => array('slug'=>$doctor_tag_slug),
 
         'hierarchical' => true,
 
@@ -230,7 +230,7 @@ function themesflat_register_team_tag() {
 
     );
 
-    register_taxonomy( 'team_tag', 'team', $args );
+    register_taxonomy( 'doctor_tag', 'doctor', $args );
 
     flush_rewrite_rules();
 
@@ -238,19 +238,19 @@ function themesflat_register_team_tag() {
 
 
 
-function social_team_meta() {
+function social_doctor_meta() {
 
 
 
     add_meta_box(
 
-		'team_custom_field',       
+		'doctor_custom_field',       
 
-		'Information team',                  
+		'Information doctor',                  
 
-		'team_custom_metabox',  
+		'doctor_custom_metabox',  
 
-		'team',                 
+		'doctor',                 
 
 		'normal',                
 
@@ -266,9 +266,9 @@ function social_team_meta() {
 
 		'Social Select Field 1',                  
 
-		'facebook_team_metabox',  
+		'facebook_doctor_metabox',  
 
-		'team',                 
+		'doctor',                 
 
 		'normal',                
 
@@ -284,9 +284,9 @@ function social_team_meta() {
 
 		'Social Select Field 2',                  
 
-		'twitter_team_metabox',  
+		'twitter_doctor_metabox',  
 
-		'team',                 
+		'doctor',                 
 
 		'normal',                
 
@@ -302,9 +302,9 @@ function social_team_meta() {
 
 		'Social Select Field 3',                  
 
-		'linkedin_team_metabox',  
+		'linkedin_doctor_metabox',  
 
-		'team',                 
+		'doctor',                 
 
 		'normal',                
 
@@ -320,9 +320,9 @@ function social_team_meta() {
 
 		'Social Select Field 4',                  
 
-		'youtube_team_metabox',  
+		'youtube_doctor_metabox',  
 
-		'team',                 
+		'doctor',                 
 
 		'normal',                
 
@@ -334,13 +334,13 @@ function social_team_meta() {
 
     add_meta_box(
 
-		'custom1_team_metabox',       
+		'custom1_doctor_metabox',       
 
 		'Social Select Field 5',                  
 
-		'custom1_team_metabox',  
+		'custom1_doctor_metabox',  
 
-		'team',                 
+		'doctor',                 
 
 		'normal',                
 
@@ -352,13 +352,13 @@ function social_team_meta() {
 
     add_meta_box(
 
-		'custom2_team_metabox',       
+		'custom2_doctor_metabox',       
 
 		'Social Select Field 6',                  
 
-		'custom2_team_metabox',  
+		'custom2_doctor_metabox',  
 
-		'team',                 
+		'doctor',                 
 
 		'normal',                
 
@@ -368,28 +368,28 @@ function social_team_meta() {
 
 }
 
-add_action('add_meta_boxes', 'social_team_meta');
+add_action('add_meta_boxes', 'social_doctor_meta');
 
 
 
-function team_custom_metabox() {
+function doctor_custom_metabox() {
 
     global $post;
 
 
-    $data_description = get_post_meta($post->ID, 'description_team_value', true);
-	$data_age = get_post_meta($post->ID, 'age_team_value', true);
-	$data_email = get_post_meta($post->ID, 'email_team_value', true);
-	$data_phone = get_post_meta($post->ID, 'phone_team_value', true);
-	$data_location = get_post_meta($post->ID, 'location_team_value', true);
-	$data_education = get_post_meta($post->ID, 'education_team_value', true);
-	$data_experience = get_post_meta($post->ID, 'experience_team_value', true);
-	$data_awards = get_post_meta($post->ID, 'awards_team_value', true);
-	$data_yoex = get_post_meta($post->ID, 'yoex_team_value', true);
+    $data_description = get_post_meta($post->ID, 'description_doctor_value', true);
+	$data_age = get_post_meta($post->ID, 'age_doctor_value', true);
+	$data_email = get_post_meta($post->ID, 'email_doctor_value', true);
+	$data_phone = get_post_meta($post->ID, 'phone_doctor_value', true);
+	$data_location = get_post_meta($post->ID, 'location_doctor_value', true);
+	$data_education = get_post_meta($post->ID, 'education_doctor_value', true);
+	$data_experience = get_post_meta($post->ID, 'experience_doctor_value', true);
+	$data_awards = get_post_meta($post->ID, 'awards_doctor_value', true);
+	$data_yoex = get_post_meta($post->ID, 'yoex_doctor_value', true);
 
     // Use nonce for verification to secure data sending
 
-    wp_nonce_field( basename( __FILE__ ), 'team_nonce' );
+    wp_nonce_field( basename( __FILE__ ), 'doctor_nonce' );
 
 
 
@@ -398,53 +398,53 @@ function team_custom_metabox() {
 
 
 <div class="inner-full" style="margin-bottom: 30px;">
-        <label for="description_team" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Description', 'themesflat' ) ?></label>
-        <textarea name="description_team_value" id="description_team" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
+        <label for="description_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Description', 'themesflat' ) ?></label>
+        <textarea name="description_doctor_value" id="description_doctor" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
             <?php echo (isset($data_description)) ? $data_description : ''; ?>
         </textarea>
     </div>
 
     <div class="inner-group" style="display: flex;margin-left: -30px; margin-bottom: 30px;">
         <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="age_team" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Age', 'themesflat' ) ?></label>
-            <input type="text" id="age_team" name="age_team_value"  value="<?php echo (isset($data_age)) ? $data_age : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
+            <label for="age_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Age', 'themesflat' ) ?></label>
+            <input type="text" id="age_doctor" name="age_doctor_value"  value="<?php echo (isset($data_age)) ? $data_age : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
         </div>
         <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="email_team" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Email', 'themesflat' ) ?></label>
-            <input type="text" id="email_team" name="email_team_value"  value="<?php echo (isset($data_email)) ? $data_email : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
-        </div>
-    </div>
-
-    <div class="inner-group" style="display: flex;margin-left: -30px; margin-bottom: 30px;">
-        <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="phone_team" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Phone Number', 'themesflat' ) ?></label>
-            <input type="text" id="phone_team" name="phone_team_value"  value="<?php echo (isset($data_phone)) ? $data_phone : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
-        </div>
-        <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="location_team" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Location', 'themesflat' ) ?></label>
-            <input type="text" id="location_team" name="location_team_value"  value="<?php echo (isset($data_location)) ? $data_location : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
+            <label for="email_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Email', 'themesflat' ) ?></label>
+            <input type="text" id="email_doctor" name="email_doctor_value"  value="<?php echo (isset($data_email)) ? $data_email : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
         </div>
     </div>
 
     <div class="inner-group" style="display: flex;margin-left: -30px; margin-bottom: 30px;">
         <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="education_team" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Education', 'themesflat' ) ?></label>
-            <input type="text" id="education_team" name="education_team_value"  value="<?php echo (isset($data_education)) ? $data_education : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
+            <label for="phone_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Phone Number', 'themesflat' ) ?></label>
+            <input type="text" id="phone_doctor" name="phone_doctor_value"  value="<?php echo (isset($data_phone)) ? $data_phone : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
         </div>
         <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="experience_team" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Experience', 'themesflat' ) ?></label>
-            <input type="text" id="experience_team" name="experience_team_value"  value="<?php echo (isset($data_experience)) ? $data_experience : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
+            <label for="location_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Location', 'themesflat' ) ?></label>
+            <input type="text" id="location_doctor" name="location_doctor_value"  value="<?php echo (isset($data_location)) ? $data_location : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
         </div>
     </div>
 
     <div class="inner-group" style="display: flex;margin-left: -30px; margin-bottom: 30px;">
         <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="awards_team" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Awards', 'themesflat' ) ?></label>
-            <input type="text" id="awards_team" name="awards_team_value"  value="<?php echo (isset($data_awards)) ? $data_awards : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
+            <label for="education_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Education', 'themesflat' ) ?></label>
+            <input type="text" id="education_doctor" name="education_doctor_value"  value="<?php echo (isset($data_education)) ? $data_education : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
         </div>
         <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="yoex_team" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Years of Experience:', 'themesflat' ) ?></label>
-            <input type="text" id="yoex_team" name="yoex_team_value"  value="<?php echo (isset($data_yoex)) ? $data_yoex : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
+            <label for="experience_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Experience', 'themesflat' ) ?></label>
+            <input type="text" id="experience_doctor" name="experience_doctor_value"  value="<?php echo (isset($data_experience)) ? $data_experience : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
+        </div>
+    </div>
+
+    <div class="inner-group" style="display: flex;margin-left: -30px; margin-bottom: 30px;">
+        <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
+            <label for="awards_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Awards', 'themesflat' ) ?></label>
+            <input type="text" id="awards_doctor" name="awards_doctor_value"  value="<?php echo (isset($data_awards)) ? $data_awards : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
+        </div>
+        <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
+            <label for="yoex_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Years of Experience:', 'themesflat' ) ?></label>
+            <input type="text" id="yoex_doctor" name="yoex_doctor_value"  value="<?php echo (isset($data_yoex)) ? $data_yoex : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
         </div>
     </div>
 
@@ -456,17 +456,17 @@ function team_custom_metabox() {
 
 
 
-function facebook_team_metabox() {
+function facebook_doctor_metabox() {
 
     global $post;
 
-	$data = get_post_meta($post->ID, 'facebook_team_value', true);
+	$data = get_post_meta($post->ID, 'facebook_doctor_value', true);
 
 	$icon = get_post_meta($post->ID, 'facebook_icon_value', true);
 
     // Use nonce for verification to secure data sending
 
-    wp_nonce_field( basename( __FILE__ ), 'team_nonce' );
+    wp_nonce_field( basename( __FILE__ ), 'doctor_nonce' );
 
 
 
@@ -504,7 +504,7 @@ function facebook_team_metabox() {
 
         </select>
 
-        <input type="text" name="facebook_team_value" placeholder="www.facebook.com" value="<?php echo (isset($data)) ? $data : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
+        <input type="text" name="facebook_doctor_value" placeholder="www.facebook.com" value="<?php echo (isset($data)) ? $data : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
 
     </div>
 
@@ -516,17 +516,17 @@ function facebook_team_metabox() {
 
 
 
-function twitter_team_metabox() {
+function twitter_doctor_metabox() {
 
     global $post;
 
-	$data = get_post_meta($post->ID, 'twitter_team_value', true);
+	$data = get_post_meta($post->ID, 'twitter_doctor_value', true);
 
 	$icon = get_post_meta($post->ID, 'twitter_icon_value', true);
 
     // Use nonce for verification to secure data sending
 
-    wp_nonce_field( basename( __FILE__ ), 'team_nonce' );
+    wp_nonce_field( basename( __FILE__ ), 'doctor_nonce' );
 
 
 
@@ -562,7 +562,7 @@ function twitter_team_metabox() {
 
         </select>
 
-    <input type="text" name="twitter_team_value" placeholder="twitter.com" value="<?php echo (isset($data)) ? $data : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
+    <input type="text" name="twitter_doctor_value" placeholder="twitter.com" value="<?php echo (isset($data)) ? $data : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
 
     </div>
 
@@ -572,17 +572,17 @@ function twitter_team_metabox() {
 
 
 
-function linkedin_team_metabox() {
+function linkedin_doctor_metabox() {
 
     global $post;
 
-	$data = get_post_meta($post->ID, 'linkedin_team_value', true);
+	$data = get_post_meta($post->ID, 'linkedin_doctor_value', true);
 
 	$icon = get_post_meta($post->ID, 'linkedin_icon_value', true);
 
     // Use nonce for verification to secure data sending
 
-    wp_nonce_field( basename( __FILE__ ), 'team_nonce' );
+    wp_nonce_field( basename( __FILE__ ), 'doctor_nonce' );
 
 
 
@@ -620,7 +620,7 @@ function linkedin_team_metabox() {
 
         </select>
 
-    <input type="text" name="linkedin_team_value" placeholder="linkedin.com" value="<?php echo (isset($data)) ? $data : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
+    <input type="text" name="linkedin_doctor_value" placeholder="linkedin.com" value="<?php echo (isset($data)) ? $data : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
 
     </div>
 
@@ -632,17 +632,17 @@ function linkedin_team_metabox() {
 
 
 
-function youtube_team_metabox() {
+function youtube_doctor_metabox() {
 
     global $post;
 
-	$data = get_post_meta($post->ID, 'youtube_team_value', true);
+	$data = get_post_meta($post->ID, 'youtube_doctor_value', true);
 
 	$icon = get_post_meta($post->ID, 'youtube_icon_value', true);
 
     // Use nonce for verification to secure data sending
 
-    wp_nonce_field( basename( __FILE__ ), 'team_nonce' );
+    wp_nonce_field( basename( __FILE__ ), 'doctor_nonce' );
 
 
 
@@ -680,7 +680,7 @@ function youtube_team_metabox() {
 
         </select>
 
-    <input type="text" name="youtube_team_value" placeholder="youtube.com" value="<?php echo (isset($data)) ? $data : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
+    <input type="text" name="youtube_doctor_value" placeholder="youtube.com" value="<?php echo (isset($data)) ? $data : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
 
     </div>
 
@@ -692,17 +692,17 @@ function youtube_team_metabox() {
 
 
 
-function custom1_team_metabox() {
+function custom1_doctor_metabox() {
 
     global $post;
 
-	$data = get_post_meta($post->ID, 'custom1_team_value', true);
+	$data = get_post_meta($post->ID, 'custom1_doctor_value', true);
 
 	$icon = get_post_meta($post->ID, 'custom1_icon_value', true);
 
     // Use nonce for verification to secure data sending
 
-    wp_nonce_field( basename( __FILE__ ), 'team_nonce' );
+    wp_nonce_field( basename( __FILE__ ), 'doctor_nonce' );
 
 
 
@@ -740,7 +740,7 @@ function custom1_team_metabox() {
 
         </select>
 
-    <input type="text" name="custom1_team_value" placeholder="Link" value="<?php echo (isset($data)) ? $data : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
+    <input type="text" name="custom1_doctor_value" placeholder="Link" value="<?php echo (isset($data)) ? $data : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
 
     </div>
 
@@ -752,17 +752,17 @@ function custom1_team_metabox() {
 
 
 
-function custom2_team_metabox() {
+function custom2_doctor_metabox() {
 
     global $post;
 
-	$data = get_post_meta($post->ID, 'custom2_team_value', true);
+	$data = get_post_meta($post->ID, 'custom2_doctor_value', true);
 
 	$icon = get_post_meta($post->ID, 'custom2_icon_value', true);
 
     // Use nonce for verification to secure data sending
 
-    wp_nonce_field( basename( __FILE__ ), 'team_nonce' );
+    wp_nonce_field( basename( __FILE__ ), 'doctor_nonce' );
 
 
 
@@ -800,7 +800,7 @@ function custom2_team_metabox() {
 
         </select>
 
-    <input type="text" name="custom2_team_value" placeholder="Link" value="<?php echo (isset($data)) ? $data : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
+    <input type="text" name="custom2_doctor_value" placeholder="Link" value="<?php echo (isset($data)) ? $data : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
 
     </div>
 
@@ -818,7 +818,7 @@ function social_save_meta_fields( $post_id ) {
 
 	// verify nonce
 
-	if (!isset($_POST['team_nonce']) || !wp_verify_nonce($_POST['team_nonce'], basename(__FILE__)))
+	if (!isset($_POST['doctor_nonce']) || !wp_verify_nonce($_POST['doctor_nonce'], basename(__FILE__)))
 
 		return 'nonce not verified';
 
@@ -842,7 +842,7 @@ function social_save_meta_fields( $post_id ) {
 
 	// check permissions
 
-	if ( 'team' == $_POST['post_type'] ) {
+	if ( 'doctor' == $_POST['post_type'] ) {
 
 		if ( ! current_user_can( 'edit_page', $post_id ) )
 
@@ -873,42 +873,42 @@ function social_save_meta_fields( $post_id ) {
 
 
     // information
-	update_post_meta( $post_id, 'description_team_value', wp_kses_post($_POST[ 'description_team_value' ]) );
-	update_post_meta( $post_id, 'age_team_value', wp_kses_post($_POST[ 'age_team_value' ]) );
-	update_post_meta( $post_id, 'email_team_value', wp_kses_post($_POST[ 'email_team_value' ]) );
-	update_post_meta( $post_id, 'phone_team_value', wp_kses_post($_POST[ 'phone_team_value' ]) );
-	update_post_meta( $post_id, 'location_team_value', wp_kses_post($_POST[ 'location_team_value' ]) );
-	update_post_meta( $post_id, 'education_team_value', wp_kses_post($_POST[ 'education_team_value' ]) );
-	update_post_meta( $post_id, 'experience_team_value', wp_kses_post($_POST[ 'experience_team_value' ]) );
-	update_post_meta( $post_id, 'awards_team_value', wp_kses_post($_POST[ 'awards_team_value' ]) );
-	update_post_meta( $post_id, 'yoex_team_value', wp_kses_post($_POST[ 'yoex_team_value' ]) );
+	update_post_meta( $post_id, 'description_doctor_value', wp_kses_post($_POST[ 'description_doctor_value' ]) );
+	update_post_meta( $post_id, 'age_doctor_value', wp_kses_post($_POST[ 'age_doctor_value' ]) );
+	update_post_meta( $post_id, 'email_doctor_value', wp_kses_post($_POST[ 'email_doctor_value' ]) );
+	update_post_meta( $post_id, 'phone_doctor_value', wp_kses_post($_POST[ 'phone_doctor_value' ]) );
+	update_post_meta( $post_id, 'location_doctor_value', wp_kses_post($_POST[ 'location_doctor_value' ]) );
+	update_post_meta( $post_id, 'education_doctor_value', wp_kses_post($_POST[ 'education_doctor_value' ]) );
+	update_post_meta( $post_id, 'experience_doctor_value', wp_kses_post($_POST[ 'experience_doctor_value' ]) );
+	update_post_meta( $post_id, 'awards_doctor_value', wp_kses_post($_POST[ 'awards_doctor_value' ]) );
+	update_post_meta( $post_id, 'yoex_doctor_value', wp_kses_post($_POST[ 'yoex_doctor_value' ]) );
 
 
     // social
 
 	update_post_meta( $post_id, 'facebook_icon_value', wp_kses_post($_POST[ 'facebook_icon_value' ]) );
 
-	update_post_meta( $post_id, 'facebook_team_value', wp_kses_post($_POST[ 'facebook_team_value' ]) );
+	update_post_meta( $post_id, 'facebook_doctor_value', wp_kses_post($_POST[ 'facebook_doctor_value' ]) );
 
 	update_post_meta( $post_id, 'twitter_icon_value', wp_kses_post($_POST[ 'twitter_icon_value' ]) );
 
-	update_post_meta( $post_id, 'twitter_team_value', wp_kses_post($_POST[ 'twitter_team_value' ]) );
+	update_post_meta( $post_id, 'twitter_doctor_value', wp_kses_post($_POST[ 'twitter_doctor_value' ]) );
 
 	update_post_meta( $post_id, 'linkedin_icon_value', wp_kses_post($_POST[ 'linkedin_icon_value' ]) );
 
-	update_post_meta( $post_id, 'linkedin_team_value', wp_kses_post($_POST[ 'linkedin_team_value' ]) );
+	update_post_meta( $post_id, 'linkedin_doctor_value', wp_kses_post($_POST[ 'linkedin_doctor_value' ]) );
 
 	update_post_meta( $post_id, 'youtube_icon_value', wp_kses_post($_POST[ 'youtube_icon_value' ]) );
 
-	update_post_meta( $post_id, 'youtube_team_value', wp_kses_post($_POST[ 'youtube_team_value' ]) );
+	update_post_meta( $post_id, 'youtube_doctor_value', wp_kses_post($_POST[ 'youtube_doctor_value' ]) );
 
     update_post_meta( $post_id, 'custom1_icon_value', wp_kses_post($_POST[ 'custom1_icon_value' ]) );
 
-	update_post_meta( $post_id, 'custom1_team_value', wp_kses_post($_POST[ 'custom1_team_value' ]) );
+	update_post_meta( $post_id, 'custom1_doctor_value', wp_kses_post($_POST[ 'custom1_doctor_value' ]) );
 
     update_post_meta( $post_id, 'custom2_icon_value', wp_kses_post($_POST[ 'custom2_icon_value' ]) );
 
-	update_post_meta( $post_id, 'custom2_team_value', wp_kses_post($_POST[ 'custom2_team_value' ]) );
+	update_post_meta( $post_id, 'custom2_doctor_value', wp_kses_post($_POST[ 'custom2_doctor_value' ]) );
 
 
 }

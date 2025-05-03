@@ -14,7 +14,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
     public function get_title() {
 
-        return esc_html__( 'TF Team', 'themesflat-core' );
+        return esc_html__( 'TF Doctor', 'themesflat-core' );
 
     }
 
@@ -1092,7 +1092,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 		$query_args = array(
 
-            'post_type' => 'team',
+            'post_type' => 'doctor',
 
             'posts_per_page' => $settings['posts_per_page'],
 
@@ -1108,7 +1108,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 							        array(
 
-							            'taxonomy' => 'team_category',
+							            'taxonomy' => 'doctor_category',
 
 							            'field'    => 'slug',
 

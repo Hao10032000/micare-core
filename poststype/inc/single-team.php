@@ -11,42 +11,42 @@ get_header();
                             <?php while ( have_posts() ) : the_post(); 
 								global $post;
 								// information
-								$facebook = get_post_meta($post->ID, 'facebook_team_value', true);
-								$twitter = get_post_meta($post->ID, 'twitter_team_value', true);
-								$linkedin = get_post_meta($post->ID, 'linkedin_team_value', true);
-								$youtube = get_post_meta($post->ID, 'youtube_team_value', true);
-								$custom1 = get_post_meta($post->ID, 'custom1_team_value', true);
-								$custom2 = get_post_meta($post->ID, 'custom2_team_value', true);
+								$facebook = get_post_meta($post->ID, 'facebook_doctor_value', true);
+								$twitter = get_post_meta($post->ID, 'twitter_doctor_value', true);
+								$linkedin = get_post_meta($post->ID, 'linkedin_doctor_value', true);
+								$youtube = get_post_meta($post->ID, 'youtube_doctor_value', true);
+								$custom1 = get_post_meta($post->ID, 'custom1_doctor_value', true);
+								$custom2 = get_post_meta($post->ID, 'custom2_doctor_value', true);
 								$facebook_icon = get_post_meta($post->ID, 'facebook_icon_value', true);
 								$twitter_icon = get_post_meta($post->ID, 'twitter_icon_value', true);
 								$linkedin_icon = get_post_meta($post->ID, 'linkedin_icon_value', true);
 								$youtube_icon = get_post_meta($post->ID, 'youtube_icon_value', true);
 								$custom1_icon = get_post_meta($post->ID, 'custom1_icon_value', true);
 								$custom2_icon = get_post_meta($post->ID, 'custom2_icon_value', true);
-								$data_description = get_post_meta($post->ID, 'description_team_value', true);
-								$data_age = get_post_meta($post->ID, 'age_team_value', true);
-								$data_email = get_post_meta($post->ID, 'email_team_value', true);
-								$data_phone = get_post_meta($post->ID, 'phone_team_value', true);
-								$data_location = get_post_meta($post->ID, 'location_team_value', true);
-								$data_education = get_post_meta($post->ID, 'education_team_value', true);
-								$data_experience = get_post_meta($post->ID, 'experience_team_value', true);
-								$data_awards = get_post_meta($post->ID, 'awards_team_value', true);
-								$data_yoex = get_post_meta($post->ID, 'yoex_team_value', true);
+								$data_description = get_post_meta($post->ID, 'description_doctor_value', true);
+								$data_age = get_post_meta($post->ID, 'age_doctor_value', true);
+								$data_email = get_post_meta($post->ID, 'email_doctor_value', true);
+								$data_phone = get_post_meta($post->ID, 'phone_doctor_value', true);
+								$data_location = get_post_meta($post->ID, 'location_doctor_value', true);
+								$data_education = get_post_meta($post->ID, 'education_doctor_value', true);
+								$data_experience = get_post_meta($post->ID, 'experience_doctor_value', true);
+								$data_awards = get_post_meta($post->ID, 'awards_doctor_value', true);
+								$data_yoex = get_post_meta($post->ID, 'yoex_doctor_value', true);
 							?>
 
-                            <div class="group-overlay-team">
-                                <div class="overlay-team"></div>
+                            <div class="group-overlay-doctor">
+                                <div class="overlay-doctor"></div>
                                 <div class="single-information-author">
-                                <div class="icon-close-team">
+                                <div class="icon-close-doctor">
                                     <i class="icon-micare-close"></i>
                                 </div>
                                     <div class="btn-switch"><i class="icon-micare-Megamenu"></i></div>
-                                    <div class="featured-post"><?php the_post_thumbnail('themesflat-team-single'); ?>
+                                    <div class="featured-post"><?php the_post_thumbnail('themesflat-doctor-single'); ?>
                                     </div>
     
                                     <div class="content-author">
-                                        <div class="category-team">
-                                            <?php echo esc_attr ( the_terms( get_the_ID(), 'team_category', '', ', ', '' ) ); ?>
+                                        <div class="category-doctor">
+                                            <?php echo esc_attr ( the_terms( get_the_ID(), 'doctor_category', '', ', ', '' ) ); ?>
                                         </div>
                                         <h3 class="post-title"><?php the_title(); ?></h3>
                                         <?php if ( !empty($facebook_icon) || !empty($twitter_icon) || !empty($linkedin_icon) || !empty($youtube_icon) || !empty($custom1_icon) || !empty($custom2_icon )): ?>
