@@ -358,11 +358,6 @@ class TFServices_Widget extends \Elementor\Widget_Base {
 						'return_value' => 'yes',
 
 						'default' => 'yes',
-						'condition' => [
-
-							'style'	=> ['style2', 'style3'],
-
-						],
 
 					]
 
@@ -657,6 +652,53 @@ $this->add_control(
 $this->end_controls_section();
 
 // /.End Carousel
+
+
+		// Start features  
+
+		$this->start_controls_section( 
+
+			'section_features_box',
+
+			[
+
+				'label' => esc_html__( 'Introduction Box', 'themesflat-core' ),
+				'condition' => [
+
+					'style' => 'style1',
+		
+				],
+
+			]
+
+		);
+
+		$this->add_control(
+
+			'custom_infor',
+
+			[
+
+				'label' => esc_html__( 'Custom Information', 'themesflat-core' ),
+
+				'type' => \Elementor\Controls_Manager::TEXTAREA,
+
+				'label_block' => true,
+
+			]
+
+		);		
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'image_background',
+				'types' => [ 'classic', 'gradient', 'video' ],
+				'selector' => '{{WRAPPER}} .tf-services-wrap .features-box .content',
+			]
+		);
+
+		$this->end_controls_section();
 
 
 		// Start General Style 
@@ -1585,8 +1627,6 @@ $this->end_controls_section();
 
 
 
-
-
 		if ( get_query_var('paged') ) {
 
            $paged = get_query_var('paged');
@@ -1675,41 +1715,6 @@ $this->end_controls_section();
     data-next_icon="icon-micare-Right" data-arrow="<?php echo esc_attr($settings['carousel_arrow']) ?>"
     data-bullets="<?php echo esc_attr($settings['carousel_bullets']) ?>">
 
-	<?php if ( $settings['style'] == 'style1' || $settings['style'] == 'style5' ): ?>
-			<div class="wrap-filter-services">
-				<ul class="list-filter-services">
-					<?php 
-						$filter_category_order = $settings['posts_categories'];
-						$filters = wp_list_pluck( get_terms( 'services_category','hide_empty=false'), 'name','slug' );
-						if (!empty($filter_category_order)) { 
-							foreach ($filter_category_order as $key => $value) {
-								$key = trim($key);
-								$set_active = $key == 1 ? 'active' : '';
-								echo '<li><a data-filter="' . esc_attr( strtolower($value)) . '" href="#" title="' . esc_attr( $value ) . '" class="btn-filter ' . esc_attr( $set_active ) . '">' . esc_html( str_replace("-", " ", $value) ) . '</a></li>'; 
-							}
-						}
-						else {
-							$count = 1; foreach ($filters as $key => $value) {
-								$set_active = $count == 1 ? 'active' : '';
-								echo '<li><a data-filter="' . esc_attr( strtolower($key)) . '" href="#" title="' . esc_attr( $value ) . '" class="btn-filter ' . esc_attr( $set_active ) . '">' . esc_html( $value ) . '</a></li>'; 
-							$count++;}
-						}
-					
-					?>
-				</ul>
-			</div>
-		<?php endif; ?>
-
-		<?php if ( $settings['style'] == 'style4' ): ?>
-		<div class="group-services-thumb">
-			<div class="group-title">
-				<?php while ( $query->have_posts() ) : $query->the_post(); ?>
-					<h5 class="title" data-post="<?php echo esc_attr(get_the_ID()); ?>">
-						<?php echo get_the_title(); ?> <i class="icon-micare-arrowright1"></i>
-					</h5>
-				<?php endwhile; ?>
-			</div>
-		<?php endif; ?>
 
     <div class="wrap-services-post row <?php echo esc_attr($settings['layout']); ?> ">
 
@@ -1719,31 +1724,44 @@ $this->end_controls_section();
 
             <?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
-
             <?php 
+				$attr['settings'] = $settings; 
+				$attr['icon'] = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( themesflat_get_opt_elementor('services_post_icon') );
+				tf_get_template_widget("service/{$settings['style']}", $attr);
+			?>
 
-						$attr['settings'] = $settings; 
-						$attr['icon'] = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( themesflat_get_opt_elementor('services_post_icon') );
+			<?php endwhile; ?>
 
-						tf_get_template_widget("service/{$settings['style']}", $attr); 
+            <?php if ( $settings['style'] == 'style1' && !empty($settings['custom_infor']) ): ?>
+				<div class="features-box">
+					<?php echo wp_kses_post($settings['custom_infor']); ?>
+					<!-- <div class="content">
+						<div class="sub-heading">
+							Need For Home Care 
+						</div>
+						<div class="heading">
+							Medical Treatments?
+						</div>
+						<div class="desc">
+							We are committed to delivering safe, effective, and patient-centered care.
+						</div>
+						<ul>
+							<li><i class="icon-micare-check"></i> Advanced Medical Technology</li>
+							<li><i class="icon-micare-check"></i> Specialized Treatments & Services</li>
+						</ul>
+						<a href="#" class="tf-btn">Make Appointment <i class="icon-micare-arrow-right"></i></a>
+					</div> -->
+				</div>
+        	<?php endif; ?>
 
-						?>
-
-
-            <?php endwhile; ?>
             <?php if ( $settings['carousel'] == 'yes' ): ?>
-
-        </div>
-
-        <?php endif; ?>
+        		</div>
+        	<?php endif; ?>
 
         <?php wp_reset_postdata(); ?>
 
     </div>
 
-	<?php if ( $settings['style'] == 'style4' ): ?>
-		</div>
-	<?php endif; ?>
 
 </div>
 

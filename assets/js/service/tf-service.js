@@ -4,23 +4,6 @@
 
     "use strict";
 
-    var filterServices = function() {
-        $('.list-filter-services .btn-filter').on('click', function(e) {
-            e.preventDefault();
-            var attrBtn = $(this).data('filter');
-            $(this).closest('.list-filter-services').find('.btn-filter').removeClass('active');
-            $(this).addClass('active');
-            if($('.wrap-services-post .item.'+attrBtn).length) {
-                $('.wrap-services-post .item').removeClass('active').addClass('inactive');
-                $('.wrap-services-post .item.'+attrBtn).removeClass('inactive').addClass('active');
-            }else {
-                $('.wrap-services-post .item').removeClass('active');
-                $('.wrap-services-post .item').addClass('inactive');
-            }
-        });
-    } 
-
-
     var servicessOwl = function() {
 
         if ( $().owlCarousel ) {
@@ -138,27 +121,11 @@
     } 
 
 
-    var hover_ActiveThumb = function() {
-        if ($(".group-services-thumb").length > 0) {
-            $('.group-services-thumb .group-title .title:first').addClass('active');
-            $('.group-services-thumb .wrap-services-post .item:first').addClass('active-thumb');
-            $(".group-services-thumb .group-title .title").hover(function() {
-                var item_id = $(this).attr('data-post');
-                $('.group-services-thumb .wrap-services-post .item').removeClass('active-thumb');
-                $('.group-services-thumb .group-title .title').removeClass('active');
-                $(this).addClass('active');
-                $('.group-services-thumb .wrap-services-post .data-'+item_id).addClass('active-thumb');
-            });
-        }
-    }
-
 
 
     $(window).on('elementor/frontend/init', function() {        
 
         elementorFrontend.hooks.addAction( 'frontend/element_ready/tf-service.default', servicessOwl );
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/tf-service.default', filterServices );
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/tf-service.default', hover_ActiveThumb );
 
     });
 
