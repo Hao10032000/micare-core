@@ -1722,13 +1722,35 @@ $this->end_controls_section();
         <div class="owl-carousel">
             <?php endif; ?>
 
-            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+            <?php 
+				$count = 1; 
+				$max   = 4; 
+				$max2   = 5; 
+				while ( $query->have_posts() ) : $query->the_post(); ?>
 
             <?php 
+				$attr['count'] = $count; 
 				$attr['settings'] = $settings; 
 				$attr['icon'] = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( themesflat_get_opt_elementor('services_post_icon') );
 				tf_get_template_widget("service/{$settings['style']}", $attr);
+
+				$count++;
+
+				if ($settings['style'] == 'style2') {
+					if ( $count > $max ) {
+						$count = 1;
+					}
+				}
+
+				if ($settings['style'] == 'style3') {
+					if ( $count > $max2 ) {
+						$count = 1;
+					}
+				}
+
 			?>
+
+			
 
 			<?php endwhile; ?>
 
