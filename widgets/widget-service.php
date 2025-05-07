@@ -426,12 +426,6 @@ $this->start_controls_section(
 
 		'label' => esc_html__('Carousel', 'themesflat-core'),
 		
-		'condition' => [
-
-			'style!'	=> ['style1','style4','style5'],
-
-		],
-
 	]
 
 );	
@@ -1744,6 +1738,12 @@ $this->end_controls_section();
 
 				if ($settings['style'] == 'style3') {
 					if ( $count > $max2 ) {
+						$count = 1;
+					}
+				}
+
+				if ($settings['style'] == 'style6') {
+					if ( $count > $max ) {
 						$count = 1;
 					}
 				}
