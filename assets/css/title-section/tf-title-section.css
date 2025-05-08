@@ -4,31 +4,27 @@
 
 .tf-title-section .title-section .sub-title {
 
-    position: relative;
-    margin-bottom: 20px;
-    color: #317C6F;
-    font-weight: 500;
-    font-size: 12px;
-    padding: 2px 12px;
-    background: #F3F5F5;
-    line-height: 20px;
-    text-transform: uppercase;
+  position: relative;
+    margin-bottom: 7px;
+    color: #FF3F25;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 32px;
+    text-transform: capitalize;
     font-family: 'Rethink Sans';
-    letter-spacing: 0.1em;
-    display: inline-block;
 
 }
 
 .tf-title-section .title-section .heading {
 
-    color: var(--theme-primary-color);
-    font-family: 'Rethink Sans';
-    font-weight: 500;
-    font-size: 44px;
-    line-height: 52px;
-    margin-bottom: 28px;
-    text-transform: capitalize;
-    letter-spacing: 0px;
+  color: var(--theme-primary-color);
+  font-family: 'Rethink Sans';
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 55px;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  letter-spacing: 0px;
 
 }
 
@@ -41,7 +37,7 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 26px;
-    color: #24283E;
+    color: #666B68;
 
 }
 

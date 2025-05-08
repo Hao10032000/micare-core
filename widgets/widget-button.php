@@ -82,7 +82,7 @@ class TFbutton_Widget extends \Elementor\Widget_Base {
 
                     'default' => [
 
-                        'value' => 'icon-micare-right',
+                        'value' => 'icon-micare-arrow-right',
 
                         'library' => 'theme_icon',
 
