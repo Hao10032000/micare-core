@@ -812,6 +812,8 @@ color: #fff;
 margin-bottom: 26px;
 }
 
+.tf-services-wrap 
+
 /* case study */
 
 .tf-case-study-wrap.style1 .case-study-post {
@@ -2254,25 +2256,28 @@ margin-bottom: 26px;
 .tf-services-wrap .owl-nav .owl-prev,
 .tf-services-wrap .owl-nav .owl-next {
     background: transparent;
-    color: var(--theme-secondary-color);
-    border: 1px solid #E4E4E4;
+    color: #666B68;
+    border: 1px solid #20265B1A;
     font-size: 15px;
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.tf-services-wrap .owl-nav button.owl-prev,
-.tf-services-wrap .owl-nav button.owl-next,
-.tf-services-wrap .owl-nav .owl-prev,
-.tf-services-wrap .owl-nav .owl-next {
-    top: 50%;
+.tf-services-wrap .owl-nav  {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     position: absolute;
-    left: -3%;
-    transform: translateY(-50%);
+    top: -50px;
+    right: 0;
+}
+
+.tf-services-wrap .wrap-services-post.flex-row .owl-nav {
+    flex-direction: column;
 }
 
 .tf-services-wrap .owl-nav button.owl-next,
@@ -2287,9 +2292,9 @@ margin-bottom: 26px;
 .tf-services-wrap .owl-nav .owl-next:hover,
 .tf-services-wrap .owl-nav .owl-prev.active,
 .tf-services-wrap .owl-nav .owl-next:hover {
-    background: var(--theme-secondary-color);
-    color: #fff;
-    border-color: var(--theme-secondary-color);
+    background: #FDB517;
+    color: #0C171A;
+    border-color: #FDB517;
 }
 
 .tf-services-wrap .owl-carousel .owl-nav button.disabled,
@@ -2297,6 +2302,108 @@ margin-bottom: 26px;
 .tf-services-wrap .owl-nav .owl-next.disabled {
     opacity: 0.6;
     cursor: unset;
+}
+
+/* widget sidebar Services */
+
+.sidebar .widget.widget-recent-services {
+    background: #EEF0F2;
+    border-radius: 10px;
+    padding: 33px 40px;
+    border: none;
+    padding-bottom: 30px;
+}
+
+.sidebar .widget.widget-recent-services .widget-title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: -0.2px;
+    position: relative;
+    padding-bottom: 26px;
+    margin-bottom: 31px;
+}
+
+.sidebar .widget.widget-recent-services .widget-title::after {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: #0C171A1A;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.sidebar .widget.widget-recent-services .widget-title::before {
+    content: '';
+    height: 3px;
+    width: 70px;
+    background: var(--theme-secondary-color);
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+
+.sidebar .widget.widget-recent-services .recent-services .text a {
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    color: #0C171A;
+    padding: 14.5px 19px;
+    border-radius: 7px;
+    background: #fff;
+    width: 100%;
+    display: block;
+}
+
+.sidebar .widget.widget-recent-services .recent-services .text a:hover {
+    background: var(--theme-secondary-color);
+    color: #fff;
+}
+
+.sidebar .widget.widget-recent-services .recent-services .text a::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    margin-right: 15px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sidebar .widget.widget-recent-services .recent-services .text a::after {
+    content: "\e9da";
+    font-family: 'micare' !important;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 16px;
+}
+
+.sidebar .widget.widget-recent-services .recent-services .text h6 {
+    margin: 0;
+}
+
+.sidebar .widget.widget-recent-services .recent-services li {
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+/* single services */
+
+.page-wrap.sidebar-left .services-posttype .content-area {
+    padding-left: 68px;
+    margin-top: -4px;
+}
+
+/* archive services */
+
+.themesflat-services-taxonomy.sv-page .tf-services-wrap.style2 .services-post {
+    border: 1px solid #EEEFEF;
+    padding: 5px;
+    margin-bottom: 30px;
 }
 
 /* team */
@@ -2876,6 +2983,11 @@ margin-bottom: 26px;
         -ms-flex: 0 0 100%;
         flex: 0 0 100%;
         max-width: 100%;
+    }
+
+    .page-wrap.sidebar-left .services-posttype .content-area {
+        padding-left: 0px;
+        margin-top: 0px;
     }
 }
 

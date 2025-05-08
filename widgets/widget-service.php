@@ -425,6 +425,11 @@ $this->start_controls_section(
 	[
 
 		'label' => esc_html__('Carousel', 'themesflat-core'),
+		'condition' => [
+
+			'style!' => ['style1','style3'],
+
+		],
 		
 	]
 
@@ -611,6 +616,310 @@ $this->add_control(
 	]
 
 );
+
+$this->add_control( 
+
+	'arrow_direction',
+
+	[
+
+		'label' => esc_html__( 'Arrow Direction', 'themesflat-core' ),
+
+		'type' => \Elementor\Controls_Manager::SELECT,
+
+		'default' => '',
+
+		'options' => [
+
+			'' => esc_html__( 'Flex', 'themesflat-core' ),
+
+			'flex-row' => esc_html__( 'Row', 'themesflat-core' ),
+
+		],
+
+		'condition' => [
+
+			'carousel_arrow' => 'yes',
+
+		],
+
+	]
+
+);	
+
+
+$this->add_responsive_control(
+	'nav_position_top',
+	[
+		'label' => esc_html__( 'Arrow Vertical Position', 'themesflat-core' ),
+		'type' => \Elementor\Controls_Manager::SLIDER,
+
+		'size_units' => [ 'px', '%' ],
+
+		'range' => [
+
+			'px' => [
+
+				'min' => -2000,
+
+				'max' => 2000,
+
+				'step' => 1,
+
+			],
+			'%' => [
+
+				'min' => -1000,
+
+				'max' => 1000,
+
+				'step' => 1,
+
+			],
+
+		],
+		'selectors' => [
+			'{{WRAPPER}}  .tf-services-wrap .owl-nav' => 'top: {{SIZE}}{{UNIT}};',
+		],
+		'condition' => [
+
+			'carousel_arrow' => 'yes',
+
+		],
+	]
+);
+
+$this->add_responsive_control(
+	'arrow_right',
+	[
+		'label' => esc_html__( 'Arrow Horizontal Position', 'themesflat-core' ),
+		'type' => \Elementor\Controls_Manager::SLIDER,
+
+		'size_units' => [ 'px', '%' ],
+
+		'range' => [
+
+			'px' => [
+
+				'min' => -2000,
+
+				'max' => 2000,
+
+				'step' => 1,
+
+			],
+			'%' => [
+
+				'min' => -1000,
+
+				'max' => 1000,
+
+				'step' => 1,
+
+			],
+
+		],
+		'selectors' => [
+			'{{WRAPPER}}  .tf-services-wrap .owl-nav ' => 'right: {{SIZE}}{{UNIT}};',
+		],
+		'condition' => [
+
+			'carousel_arrow' => 'yes',
+
+		],
+	]
+);
+
+$this->start_controls_tabs( 
+
+	'carousel_arrow_tabs',
+
+	[
+
+		'condition' => [
+
+			'carousel_arrow' => 'yes',
+
+			'carousel' => 'yes',
+
+		]
+
+	] );
+
+	$this->start_controls_tab( 
+
+		'carousel_arrow_normal_tab',
+
+		[
+
+			'label' => esc_html__( 'Normal', 'themesflat-core' ),						
+
+		]
+
+	);
+
+	$this->add_control( 
+
+		'carousel_arrow_color',
+
+		[
+
+			'label' => esc_html__( 'Color', 'themesflat-core' ),
+
+			'type' => \Elementor\Controls_Manager::COLOR,
+
+			'selectors' => [
+
+				'{{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next' => 'color: {{VALUE}}',
+
+			],
+
+			'condition' => [
+
+				'carousel_arrow' => 'yes',
+
+			]
+
+		]
+
+	);
+
+	$this->add_control( 
+
+		'carousel_arrow_bg_color',
+
+		[
+
+			'label' => esc_html__( 'Background Color', 'themesflat-core' ),
+
+			'type' => \Elementor\Controls_Manager::COLOR,
+
+			'selectors' => [
+
+				'{{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next' => 'background-color: {{VALUE}};',
+
+			],
+
+			'condition' => [
+
+				'carousel_arrow' => 'yes',
+
+			]
+
+		]
+
+	);	
+	
+	
+	$this->add_control( 
+
+		'carousel_border_arrow_color',
+
+		[
+
+			'label' => esc_html__( 'Border Color', 'themesflat-core' ),
+
+			'type' => \Elementor\Controls_Manager::COLOR,
+
+			'selectors' => [
+
+				'{{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next' => 'border-color: {{VALUE}}',
+
+			],
+
+			'condition' => [
+
+				'carousel_arrow' => 'yes',
+
+			]
+
+		]
+
+	);
+
+
+
+
+	$this->end_controls_tab();
+
+	$this->start_controls_tab( 
+
+		'carousel_arrow_hover_tab',
+
+		[
+
+			'label' => esc_html__( 'Hover', 'themesflat-core' ),
+
+		]
+
+	);
+
+	$this->add_control( 
+
+		'carousel_arrow_color_hover',
+
+		[
+
+			'label' => esc_html__( 'Color', 'themesflat-core' ),
+
+			'type' => \Elementor\Controls_Manager::COLOR,
+
+			'selectors' => [
+
+				'{{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button.active,
+				 {{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button:hover,
+				  {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev.active,
+				   {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next:hover,
+				    {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev.active,
+					 {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next:hover' => 'color: {{VALUE}}',
+
+			],
+
+			'condition' => [
+
+				'carousel_arrow' => 'yes',
+
+			]
+
+		]
+
+	);
+
+	$this->add_control( 
+
+		'carousel_arrow_hover_bg_color',
+
+		[
+
+			'label' => esc_html__( 'Background Color', 'themesflat-core' ),
+
+			'type' => \Elementor\Controls_Manager::COLOR,
+
+			'selectors' => [
+
+				'{{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button.active,
+				 {{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button:hover,
+				  {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev.active,
+				   {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next:hover,
+				    {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev.active,
+					 {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next:hover' => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
+
+			],
+
+			'condition' => [
+
+				'carousel_arrow' => 'yes',
+
+			]
+
+		]
+
+	);
+
+
+   $this->end_controls_tab();
+
+$this->end_controls_tabs();
 
 
 $this->add_control( 
@@ -1705,12 +2014,12 @@ $this->end_controls_section();
     data-column="<?php echo esc_attr($settings['carousel_column_desk']); ?>"
     data-column2="<?php echo esc_attr($settings['carousel_column_tablet']); ?>"
     data-column3="<?php echo esc_attr($settings['carousel_column_mobile']); ?>"
-    data-spacer="<?php echo esc_attr($settings['carousel_spacer']); ?>" data-prev_icon="icon-micare-arrow-right"
-    data-next_icon="icon-micare-Right" data-arrow="<?php echo esc_attr($settings['carousel_arrow']) ?>"
+    data-spacer="<?php echo esc_attr($settings['carousel_spacer']); ?>" data-prev_icon="icon-micare-left"
+    data-next_icon="icon-micare-right" data-arrow="<?php echo esc_attr($settings['carousel_arrow']) ?>"
     data-bullets="<?php echo esc_attr($settings['carousel_bullets']) ?>">
 
 
-    <div class="wrap-services-post row <?php echo esc_attr($settings['layout']); ?> ">
+    <div class="wrap-services-post row <?php echo esc_attr($settings['layout']); ?> <?php echo esc_attr($settings['arrow_direction']);  ?> ">
 
         <?php if ( $settings['carousel'] == 'yes' ): ?>
         <div class="owl-carousel">

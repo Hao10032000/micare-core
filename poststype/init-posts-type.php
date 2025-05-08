@@ -237,7 +237,7 @@ function themesflat_pagination_posttype( $query = '' , $paging_style = '' ) {
 
     $prev_arrow = 'icon-micare-arrow-right';
 
-    $next_arrow = 'icon-micare-Right';
+    $next_arrow = 'icon-micare-right';
 
     
 

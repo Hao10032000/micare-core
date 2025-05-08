@@ -3064,7 +3064,7 @@
 
 		                'type' => \Elementor\Controls_Manager::ICON,
 
-		                'default' => 'icon-micare-Right', 
+		                'default' => 'icon-micare-right', 
 
 		                'condition' => [
 

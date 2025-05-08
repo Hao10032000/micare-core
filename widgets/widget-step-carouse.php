@@ -1220,7 +1220,7 @@ class TFStepCarousel_Widget extends \Elementor\Widget_Base {
 
 	                'type' => \Elementor\Controls_Manager::ICON,
 
-	                'default' => 'icon-micare-Right',
+	                'default' => 'icon-micare-right',
 
 	                'include' => [
 
@@ -1232,7 +1232,7 @@ class TFStepCarousel_Widget extends \Elementor\Widget_Base {
 
 						'fa fa-arrow-right',
 
-						'icon-micare-Right',
+						'icon-micare-right',
 
 					], 
 

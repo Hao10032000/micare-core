@@ -64,9 +64,9 @@ if(!function_exists('tfpost_pagination')){
 
 					'total' => $query->max_num_pages,				
 
-					'prev_text' => ( '<i class="icon-micare-arrow-right"></i>' ),
+					'prev_text' => ( '<i class="icon-micare-left"></i>' ),
 
-					'next_text' => ( '<i class="icon-micare-Right"></i>' ),
+					'next_text' => ( '<i class="icon-micare-right"></i>' ),
 
 					));
 

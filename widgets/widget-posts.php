@@ -704,7 +704,7 @@ class TFPosts_Widget extends \Elementor\Widget_Base {
 
 					'default' => [
 
-						'value' => 'icon-micare-Right',
+						'value' => 'icon-micare-right',
 
 						'library' => 'theme_icon',
 
