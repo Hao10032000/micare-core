@@ -66,6 +66,39 @@ $featured_image = sprintf('<img src="%s" class="lazyload" alt="image">', \Elemen
 <div class="item <?php echo esc_attr($settings['style_layout']); ?>">
 
     <div class="entry blog-post ">
+        <?php if ( $settings['show_meta'] == 'yes' ): ?>
+        <div class="post-category">
+            <?php if ( $settings['show_meta_category'] == 'yes' ): ?>
+            <div class="post-meta-category post-meta">
+
+                <?php the_category( ', ' ); ?>
+
+            </div>
+            <?php endif; ?>
+            <?php if ( $settings['show_meta_date'] == 'yes' ): ?>
+
+
+            <div class="post-date-item post-meta">
+
+                <a
+                    href="<?php echo get_day_link($archive_year, $archive_month, $archive_day); ?>"><?php echo get_the_date('d F Y'); ?></a>
+
+            </div>
+
+            <?php endif; ?>
+            <?php if ( $settings['show_meta_user'] == 'yes' ): ?>
+            <div class="post-meta-author post-meta">
+                <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
+                    <?php echo esc_html__(' ', 'themesflat-core').'<span>'.get_the_author().'</span>'; ?></a>
+            </div>
+            <?php endif; ?>
+            <?php if ( $settings['show_meta_comment'] == 'yes' ): ?>
+            <div class="post-meta-comment post-meta">
+                <?php echo comments_popup_link( esc_html__( '0 Comments ', 'tf-addon-for-elementer' ), esc_html__(  '1 Comment', 'tf-addon-for-elementer' ), esc_html__( '% Comments', 'tf-addon-for-elementer' ) ); ?>
+            </div>
+            <?php endif; ?>
+        </div>
+        <?php endif; ?>
 
         <?php if ( $settings['show_image'] == 'yes' ): ?>
 
@@ -77,27 +110,6 @@ $featured_image = sprintf('<img src="%s" class="lazyload" alt="image">', \Elemen
 
             </a>
 
-            <?php if ( $settings['show_meta_date'] == 'yes' ): ?>
-
-            <div class="post-date-item">
-
-                <?php
-
-                $archive_year  = get_the_time('Y'); 
-
-                $archive_month = get_the_time('m'); 
-
-                $archive_day   = get_the_time('d');
-
-            ?>
-
-                <a
-                    href="<?php echo get_day_link($archive_year, $archive_month, $archive_day); ?>"><?php echo get_the_date('d M'); ?></a>
-
-            </div>
-
-            <?php endif; ?>
-
         </div>
 
         <?php endif; ?>
@@ -105,27 +117,6 @@ $featured_image = sprintf('<img src="%s" class="lazyload" alt="image">', \Elemen
 
 
         <div class="content">
-
-            <?php if ( $settings['show_meta_category'] == 'yes' ): ?>
-            <div class="post-category">
-                <div class="post-meta-category post-meta">
-
-                    <?php the_category( ', ' ); ?>
-
-                </div>
-                <?php if ( $settings['show_meta_user'] == 'yes' ): ?>
-                <div class="post-meta-author post-meta">
-                    <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
-                        <?php echo esc_html__(' ', 'themesflat-core').'<span>'.get_the_author().'</span>'; ?></a>
-                </div>
-                <?php endif; ?>
-                <?php if ( $settings['show_meta_comment'] == 'yes' ): ?>
-                <div class="post-meta-comment post-meta">
-                    <?php echo comments_popup_link( esc_html__( '0 Comments ', 'tf-addon-for-elementer' ), esc_html__(  '1 Comment', 'tf-addon-for-elementer' ), esc_html__( '% Comments', 'tf-addon-for-elementer' ) ); ?>
-                </div>
-                <?php endif; ?>
-            </div>
-            <?php endif; ?>
 
             <?php if ( $settings['show_title'] == 'yes' ): ?>
 

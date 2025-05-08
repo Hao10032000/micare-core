@@ -99,8 +99,7 @@ $archive_day   = get_the_time('d');
             </div>
             <?php if ( $settings['show_meta_date'] == 'yes' ): ?>
             <div class="post-date-item post-meta">
-                <a
-                    href="<?php echo get_day_link($archive_year, $archive_month, $archive_day); ?>"><?php echo get_the_date('d M'); ?></a>
+            <a href="<?php echo get_day_link($archive_year, $archive_month, $archive_day); ?>"><?php echo get_the_date('d F Y'); ?></a>
             </div>
             <?php endif; ?>
 
@@ -171,24 +170,25 @@ $archive_day   = get_the_time('d');
 
             <?php endif; ?>
 
-            <?php if ( $settings['show_meta_category'] == 'yes' ): ?>
+            <?php if ( $settings['show_meta'] == 'yes' ): ?>
             <div class="post-category">
                 <?php if ( $settings['show_meta_date'] == 'yes' ): ?>
 
                 <div class="post-date-item post-meta">
 
                     <a
-                        href="<?php echo get_day_link($archive_year, $archive_month, $archive_day); ?>"><?php echo get_the_date('F d, Y'); ?></a>
+                        href="<?php echo get_day_link($archive_year, $archive_month, $archive_day); ?>"><?php echo get_the_date(' d M Y'); ?></a>
 
                 </div>
 
                 <?php endif; ?>
-
+                <?php if ( $settings['show_meta_category'] == 'yes' ): ?>
                 <div class="post-meta-category post-meta">
 
                     <?php the_category( ', ' ); ?>
 
                 </div>
+                <?php endif; ?>
                 <?php if ( $settings['show_meta_user'] == 'yes' ): ?>
                 <div class="post-meta-author post-meta">
                     <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">

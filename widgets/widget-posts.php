@@ -258,12 +258,6 @@ class TFPosts_Widget extends \Elementor\Widget_Base {
 
 					],
 
-					'condition' => [
-
-	                    'style'	=> 'style3',
-
-	                ],
-
 				]
 
 			);
