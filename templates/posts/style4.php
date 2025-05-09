@@ -83,35 +83,27 @@ $featured_image = sprintf('<img src="%s" class="lazyload" alt="image">', \Elemen
 
 
         <div class="inner-content">
-            <?php if ( $settings['show_meta_date'] == 'yes' ): ?>
-
-            <div class="post-date-item">
-
-                <?php
-
-                    $archive_year  = get_the_time('Y'); 
-
-                    $archive_month = get_the_time('m'); 
-
-                     $archive_day   = get_the_time('d');
-
-                ?>
-
-                <a
-                    href="<?php echo get_day_link($archive_year, $archive_month, $archive_day); ?>"><?php echo get_the_date('d M'); ?></a>
-
-            </div>
-
-            <?php endif; ?>
 
             <div class="content">
-                <?php if ( $settings['show_meta_category'] == 'yes' ): ?>
+                <?php if ( $settings['show_meta'] == 'yes' ): ?>
                 <div class="post-category">
+                   <?php if ( $settings['show_meta_category'] == 'yes' ): ?>
                     <div class="post-meta-category post-meta">
 
                         <?php the_category( ', ' ); ?>
 
                     </div>
+                    <?php endif; ?>
+                    <?php if ( $settings['show_meta_date'] == 'yes' ): ?>
+
+                    <div class="post-date-item post-meta">
+
+                        <a
+                            href="<?php echo get_day_link($archive_year, $archive_month, $archive_day); ?>"><?php echo get_the_date(' d M Y'); ?></a>
+
+                    </div>
+
+                    <?php endif; ?>
                     <?php if ( $settings['show_meta_user'] == 'yes' ): ?>
                     <div class="post-meta-author post-meta">
                         <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">

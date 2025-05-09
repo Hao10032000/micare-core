@@ -192,34 +192,14 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 				]
 
 			);
-			$this->add_control( 
 
-				'show_percent',
-
-				[
-
-					'label' => esc_html__( 'Show Percent', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::SWITCHER,
-
-					'label_on' => esc_html__( 'Show', 'themesflat-core' ),
-
-					'label_off' => esc_html__( 'Hide', 'themesflat-core' ),
-
-					'return_value' => 'yes',
-
-					'default' => 'yes',
-
-				]
-
-			);
 			$this->add_control( 
 
 				'show_sale',
 
 				[
 
-					'label' => esc_html__( 'Show Sale', 'themesflat-core' ),
+					'label' => esc_html__( 'Show Title', 'themesflat-core' ),
 
 					'type' => \Elementor\Controls_Manager::SWITCHER,
 
@@ -234,6 +214,30 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 				]
 
 			);
+			$this->add_control( 
+				'show_rating',
+				[
+					'label' => esc_html__( 'Show Rating', 'themesflat-core' ),
+					'type' => \Elementor\Controls_Manager::SWITCHER,
+					'label_on' => esc_html__( 'Show', 'themesflat-core' ),
+					'label_off' => esc_html__( 'Hide', 'themesflat-core' ),
+					'return_value' => 'yes',
+					'default' => 'no',
+				]
+			);
+
+			$this->add_control( 
+				'show_icon',
+				[
+					'label' => esc_html__( 'Show Icon', 'themesflat-core' ),
+					'type' => \Elementor\Controls_Manager::SWITCHER,
+					'label_on' => esc_html__( 'Show', 'themesflat-core' ),
+					'label_off' => esc_html__( 'Hide', 'themesflat-core' ),
+					'return_value' => 'yes',
+					'default' => 'yes',
+				]
+			);
+
 
 	
 			$this->add_control(
@@ -277,6 +281,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 				]
 
 			); 
+			
 			$this->add_control(
 
 				'text_heading',
@@ -380,28 +385,14 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 				]
 
 			);
-			$repeater->add_control(
-
-				'title-percent',
-
-				[
-
-					'label' => esc_html__( 'Percent', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::TEXT,
-
-					'default' => esc_html__( '25%', 'themesflat-core' ),
-
-				]
-
-			);	
+	
 			$repeater->add_control(
 
 				'title-sale',
 
 				[
 
-					'label' => esc_html__( 'Sale', 'themesflat-core' ),
+					'label' => esc_html__( 'Title', 'themesflat-core' ),
 
 					'type' => \Elementor\Controls_Manager::TEXT,
 
@@ -430,6 +421,34 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 				]
 
+			);
+			$repeater->add_control(
+				'rating',
+				[
+					'label' => esc_html__( 'Rating (Only style 2)', 'themesflat-core' ),
+					'type' => \Elementor\Controls_Manager::SELECT,
+					'default' => '100',
+					'options' => [
+						'0'   => esc_html__( '0 stars', 'themesflat-core' ),
+						'20'  => esc_html__( '1 star', 'themesflat-core' ),
+						'40'  => esc_html__( '2 stars', 'themesflat-core' ),
+						'60'  => esc_html__( '3 stars', 'themesflat-core' ),
+						'80'  => esc_html__( '4 stars', 'themesflat-core' ),
+						'100' => esc_html__( '5 stars', 'themesflat-core' ),
+					],
+				]
+			);
+
+			$repeater->add_control(
+				'icon_quote',
+				[
+					'label' => esc_html__( 'Icon', 'themesflat-core' ),
+					'type' => \Elementor\Controls_Manager::ICONS,
+					'default' => [
+						'value' => 'icon-micare-chat',
+						'library' => 'solid',
+					],
+				]
 			);
 			
 			
@@ -1198,72 +1217,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 			);
 
-			$this->add_control(
-
-				'tes_color_sub',
-
-				[
-
-					'label' => esc_html__( 'Color Percent', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::COLOR,
-
-					'selectors' => [
-
-						'{{WRAPPER}} .tfc-testimonial-carousel .percent' => 'color: {{VALUE}}',
-
-					],
-
-
-				]
-
-			);
-
-
-
-			$this->add_group_control(
-
-				\Elementor\Group_Control_Typography::get_type(),
-
-				[
-
-					'name' => 'name_typography_sub',
-
-					'label' => esc_html__( 'Typography Percent', 'themesflat-core' ),
-
-					'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .percent',
-
-
-				]
-
-				
-
-			);
-
-
-
-			$this->add_responsive_control(
-
-				'tes_margin sub',
-
-				[
-
-					'label' => esc_html__( 'Margin Percent', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::DIMENSIONS,
-
-					'size_units' => [ 'px', '%', 'em' ],
-
-					'selectors' => [
-
-						'{{WRAPPER}} .tfc-testimonial-carousel .percent ' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-
-					],
-
-
-				]
-
-			);
+		
 
 			$this->add_control(
 
@@ -1348,6 +1302,37 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 				]
 
+			);
+			$this->add_control(
+				'h_rating',
+				[
+					'label' => esc_html__( 'Rating', 'themesflat-core' ),
+					'type' => \Elementor\Controls_Manager::HEADING,
+					'separator' => 'before',
+				]
+			);
+
+			$this->add_control(
+				'rating_color',
+				[
+					'label' => esc_html__( 'Rating Color', 'themesflat-core' ),
+					'type' => \Elementor\Controls_Manager::COLOR,
+					'selectors' => [
+						'{{WRAPPER}} .tfc-testimonial-carousel .item .testimonial-star-rating' => 'color: {{VALUE}}',
+					],
+				]
+			);
+
+			$this->add_responsive_control(
+				'rating_margin',
+				[
+					'label' => esc_html__( 'Margin', 'themesflat-core' ),
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+					'size_units' => [ 'px', '%', 'em' ],
+					'selectors' => [
+						'{{WRAPPER}} .tfc-testimonial-carousel .rating ' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					],
+				]
 			);
 
 			
@@ -3258,9 +3243,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 		}
 
-
-
-		// $icon_quote = '';
+		$icon_quote = '';
 
 
 
@@ -3289,14 +3272,16 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
         <div class="content-left">
             <div class="swiper tesMain">
                 <div class="swiper-wrapper">
-                    <?php foreach ($settings['carousel_list'] as $carousel): ?>
+                    <?php foreach ($settings['carousel_list'] as $carousel): $icon_quote = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( $carousel['icon_quote'], [ 'aria-hidden' => 'true' ] ); ?>
+
                     <div class="swiper-slide">
                         <div class="testimonial-content">
                             <div class="testimonial-image">
 
                                 <?php if ( $settings['show_avt'] == 'yes' ): ?>
                                 <div class="avatar">
-                                    <img src="<?php echo esc_attr($carousel['avatar']['url']); ?>" class="lazyload" alt="image">
+                                    <img src="<?php echo esc_attr($carousel['avatar']['url']); ?>" class="lazyload"
+                                        alt="image">
                                 </div>
                                 <?php endif; ?>
                                 <div class="content">
@@ -3324,19 +3309,19 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
         <!-- ct right -->
         <div class="content-right">
-			<div class="tf-title-section">
-            <div class="title-section">
-                <?php if ( !empty($settings['subtitle_tes']) ): ?>
-                <div class="sub-title"><?php echo wp_kses_post($settings['subtitle_tes']); ?></div>
-                <?php endif; ?>
-                <?php if ( !empty($settings['title_tes']) ): ?>
-                <h3 class="heading"><?php echo wp_kses_post($settings['title_tes']); ?></h3>
-                <?php endif; ?>
-                <?php if ( !empty($settings['desc_tes']) ): ?>
-                <p class="descrition"><?php echo wp_kses_post($settings['desc_tes']); ?></p>
-                <?php endif; ?>
+            <div class="tf-title-section">
+                <div class="title-section">
+                    <?php if ( !empty($settings['subtitle_tes']) ): ?>
+                    <div class="sub-title"><?php echo wp_kses_post($settings['subtitle_tes']); ?></div>
+                    <?php endif; ?>
+                    <?php if ( !empty($settings['title_tes']) ): ?>
+                    <h3 class="heading"><?php echo wp_kses_post($settings['title_tes']); ?></h3>
+                    <?php endif; ?>
+                    <?php if ( !empty($settings['desc_tes']) ): ?>
+                    <p class="descrition"><?php echo wp_kses_post($settings['desc_tes']); ?></p>
+                    <?php endif; ?>
+                </div>
             </div>
-			</div>
             <div class="group-text">
                 <?php if ( !empty($settings['text_heading']) ): ?>
                 <h4 class="subtile"><?php echo wp_kses_post($settings['text_heading']); ?></h4>
@@ -3355,7 +3340,8 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
                             <div class="testimonial-thumb">
                                 <?php if ( $settings['show_avt'] == 'yes' ): ?>
                                 <div class="avatar">
-                                    <img src="<?php echo esc_attr($carousel['avatar']['url']); ?>" class="lazyload" alt="image">
+                                    <img src="<?php echo esc_attr($carousel['avatar']['url']); ?>" class="lazyload"
+                                        alt="image">
                                 </div>
                                 <?php endif; ?>
 
@@ -3363,9 +3349,9 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
                             </div>
                         </div>
                         <?php endforeach;?>
-                        
+
                     </div>
-					<div class="swiper-button-next"></div>
+                    <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
                 <!-- end -->
@@ -3389,12 +3375,6 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
                 <div class="testimonial-content">
                     <div class="testimonial-inner">
-
-                        <?php if ( $settings['show_percent'] == 'yes' ): ?>
-
-                        <div class="percent"><?php echo esc_attr($carousel['title-percent']); ?></div>
-
-                        <?php endif; ?>
 
                         <?php if ( $settings['show_sale'] == 'yes' ): ?>
 
@@ -3430,7 +3410,8 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
                     <?php if ( $settings['show_avt'] == 'yes' ): ?>
 
-                    <div class="avatar"><img src="<?php echo esc_attr($carousel['avatar']['url']); ?>" class="lazyload" alt="image">
+                    <div class="avatar"><img src="<?php echo esc_attr($carousel['avatar']['url']); ?>" class="lazyload"
+                            alt="image">
 
                     </div>
 
@@ -3445,12 +3426,19 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
             <div class="item-testimonial ">
 
                 <div class="testimonial-inner">
-
-                    <?php if ( $settings['show_percent'] == 'yes' ): ?>
-
-                    <div class="percent"><?php echo esc_attr($carousel['title-percent']); ?></div>
-
+                    <?php if ( $settings['show_icon'] == 'yes' ): ?>
+                        <?php if ($icon_quote): ?>
+                        <div class="icon-quote"><?php echo sprintf($icon_quote); ?></div>
+                        <?php endif; ?>
                     <?php endif; ?>
+
+                    <?php if ( $settings['show_rating'] == 'yes' ): ?>
+                    <div class="rating">
+                        <span class="testimonial-star-rating"><span
+                                style="width:<?php echo esc_attr($carousel['rating']); ?>%"></span></span>
+                    </div>
+                    <?php endif; ?>
+
 
                     <?php if ( $settings['show_sale'] == 'yes' ): ?>
 
@@ -3469,7 +3457,8 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
                         <?php if ( $settings['show_avt'] == 'yes' ): ?>
 
-                        <div class="avatar"><img src="<?php echo esc_attr($carousel['avatar']['url']); ?>" class="lazyload" alt="image">
+                        <div class="avatar"><img src="<?php echo esc_attr($carousel['avatar']['url']); ?>"
+                                class="lazyload" alt="image">
 
                         </div>
 
