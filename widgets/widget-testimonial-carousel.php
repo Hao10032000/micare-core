@@ -243,92 +243,6 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 			);
 
 
-	
-			$this->add_control(
-
-				'subtitle_tes',
-
-				[
-
-					'label' => esc_html__( 'Sub Title', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::TEXTAREA,
-
-					'default' => esc_html__( 'Testimonials', 'themesflat-core' ),
-					'condition' => [                	
-
-	                    'testimonial_style' => 'style-3',
-
-	                ]
-
-				]
-
-			); 
-
-			$this->add_control(
-
-				'desc_tes',
-
-				[
-
-					'label' => esc_html__( 'Description', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::TEXTAREA,
-
-					'default' => esc_html__( 'See the impact of our solutions through clear, measurable results.', 'themesflat-core' ),
-					'condition' => [                	
-
-	                    'testimonial_style' => 'style-3',
-
-	                ]
-
-				]
-
-			); 
-			
-			$this->add_control(
-
-				'text_heading',
-
-				[
-
-					'label' => esc_html__( 'Heading', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::TEXTAREA,
-
-					'default' => esc_html__( 'Simplified Tax Solutions', 'themesflat-core' ),
-					'condition' => [                	
-
-	                    'testimonial_style' => 'style-3',
-
-	                ]
-
-				]
-
-			); 
-			$this->add_control(
-
-				'text_des',
-
-				[
-
-					'label' => esc_html__( 'Description', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::TEXTAREA,
-
-					'default' => esc_html__( 'With micare support and strategy, we achieved 25% sales growth and streamlined processes. Their adaptive approach ensured we met our goals efficiently.', 'themesflat-core' ),
-					'condition' => [                	
-
-	                    'testimonial_style' => 'style-3',
-
-	                ]
-
-				]
-
-			); 
-
-
-
 
 
 			$repeater = new \Elementor\Repeater();
@@ -846,12 +760,6 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'separator' => 'before',
 
-					'condition' => [
-
-	                    'testimonial_style'	=> ['style-1','style-2'],
-
-	                ],
-
 				]
 
 			);
@@ -873,12 +781,6 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 						'{{WRAPPER}} .tfc-testimonial-carousel .testimonial-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
-
-					'condition' => [
-
-	                    'testimonial_style'	=> ['style-1','style-2'],
-
-	                ],
 
 				]
 
@@ -902,12 +804,6 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					],
 
-					'condition' => [
-
-	                    'testimonial_style'	=> ['style-1','style-2'],
-
-	                ],
-
 				]
 
 			);
@@ -930,11 +826,6 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					],
 
-					'condition' => [
-
-	                    'testimonial_style'	=> ['style-1','style-2'],
-
-	                ],
 
 				]
 
@@ -956,11 +847,6 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					],
 
-					'condition' => [
-
-	                    'testimonial_style'	=> ['style-1','style-2'],
-
-	                ],
 
 				]
 
@@ -3266,218 +3152,17 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
     data-bullets="<?php echo esc_attr($settings['carousel_bullets']) ?>"
     data-index_active="<?php echo esc_attr($settings['index_active']) ?>">
     <div class="owl-carousel owl-theme">
-        <?php foreach ($settings['carousel_list'] as $carousel): $icon_quote = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( $carousel['icon_quote'], [ 'aria-hidden' => 'true' ] ); ?>
-        <div class="item">
-            <?php if ($settings['testimonial_style'] == 'style-2'): ?>
-            <div class="item-testimonial">
-                <div class="info-top">
-                    <div class="author-wrap">
-                        <?php if ( $settings['show_avt'] == 'yes' ): ?>
-                        <div class="avatar">
-                            <img src="<?php echo esc_attr($carousel['avatar']['url']); ?>" alt="image">
-                        </div>
-                        <?php endif; ?>
-                        <div class="content-info">
-                            <?php if ( $settings['show_name'] == 'yes' ): ?>
-                            <div class="name"><?php echo esc_attr($carousel['name']); ?></div>
-                            <?php endif; ?>
-                            <?php if ( $settings['show_position'] == 'yes' ): ?>
-                            <div class="position"><?php echo esc_attr($carousel['position']); ?></div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                    <?php if ( $settings['show_icon'] == 'yes' ): ?>
-                    <?php if ($icon_quote): ?>
-                    <div class="icon-quote"><?php echo sprintf($icon_quote); ?></div>
-                    <?php endif; ?>
-                    <?php endif; ?>
-                </div>
-                <div class="content">
-                    <?php if ( $settings['show_content'] == 'yes' ): ?>
-                     <div class="description"><?php echo sprintf( '%1$s', $carousel['description'] ); ?></div>
-                    <?php endif; ?>
-                    <?php if ( $settings['show_rating'] == 'yes' ): ?>
-                    <div class="rating">
-                        <span class="testimonial-star-rating">
-                            <span style="width:<?php echo esc_attr($carousel['rating']); ?>%"></span>
-                        </span>
-                    </div>
-                    <?php endif; ?>
-                </div>
-            </div>
+        	<?php foreach ($settings['carousel_list'] as $carousel): $icon_quote = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( $carousel['icon_quote'], [ 'aria-hidden' => 'true' ] ); ?>
+				        <?php
 
-            <?php elseif ($settings['testimonial_style'] == 'style-3'): ?>
-            <div class="item-testimonial">
-                <div class="content">
-                    <?php if ( $settings['show_icon'] == 'yes' ): ?>
-                    <?php if ($icon_quote): ?>
-                    <div class="icon-quote"><?php echo sprintf($icon_quote); ?></div>
-                    <?php endif; ?>
-                    <?php endif; ?>
-                    <?php if ( $settings['show_content'] == 'yes' ): ?>
-                    <div class="description"><?php echo sprintf( '%1$s', $carousel['description'] ); ?></div>
-                    <?php endif; ?>
-                    <?php if ( $settings['show_name'] == 'yes' ): ?>
-                    <div class="name"><?php echo esc_attr($carousel['name']); ?></div>
-                    <?php endif; ?>
-                    <?php if ( $settings['show_position'] == 'yes' ): ?>
-                    <div class="position"><?php echo esc_attr($carousel['position']); ?></div>
-                    <?php endif; ?>
-                    <?php if ( $settings['show_rating'] == 'yes' ): ?>
-                    <div class="rating">
-                        <span class="testimonial-star-rating"><span
-                                style="width:<?php echo esc_attr($carousel['rating']); ?>%"></span></span>
-                    </div>
-                    <?php endif; ?>
-                </div>
-                <div class="testimonial-image">
-                    <?php if ( $settings['show_avt'] == 'yes' ): ?>
-                    <div class="avatar"><img src="<?php echo esc_attr($carousel['avatar']['url']); ?>" alt="image">
-                    </div>
-                    <?php endif; ?>
-                </div>
-            </div>
+						$attr['settings'] = $settings; 
+						$attr['carousel'] = $carousel; 
+						$attr['icon_quote'] = $icon_quote; 
 
-            <?php elseif ($settings['testimonial_style'] == 'style-4'): ?>
-            <div class="item-testimonial">
-                <div class="testimonial-top">
-                    <?php if ( $settings['show_avt'] == 'yes' ): ?>
-                    <div class="avatar">
-                        <img src="<?php echo esc_attr($carousel['avatar']['url']); ?>" alt="image">
-                        <?php if ( $settings['show_icon'] == 'yes' ): ?>
-                        <?php if ($icon_quote): ?>
-                        <div class="icon-quote"><?php echo sprintf($icon_quote); ?></div>
-                        <?php endif; ?>
-                        <?php endif; ?>
-                    </div>
-                    <?php endif; ?>
-                    <?php if ( $settings['show_content'] == 'yes' ): ?>
-                    <div class="description"><?php echo sprintf( '%1$s', $carousel['description'] ); ?></div>
-                    <?php endif; ?>
-                </div>
-                <div class="testimonial-bottom">
-                    <div class="content">
-                        <?php if ( $settings['show_name'] == 'yes' ): ?>
-                        <div class="name"><?php echo esc_attr($carousel['name']); ?></div>
-                        <?php endif; ?>
-                        <?php if ( $settings['show_position'] == 'yes' ): ?>
-                        <div class="position"><?php echo esc_attr($carousel['position']); ?></div>
-                        <?php endif; ?>
-                    </div>
-                    <?php if ( $settings['show_rating'] == 'yes' ): ?>
-                    <div class="rating">
-                        <span class="testimonial-star-rating"><span
-                                style="width:<?php echo esc_attr($carousel['rating']); ?>%"></span></span>
-                    </div>
-                    <?php endif; ?>
-                </div>
-            </div>
+						tf_get_template_widget("testimonial/{$settings['testimonial_style']}", $attr);
 
-            <?php elseif ($settings['testimonial_style'] == 'style-5'): ?>
-            <div class="item-testimonial">
+					?>
 
-                <?php if ( $settings['show_icon'] == 'yes' ): ?>
-                <?php if ($icon_quote): ?>
-                <div class="icon-quote"><?php echo sprintf($icon_quote); ?></div>
-                <?php endif; ?>
-                <?php endif; ?>
-                <?php if ( $settings['show_avt'] == 'yes' ): ?>
-                <div class="avatar"><img src="<?php echo esc_attr($carousel['avatar']['url']); ?>" alt="image">
-                </div>
-                <?php endif; ?>
-                <?php if ( $settings['show_content'] == 'yes' ): ?>
-                <div class="description"><?php echo sprintf( '%1$s', $carousel['description'] ); ?></div>
-                <?php endif; ?>
-                <?php if ( $settings['show_rating'] == 'yes' ): ?>
-                <div class="rating">
-                    <span class="testimonial-star-rating"><span
-                            style="width:<?php echo esc_attr($carousel['rating']); ?>%"></span></span>
-                </div>
-                <?php endif; ?>
-                <?php if ( $settings['show_name'] == 'yes' ): ?>
-                <div class="name"><?php echo esc_attr($carousel['name']); ?></div>
-                <?php endif; ?>
-                <?php if ( $settings['show_position'] == 'yes' ): ?>
-                <div class="position"><?php echo esc_attr($carousel['position']); ?></div>
-                <?php endif; ?>
-
-            </div>
-
-            <?php elseif ($settings['testimonial_style'] == 'style-6'): ?>
-            <div class="item-testimonial">
-                <div class="group-author">
-                    <?php if ( $settings['show_avt'] == 'yes' ): ?>
-                    <div class="avatar"><img src="<?php echo esc_attr($carousel['avatar']['url']); ?>" alt="image">
-                    </div>
-                    <?php endif; ?>
-                    <div class="content-inner">
-                        <?php if ( $settings['show_name'] == 'yes' ): ?>
-                        <div class="name"><?php echo esc_attr($carousel['name']); ?></div>
-                        <?php endif; ?>
-                        <?php if ( $settings['show_position'] == 'yes' ): ?>
-                        <div class="position"><?php echo esc_attr($carousel['position']); ?></div>
-                        <?php endif; ?>
-                    </div>
-                </div>
-                <?php if ( $settings['show_content'] == 'yes' ): ?>
-                <div class="description"><?php echo sprintf( '%1$s', $carousel['description'] ); ?></div>
-                <?php endif; ?>
-                <div class="bottom-content">
-                    <?php if ( $settings['show_rating'] == 'yes' ): ?>
-                    <div class="rating">
-                        <span class="testimonial-star-rating"><span
-                                style="width:<?php echo esc_attr($carousel['rating']); ?>%"></span></span>
-                    </div>
-                    <?php endif; ?>
-                    <?php if ( $settings['show_icon'] == 'yes' ): ?>
-                    <?php if ($icon_quote): ?>
-                    <div class="icon-quote"><?php echo sprintf($icon_quote); ?></div>
-                    <?php endif; ?>
-                    <?php endif; ?>
-                </div>
-            </div>
-
-            <?php else: ?>
-            <div class="item-testimonial">
-                <div class="testimonial-top">
-                    <?php if ( $settings['show_rating'] == 'yes' ): ?>
-                    <div class="rating">
-                        <span class="testimonial-star-rating"><span
-                                style="width:<?php echo esc_attr($carousel['rating']); ?>%"></span></span>
-                    </div>
-                    <?php endif; ?>
-                    <?php if ( $settings['show_sale'] == 'yes' ): ?>
-                    <div class="sale"><?php echo esc_attr($carousel['title-sale']); ?></div>
-                    <?php endif; ?>
-                </div>
-                <div class="testimonial-content">
-                    <?php endif; ?>
-                    <?php if ( $settings['show_content'] == 'yes' ): ?>
-                    <div class="description"><?php echo sprintf( '%1$s', $carousel['description'] ); ?></div>
-                    <?php endif; ?>
-                </div>
-                <div class="testimonial-bottom">
-                    <?php if ( $settings['show_icon'] == 'yes' ): ?>
-                    <?php if ($icon_quote): ?>
-                    <div class="icon-quote"><?php echo sprintf($icon_quote); ?></div>
-                    <?php endif; ?>
-                    <div class="bottom-inner">
-                        <?php if ( $settings['show_avt'] == 'yes' ): ?>
-                        <div class="avatar"><img src="<?php echo esc_attr($carousel['avatar']['url']); ?>" alt="image">
-                        </div>
-                        <?php endif; ?>
-                        <?php if ( $settings['show_name'] == 'yes' ): ?>
-                        <div class="name"><?php echo esc_attr($carousel['name']); ?></div>
-                        <?php endif; ?>
-                        <?php if ( $settings['show_position'] == 'yes' ): ?>
-                        <div class="position"><?php echo esc_attr($carousel['position']); ?></div>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </div>
-            <?php endif; ?>
-
-        </div>
         <?php endforeach;?>
     </div>
 </div>
