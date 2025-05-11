@@ -2945,7 +2945,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 		                'selectors' => [
 
-							'{{WRAPPER}} .tfc-testimonial-carousel .owl-carousel .owl-dot.active::after' => 'border-color: {{VALUE}};',
+							'{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot.active span' => 'border-color: {{VALUE}} !important;',
 
 						],
 
@@ -3152,8 +3152,8 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
     data-bullets="<?php echo esc_attr($settings['carousel_bullets']) ?>"
     data-index_active="<?php echo esc_attr($settings['index_active']) ?>">
     <div class="owl-carousel owl-theme">
-        	<?php foreach ($settings['carousel_list'] as $carousel): $icon_quote = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( $carousel['icon_quote'], [ 'aria-hidden' => 'true' ] ); ?>
-				        <?php
+        <?php foreach ($settings['carousel_list'] as $carousel): $icon_quote = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( $carousel['icon_quote'], [ 'aria-hidden' => 'true' ] ); ?>
+        <?php
 
 						$attr['settings'] = $settings; 
 						$attr['carousel'] = $carousel; 
