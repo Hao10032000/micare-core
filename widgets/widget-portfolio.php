@@ -1,12 +1,12 @@
 <?php
 
-class TFCaseStudy_Widget extends \Elementor\Widget_Base {
+class TFPortfolio_Widget extends \Elementor\Widget_Base {
 
 
 
 	public function get_name() {
 
-        return 'tf-case-study';
+        return 'tf-portfolio';
 
     }
 
@@ -14,7 +14,7 @@ class TFCaseStudy_Widget extends \Elementor\Widget_Base {
 
     public function get_title() {
 
-        return esc_html__( 'TF Case Study', 'themesflat-core' );
+        return esc_html__( 'TF Portfolio', 'themesflat-core' );
 
     }
 
@@ -46,7 +46,7 @@ class TFCaseStudy_Widget extends \Elementor\Widget_Base {
 
 	public function get_script_depends() {
 
-		return ['owl-carousel', 'jquery-isotope','tf-case-study'];
+		return ['owl-carousel', 'jquery-isotope','tf-portfolio'];
 
 	}
 
@@ -152,7 +152,7 @@ class TFCaseStudy_Widget extends \Elementor\Widget_Base {
 
 						'type' => \Elementor\Controls_Manager::SELECT2,
 
-						'options' => ThemesFlat_Addon_For_Elementor_micare::tf_get_taxonomies('case_study_category'),
+						'options' => ThemesFlat_Addon_For_Elementor_micare::tf_get_taxonomies('portfolio_category'),
 
 						'label_block' => true,
 
@@ -812,7 +812,7 @@ $this->end_controls_section();
 
 					'selectors' => [
 
-						'{{WRAPPER}} .wrap-case-study-post .item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .wrap-portfolio-post .item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],					
 
@@ -848,7 +848,7 @@ $this->end_controls_section();
 
 					'selectors' => [
 
-						'{{WRAPPER}} .wrap-case-study-post .item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .wrap-portfolio-post .item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -870,7 +870,7 @@ $this->end_controls_section();
 
 					'selectors' => [
 
-						'{{WRAPPER}} .wrap-case-study-post .item .case-study-post' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .wrap-portfolio-post .item .portfolio-post' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],					
 
@@ -892,7 +892,7 @@ $this->end_controls_section();
 
 					'selectors' => [
 
-						'{{WRAPPER}} .wrap-case-study-post .item .case-study-post' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .wrap-portfolio-post .item .portfolio-post' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -954,7 +954,7 @@ $this->end_controls_section();
 
 				'selectors' => [
 
-					'{{WRAPPER}} .tf-case-study-wrap .case-study-post img' => 'height: {{SIZE}}{{UNIT}}; !important',
+					'{{WRAPPER}} .tf-portfolio-wrap .portfolio-post img' => 'height: {{SIZE}}{{UNIT}}; !important',
 
 				],
 
@@ -975,7 +975,7 @@ $this->end_controls_section();
 
 				'selectors' => [
 
-					'{{WRAPPER}} .tf-case-study-wrap .case-study-post .featured-post a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .tf-portfolio-wrap .portfolio-post .featured-post a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 				],
 
@@ -1016,7 +1016,7 @@ $this->end_controls_section();
 
 				'selectors' => [
 
-					'{{WRAPPER}} .wrap-case-study-post .content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wrap-portfolio-post .content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 				],					
 
@@ -1038,7 +1038,7 @@ $this->end_controls_section();
 
 				'selectors' => [
 
-					'{{WRAPPER}} .wrap-case-study-post .content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wrap-portfolio-post .content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 				],
 
@@ -1077,7 +1077,7 @@ $this->end_controls_section();
 
 					'label' => esc_html__( 'Typography', 'themesflat-core' ),
 
-					'selector' => '{{WRAPPER}} .wrap-case-study-post .case-study-post .title ',
+					'selector' => '{{WRAPPER}} .wrap-portfolio-post .portfolio-post .title ',
 
 				]
 
@@ -1097,7 +1097,7 @@ $this->end_controls_section();
 
 					'selectors' => [
 
-						'{{WRAPPER}} .wrap-case-study-post .case-study-post .title ' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .wrap-portfolio-post .portfolio-post .title ' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -1137,7 +1137,7 @@ $this->end_controls_section();
 
 							'selectors' => [
 
-								'{{WRAPPER}} .wrap-case-study-post .case-study-post .title a' => 'color: {{VALUE}}',
+								'{{WRAPPER}} .wrap-portfolio-post .portfolio-post .title a' => 'color: {{VALUE}}',
 
 							],
 
@@ -1181,7 +1181,7 @@ $this->end_controls_section();
 
 							'selectors' => [
 
-								'{{WRAPPER}} .wrap-case-study-post  .case-study-post  .title a:hover' => 'color: {{VALUE}}',
+								'{{WRAPPER}} .wrap-portfolio-post  .portfolio-post  .title a:hover' => 'color: {{VALUE}}',
 
 							],
 
@@ -1239,7 +1239,7 @@ $this->end_controls_section();
 
 					'label' => esc_html__( 'Typography', 'themesflat-core' ),
 
-					'selector' => '{{WRAPPER}} .wrap-case-study-post  .case-study-post .description',
+					'selector' => '{{WRAPPER}} .wrap-portfolio-post  .portfolio-post .description',
 
 					'condition' => [
 
@@ -1267,7 +1267,7 @@ $this->end_controls_section();
 
 					'selectors' => [
 
-						'{{WRAPPER}} .wrap-case-study-post  .case-study-post .description' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .wrap-portfolio-post  .portfolio-post .description' => 'color: {{VALUE}}',
 
 					],
 					'condition' => [
@@ -1296,7 +1296,7 @@ $this->end_controls_section();
 
 					'selectors' => [
 
-						'{{WRAPPER}} .wrap-case-study-post  .case-study-post .description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .wrap-portfolio-post  .portfolio-post .description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 					'condition' => [
@@ -1349,7 +1349,7 @@ $this->end_controls_section();
 
 					'label' => esc_html__( 'Typography', 'themesflat-core' ),
 
-					'selector' => '{{WRAPPER}} .wrap-case-study-post .case-study-post .tf-button-container a ',
+					'selector' => '{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a ',
 
 				]
 
@@ -1387,7 +1387,7 @@ $this->end_controls_section();
 
 							'selectors' => [
 
-								'{{WRAPPER}} .wrap-case-study-post .case-study-post .tf-button-container a,{{WRAPPER}} .wrap-case-study-post .case-study-post .tf-button-container a i ,{{WRAPPER}} .wrap-case-study-post .case-study-post .tf-button-container a .read' => 'color: {{VALUE}}',
+								'{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a,{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a i ,{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a .read' => 'color: {{VALUE}}',
 
 							],
 
@@ -1410,7 +1410,7 @@ $this->end_controls_section();
 
 							'selectors' => [
 
-								'{{WRAPPER}} .wrap-case-study-post .case-study-post .tf-button-container a' => 'background-color: {{VALUE}}',
+								'{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a' => 'background-color: {{VALUE}}',
 
 							],
 							'condition' => [
@@ -1432,7 +1432,7 @@ $this->end_controls_section();
 			
 							'label' => esc_html__( 'Border', 'themesflat-core' ),
 			
-							'selector' => '{{WRAPPER}} .wrap-case-study-post .case-study-post .tf-button-container a',
+							'selector' => '{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a',
 							'condition' => [
 	                          'style'	=> ['style1','style2','style3','style4'],
 	                         ],
@@ -1474,7 +1474,7 @@ $this->end_controls_section();
 
 							'selectors' => [
 
-								'{{WRAPPER}} .wrap-case-study-post .case-study-post .tf-button-container a:hover ,{{WRAPPER}} .wrap-case-study-post .case-study-post .tf-button-container a:hover i ,{{WRAPPER}} .wrap-case-study-post .case-study-post .tf-button-container a:hover .read' => 'color: {{VALUE}}',
+								'{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a:hover ,{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a:hover i ,{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a:hover .read' => 'color: {{VALUE}}',
 
 							],
 
@@ -1497,7 +1497,7 @@ $this->end_controls_section();
 
 							'selectors' => [
 
-								'{{WRAPPER}} .wrap-case-study-post .case-study-post .tf-button-container a:hover::after,{{WRAPPER}} .wrap-case-study-post .case-study-post .tf-button-container a:hover' => 'background-color: {{VALUE}}',
+								'{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a:hover::after,{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a:hover' => 'background-color: {{VALUE}}',
 
 							],
 							'condition' => [
@@ -1519,7 +1519,7 @@ $this->end_controls_section();
 			
 							'label' => esc_html__( 'Border', 'themesflat-core' ),
 			
-							'selector' => '{{WRAPPER}} .wrap-case-study-post .case-study-post .tf-button-container a:hover',
+							'selector' => '{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a:hover',
 							'condition' => [
 	                          'style'	=> ['style1','style2','style3','style4'],
 	                         ],
@@ -1562,7 +1562,7 @@ $this->end_controls_section();
 
 
 
-		$this->add_render_attribute( 'tf_case_study_wrap', ['class' => ['tf-case-study-wrap', 'themesflat-case-study-taxonomy', $settings['style'], $has_carousel ], 'data-tabid' => $this->get_id()] );
+		$this->add_render_attribute( 'tf_portfolio_wrap', ['class' => ['tf-portfolio-wrap', 'themesflat-portfolio-taxonomy', $settings['style'], $has_carousel ], 'data-tabid' => $this->get_id()] );
 
 
 
@@ -1584,7 +1584,7 @@ $this->end_controls_section();
 
 		$query_args = array(
 
-            'post_type' => 'case-study',
+            'post_type' => 'portfolio',
 
             'posts_per_page' => $settings['posts_per_page'],
 
@@ -1600,7 +1600,7 @@ $this->end_controls_section();
 
 							        array(
 
-							            'taxonomy' => 'case_study_category',
+							            'taxonomy' => 'portfolio_category',
 
 							            'field'    => 'slug',
 
@@ -1648,8 +1648,8 @@ $this->end_controls_section();
 				if ($settings['show_filter'] == 'yes'):
 					$show_filter_class = 'show-filter'; 
 					$filter_category_order = $settings['filter_category_order'];
-					$filters = wp_list_pluck( get_terms( 'case_study_category','hide_empty=1'), 'name','slug' );
-					echo '<ul class="case-study-filter posttype-filter">';
+					$filters = wp_list_pluck( get_terms( 'portfolio_category','hide_empty=1'), 'name','slug' );
+					echo '<ul class="portfolio-filter posttype-filter">';
 						echo '<li class="active"><a data-filter="*" href="#">' . esc_html('Show All', 'themesflat-core') . '</a></li>'; 
 						if ($filter_category_order == '') { 
 
@@ -1667,7 +1667,7 @@ $this->end_controls_section();
 						}
 	                echo '</ul>';
 					
-					echo '<div class="container-filter ' . esc_attr($show_filter_class) . ' wrap-case-study-post">';
+					echo '<div class="container-filter ' . esc_attr($show_filter_class) . ' wrap-portfolio-post">';
 
 	            endif;
 		?>
@@ -1677,7 +1677,7 @@ $this->end_controls_section();
 
 
 
-<div <?php echo $this->get_render_attribute_string('tf_case_study_wrap'); ?>
+<div <?php echo $this->get_render_attribute_string('tf_portfolio_wrap'); ?>
     data-column="<?php echo esc_attr($settings['carousel_column_desk']); ?>"
     data-column2="<?php echo esc_attr($settings['carousel_column_tablet']); ?>"
     data-column3="<?php echo esc_attr($settings['carousel_column_mobile']); ?>"
@@ -1704,7 +1704,7 @@ $this->end_controls_section();
 	<?php endif; ?>
 
 
-    <div class="wrap-case-study-post row <?php echo esc_attr($settings['layout']); ?> ">
+    <div class="wrap-portfolio-post row <?php echo esc_attr($settings['layout']); ?> ">
 
         <?php if ( $settings['carousel'] == 'yes' ): ?>
         <div class="owl-carousel">
@@ -1717,9 +1717,9 @@ $this->end_controls_section();
 
 						$attr['settings'] = $settings; 
 						$attr['count'] = $count; 
-						$attr['icon'] = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( themesflat_get_opt_elementor('case-study_post_icon') );
+						$attr['icon'] = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( themesflat_get_opt_elementor('portfolio_post_icon') );
 
-						tf_get_template_widget("case-study/{$settings['style']}", $attr); 
+						tf_get_template_widget("portfolio/{$settings['style']}", $attr); 
 
 						?>
 

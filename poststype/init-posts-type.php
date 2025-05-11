@@ -16,7 +16,7 @@ if ( ! class_exists( 'themesflat_custom_post_type' ) ) {
 
             require_once THEMESFLAT_PATH . '/poststype/register-services.php';
 
-            require_once THEMESFLAT_PATH . '/poststype/register-case-study.php';
+            require_once THEMESFLAT_PATH . '/poststype/register-portfolio.php';
 
 
 
@@ -35,11 +35,11 @@ if ( ! class_exists( 'themesflat_custom_post_type' ) ) {
             add_filter( 'archive_template', array( $this,'themesflat_archive_services' ) );  
 
 
-            add_filter( 'single_template', array( $this,'themesflat_single_case_study' ) );
+            add_filter( 'single_template', array( $this,'themesflat_single_portfolio' ) );
 
-            add_filter( 'taxonomy_template', array( $this,'themesflat_taxonomy_case_study' ) ); 
+            add_filter( 'taxonomy_template', array( $this,'themesflat_taxonomy_portfolio' ) ); 
 
-            add_filter( 'archive_template', array( $this,'themesflat_archive_case_study' ) ); 
+            add_filter( 'archive_template', array( $this,'themesflat_archive_portfolio' ) ); 
 
 
 
@@ -117,31 +117,31 @@ if ( ! class_exists( 'themesflat_custom_post_type' ) ) {
 
                 /* Temlate Case Study */
 
-                function themesflat_single_case_study( $single_template ) {
+                function themesflat_single_portfolio( $single_template ) {
 
                     global $post;
         
-                    if ( $post->post_type == 'case-study' ) $single_template = THEMESFLAT_PATH . '/poststype/inc/single-case-study.php';
+                    if ( $post->post_type == 'portfolio' ) $single_template = THEMESFLAT_PATH . '/poststype/inc/single-portfolio.php';
         
                     return $single_template;
         
                 }
         
-                function themesflat_taxonomy_case_study( $taxonomy_template ) {
+                function themesflat_taxonomy_portfolio( $taxonomy_template ) {
         
                     global $post;
         
-                    if ( $post->post_type == 'case-study' ) $taxonomy_template = THEMESFLAT_PATH . '/poststype/inc/taxonomy-case-study_category.php';
+                    if ( $post->post_type == 'portfolio' ) $taxonomy_template = THEMESFLAT_PATH . '/poststype/inc/taxonomy-portfolio_category.php';
         
                     return $taxonomy_template;
         
                 }
         
-                function themesflat_archive_case_study( $archive_template ) {
+                function themesflat_archive_portfolio( $archive_template ) {
         
                     global $post;
         
-                    if ( is_post_type_archive ( 'case-study' ) ) $archive_template = THEMESFLAT_PATH . '/poststype/inc/archive-case-study.php';
+                    if ( is_post_type_archive ( 'portfolio' ) ) $archive_template = THEMESFLAT_PATH . '/poststype/inc/archive-portfolio.php';
         
                     return $archive_template;
         
@@ -173,7 +173,7 @@ function themesflat_fix_custom_posttype_posts_per_page( $query_string ){
 
     $services_number_post = themesflat_get_opt( 'services_number_post' ) ? themesflat_get_opt( 'services_number_post' ) : 6;
 
-    $case_study_number_post = themesflat_get_opt( 'case_study_number_post' ) ? themesflat_get_opt( 'case_study_number_post' ) : 6;
+    $portfolio_number_post = themesflat_get_opt( 'portfolio_number_post' ) ? themesflat_get_opt( 'portfolio_number_post' ) : 6;
 
 
 
@@ -197,9 +197,9 @@ function themesflat_fix_custom_posttype_posts_per_page( $query_string ){
 
         array(
 
-            'post_type' => 'case-study',
+            'post_type' => 'portfolio',
 
-            'posts_per_page' => $case_study_number_post
+            'posts_per_page' => $portfolio_number_post
 
         ),
 

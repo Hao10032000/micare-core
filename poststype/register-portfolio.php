@@ -1,6 +1,6 @@
 <?php
 
-add_action('init', 'themesflat_register_case_study_post_type');
+add_action('init', 'themesflat_register_portfolio_post_type');
 
 /**
 
@@ -8,41 +8,41 @@ add_action('init', 'themesflat_register_case_study_post_type');
 
 */
 
-function themesflat_register_case_study_post_type() {
+function themesflat_register_portfolio_post_type() {
 
-    $case_study_slug = themesflat_get_opt('case_study_slug', 'case-study');
+    $portfolio_slug = themesflat_get_opt('portfolio_slug', 'portfolio');
 
     $labels = array(
 
-        'name'                  => esc_html__( 'Case Study', 'themesflat' ),
+        'name'                  => esc_html__( 'Portfolio', 'themesflat' ),
 
-        'singular_name'         => esc_html__( 'Case Study', 'themesflat' ),
+        'singular_name'         => esc_html__( 'Portfolio', 'themesflat' ),
 
-        'menu_name'             => esc_html__( 'Case Study', 'themesflat' ),
+        'menu_name'             => esc_html__( 'Portfolio', 'themesflat' ),
 
-        'add_new'               => esc_html__( 'New Case Study', 'themesflat' ),
+        'add_new'               => esc_html__( 'New Portfolio', 'themesflat' ),
 
-        'add_new_item'          => esc_html__( 'Add New Case Study', 'themesflat' ),
+        'add_new_item'          => esc_html__( 'Add New Portfolio', 'themesflat' ),
 
-        'new_item'              => esc_html__( 'New Case Study Item', 'themesflat' ),
+        'new_item'              => esc_html__( 'New Portfolio Item', 'themesflat' ),
 
-        'edit_item'             => esc_html__( 'Edit Case Study Item', 'themesflat' ),
+        'edit_item'             => esc_html__( 'Edit Portfolio Item', 'themesflat' ),
 
-        'view_item'             => esc_html__( 'View Case Study', 'themesflat' ),
+        'view_item'             => esc_html__( 'View Portfolio', 'themesflat' ),
 
-        'all_items'             => esc_html__( 'All Case Study', 'themesflat' ),
+        'all_items'             => esc_html__( 'All Portfolio', 'themesflat' ),
 
-        'search_items'          => esc_html__( 'Search Case Study', 'themesflat' ),
+        'search_items'          => esc_html__( 'Search Portfolio', 'themesflat' ),
 
-        'not_found'             => esc_html__( 'No Case Study Items Found', 'themesflat' ),
+        'not_found'             => esc_html__( 'No Portfolio Items Found', 'themesflat' ),
 
-        'not_found_in_trash'    => esc_html__( 'No Case Study Items Found In Trash', 'themesflat' ),
+        'not_found_in_trash'    => esc_html__( 'No Portfolio Items Found In Trash', 'themesflat' ),
 
-        'parent_item_colon'     => esc_html__( 'Parent Case Study:', 'themesflat' ),
+        'parent_item_colon'     => esc_html__( 'Parent Portfolio:', 'themesflat' ),
 
-        'not_found'             => esc_html__( 'No Case Study found', 'themesflat' ),
+        'not_found'             => esc_html__( 'No Portfolio found', 'themesflat' ),
 
-        'not_found_in_trash'    => esc_html__( 'No Case Study found in Trash', 'themesflat' )
+        'not_found_in_trash'    => esc_html__( 'No Portfolio found in Trash', 'themesflat' )
 
 
 
@@ -54,7 +54,7 @@ function themesflat_register_case_study_post_type() {
 
         'supports'    => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'elementor'  ),
 
-        'rewrite'       => array( 'slug' => $case_study_slug ),
+        'rewrite'       => array( 'slug' => $portfolio_slug ),
 
         'public'      => true,   
 
@@ -64,7 +64,7 @@ function themesflat_register_case_study_post_type() {
 
     );
 
-    register_post_type( 'case-study', $args );
+    register_post_type( 'portfolio', $args );
 
     flush_rewrite_rules();
 
@@ -72,41 +72,41 @@ function themesflat_register_case_study_post_type() {
 
 
 
-add_filter( 'post_updated_messages', 'themesflat_case_study_updated_messages' );
+add_filter( 'post_updated_messages', 'themesflat_portfolio_updated_messages' );
 
 /**
 
-  * Case Study update messages.
+  * portfolio update messages.
 
 */
 
-function themesflat_case_study_updated_messages ( $messages ) {
+function themesflat_portfolio_updated_messages ( $messages ) {
 
     Global $post, $post_ID;
 
-    $messages[esc_html__( 'case-study' )] = array(
+    $messages[esc_html__( 'portfolio' )] = array(
 
         0  => '',
 
-        1  => sprintf( esc_html__( 'Case Study Updated. <a href="%s">View Case Study</a>', 'themesflat' ), esc_url( get_permalink( $post_ID ) ) ),
+        1  => sprintf( esc_html__( 'Portfolio Updated. <a href="%s">View Portfolio</a>', 'themesflat' ), esc_url( get_permalink( $post_ID ) ) ),
 
         2  => esc_html__( 'Custom Field Updated.', 'themesflat' ),
 
         3  => esc_html__( 'Custom Field Deleted.', 'themesflat' ),
 
-        4  => esc_html__( 'Case Study Updated.', 'themesflat' ),
+        4  => esc_html__( 'Portfolio Updated.', 'themesflat' ),
 
-        5  => isset( $_GET['revision']) ? sprintf( esc_html__( 'Case Study Restored To Revision From %s', 'themesflat' ), wp_post_revision_title((int)$_GET['revision'], false)) : false,
+        5  => isset( $_GET['revision']) ? sprintf( esc_html__( 'Portfolio Restored To Revision From %s', 'themesflat' ), wp_post_revision_title((int)$_GET['revision'], false)) : false,
 
-        6  => sprintf( esc_html__( 'Case Study Published. <a href="%s">View Case Study</a>', 'themesflat' ), esc_url( get_permalink( $post_ID ) ) ),
+        6  => sprintf( esc_html__( 'Portfolio Published. <a href="%s">View Portfolio</a>', 'themesflat' ), esc_url( get_permalink( $post_ID ) ) ),
 
-        7  => esc_html__( 'Case Study Saved.', 'themesflat' ),
+        7  => esc_html__( 'Portfolio Saved.', 'themesflat' ),
 
-        8  => sprintf( esc_html__('Case Study Submitted. <a target="_blank" href="%s">Preview Case Study</a>', 'themesflat' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+        8  => sprintf( esc_html__('Portfolio Submitted. <a target="_blank" href="%s">Preview Portfolio</a>', 'themesflat' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
 
-        9  => sprintf( esc_html__( 'Case Study Scheduled For: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview Case Study</a>', 'themesflat' ),date_i18n( esc_html__( 'M j, Y @ G:i', 'themesflat' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ) ),
+        9  => sprintf( esc_html__( 'Portfolio Scheduled For: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview Portfolio</a>', 'themesflat' ),date_i18n( esc_html__( 'M j, Y @ G:i', 'themesflat' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ) ),
 
-        10 => sprintf( esc_html__( 'Case Study Draft Updated. <a target="_blank" href="%s">Preview Case Study</a>', 'themesflat' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+        10 => sprintf( esc_html__( 'Portfolio Draft Updated. <a target="_blank" href="%s">Preview Portfolio</a>', 'themesflat' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
 
     );
 
@@ -116,7 +116,7 @@ function themesflat_case_study_updated_messages ( $messages ) {
 
 
 
-add_action( 'init', 'themesflat_register_case_study_taxonomy' );
+add_action( 'init', 'themesflat_register_portfolio_taxonomy' );
 
 /**
 
@@ -124,15 +124,15 @@ add_action( 'init', 'themesflat_register_case_study_taxonomy' );
 
 */
 
-function themesflat_register_case_study_taxonomy() {
+function themesflat_register_portfolio_taxonomy() {
 
-    /*Case Study Categories*/    
+    /*portfolio Categories*/    
 
-    $case_study_cat_slug = 'case_study_category'; 
+    $portfolio_cat_slug = 'portfolio_category'; 
 
     $labels = array(
 
-        'name'                       => esc_html__( 'Case Study Categories', 'themesflat' ),
+        'name'                       => esc_html__( 'Portfolio Categories', 'themesflat' ),
 
         'singular_name'              => esc_html__( 'Categories', 'themesflat' ),
 
@@ -168,7 +168,7 @@ function themesflat_register_case_study_taxonomy() {
 
         'labels'        => $labels,
 
-        'rewrite'       => array('slug'=>$case_study_cat_slug),
+        'rewrite'       => array('slug'=>$portfolio_cat_slug),
 
         'hierarchical'  => true,
 
@@ -176,7 +176,7 @@ function themesflat_register_case_study_taxonomy() {
 
     );
 
-    register_taxonomy( 'case_study_category', 'case-study', $args );
+    register_taxonomy( 'portfolio_category', 'portfolio', $args );
 
     flush_rewrite_rules();
 
@@ -189,11 +189,11 @@ function case_custom_meta() {
 
 		'case_custom_field',       
 
-		'Information Case Study',                  
+		'Information portfolio',                  
 
 		'case_custom_metabox',  
 
-		'case-study',                 
+		'portfolio',                 
 
 		'normal',                
 
@@ -289,7 +289,7 @@ function case_save_meta_fields( $post_id ) {
 
 	// check permissions
 
-	if ( 'case-study' == $_POST['post_type'] ) {
+	if ( 'portfolio' == $_POST['post_type'] ) {
 
 		if ( ! current_user_can( 'edit_page', $post_id ) )
 

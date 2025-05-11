@@ -546,9 +546,9 @@ final class ThemesFlat_Addon_For_Elementor_micare {
 
         \Elementor\Plugin::instance()->widgets_manager->register( new \TFTeam_Widget() );
 
-        require_once( __DIR__ . '/widgets/widget-case-study.php' );
+        require_once( __DIR__ . '/widgets/widget-portfolio.php' );
 
-        \Elementor\Plugin::instance()->widgets_manager->register( new \TFCaseStudy_Widget() );
+        \Elementor\Plugin::instance()->widgets_manager->register( new \TFPortfolio_Widget() );
 
         require_once( __DIR__ . '/widgets/widget-group-features.php' );
 
@@ -703,7 +703,7 @@ final class ThemesFlat_Addon_For_Elementor_micare {
 
         wp_register_script( 'tf-service', plugins_url( '/assets/js/service/tf-service.js', __FILE__ ), [ 'jquery' ], false, true );
 
-        wp_register_script( 'tf-case-study', plugins_url( '/assets/js/case-study/case-study.js', __FILE__ ), [ 'jquery' ], false, true );
+        wp_register_script( 'tf-portfolio', plugins_url( '/assets/js/portfolio/portfolio.js', __FILE__ ), [ 'jquery' ], false, true );
 
         wp_register_script( 'tf-title', plugins_url( '/assets/js/title/title.js', __FILE__ ), [ 'jquery' ], false, true );
         
