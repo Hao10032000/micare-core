@@ -1,12 +1,12 @@
 <?php
 
-class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
+class TFCarouselBox_Widget extends \Elementor\Widget_Base {
 
 
 
 	public function get_name() {
 
-        return 'tf-testimonial-carousel-core';
+        return 'tf-carousel-box';
 
     }
 
@@ -14,7 +14,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
     public function get_title() {
 
-        return esc_html__( 'TF Testimonial Core', 'themesflat-core' );
+        return esc_html__( 'TF Carousel Box', 'themesflat-core' );
 
     }
 
@@ -88,13 +88,6 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 						'style-2' => esc_html__( 'Style 2', 'themesflat-core' ),
 
-						'style-3' => esc_html__( 'Style 3', 'themesflat-core' ),
-
-						'style-4' => esc_html__( 'Style 4', 'themesflat-core' ),
-
-						'style-5' => esc_html__( 'Style 5', 'themesflat-core' ),
-
-						'style-6' => esc_html__( 'Style 6', 'themesflat-core' ),
 
 
 					],
@@ -104,172 +97,21 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 			);	    
 
 
-
-			$this->add_control( 
-
-				'show_avt',
-
-				[
-
-					'label' => esc_html__( 'Show Avatar', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::SWITCHER,
-
-					'label_on' => esc_html__( 'Show', 'themesflat-core' ),
-
-					'label_off' => esc_html__( 'Hide', 'themesflat-core' ),
-
-					'return_value' => 'yes',
-
-					'default' => 'yes',
-
-				]
-
-			);
-
-			$this->add_control( 
-
-				'show_content',
-
-				[
-
-					'label' => esc_html__( 'Show Content', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::SWITCHER,
-
-					'label_on' => esc_html__( 'Show', 'themesflat-core' ),
-
-					'label_off' => esc_html__( 'Hide', 'themesflat-core' ),
-
-					'return_value' => 'yes',
-
-					'default' => 'yes',
-
-				]
-
-			);
-
-
-
-
-			$this->add_control( 
-
-				'show_name',
-
-				[
-
-					'label' => esc_html__( 'Show Name', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::SWITCHER,
-
-					'label_on' => esc_html__( 'Show', 'themesflat-core' ),
-
-					'label_off' => esc_html__( 'Hide', 'themesflat-core' ),
-
-					'return_value' => 'yes',
-
-					'default' => 'yes',
-
-				]
-
-			);
-
-
-
-			$this->add_control( 
-
-				'show_position',
-
-				[
-
-					'label' => esc_html__( 'Show Position', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::SWITCHER,
-
-					'label_on' => esc_html__( 'Show', 'themesflat-core' ),
-
-					'label_off' => esc_html__( 'Hide', 'themesflat-core' ),
-
-					'return_value' => 'yes',
-
-					'default' => 'yes',
-
-				]
-
-			);
-
-			$this->add_control( 
-
-				'show_sale',
-
-				[
-
-					'label' => esc_html__( 'Show Title', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::SWITCHER,
-
-					'label_on' => esc_html__( 'Show', 'themesflat-core' ),
-
-					'label_off' => esc_html__( 'Hide', 'themesflat-core' ),
-
-					'return_value' => 'yes',
-
-					'default' => 'yes',
-
-				]
-
-			);
-			$this->add_control( 
-				'show_rating',
-				[
-					'label' => esc_html__( 'Show Rating', 'themesflat-core' ),
-					'type' => \Elementor\Controls_Manager::SWITCHER,
-					'label_on' => esc_html__( 'Show', 'themesflat-core' ),
-					'label_off' => esc_html__( 'Hide', 'themesflat-core' ),
-					'return_value' => 'yes',
-					'default' => 'no',
-				]
-			);
-
-			$this->add_control( 
-				'show_icon',
-				[
-					'label' => esc_html__( 'Show Icon', 'themesflat-core' ),
-					'type' => \Elementor\Controls_Manager::SWITCHER,
-					'label_on' => esc_html__( 'Show', 'themesflat-core' ),
-					'label_off' => esc_html__( 'Hide', 'themesflat-core' ),
-					'return_value' => 'yes',
-					'default' => 'yes',
-				]
-			);
-
-
-
-
 			$repeater = new \Elementor\Repeater();
 
 
-
-			$repeater->add_control(
-
-				'avatar',
-
+          $repeater->add_control(
+				'icon_quote',
 				[
-
-					'label' => esc_html__( 'Choose Avatar', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::MEDIA,
-
+					'label' => esc_html__( 'Icon', 'themesflat-core' ),
+					'type' => \Elementor\Controls_Manager::ICONS,
 					'default' => [
-
-						'url' => URL_THEMESFLAT_ADDONS_ELEMENTOR_THEME."assets/img/default-team.jpg",
-
+						'value' => 'icon-micare-Line-05',
+						'library' => 'solid',
 					],
-
 				]
-
 			);
-
+			
 			
 
 
@@ -280,11 +122,11 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 				[
 
-					'label' => esc_html__( 'Name', 'themesflat-core' ),
+					'label' => esc_html__( 'Sale Off', 'themesflat-core' ),
 
 					'type' => \Elementor\Controls_Manager::TEXT,
 
-					'default' => esc_html__( 'Eugene Freeman', 'themesflat-core' ),
+					'default' => esc_html__( '40% OFF', 'themesflat-core' ),
 
 				]
 
@@ -295,11 +137,11 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 				[
 
-					'label' => esc_html__( 'Position', 'themesflat-core' ),
+					'label' => esc_html__( 'Price', 'themesflat-core' ),
 
 					'type' => \Elementor\Controls_Manager::TEXT,
 
-					'default' => esc_html__( 'Tincidunt', 'themesflat-core' ),
+					'default' => esc_html__( 'Regular Price : $150', 'themesflat-core' ),
 
 				]
 
@@ -315,7 +157,37 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'type' => \Elementor\Controls_Manager::TEXT,
 
-					'default' => esc_html__( 'Sales Growth Achieved', 'themesflat-core' ),
+					'default' => esc_html__( 'MRI (Magnetic Resonance Imaging)', 'themesflat-core' ),
+
+				]
+
+			);	
+			$repeater->add_control(
+
+				'btn-link',
+
+				[
+
+					'label' => esc_html__( 'Button', 'themesflat-core' ),
+
+					'type' => \Elementor\Controls_Manager::TEXT,
+
+					'default' => esc_html__( 'Booking For A Test', 'themesflat-core' ),
+
+				]
+
+			);
+			$repeater->add_control(
+
+				'link',
+
+				[
+
+					'label' => esc_html__( 'Link', 'themesflat-core' ),
+
+					'type' => \Elementor\Controls_Manager::TEXT,
+
+					'default' => esc_html__( '#', 'themesflat-core' ),
 
 				]
 
@@ -336,40 +208,12 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'rows' => 10,
 
-					'default' => esc_html__( 'Phasellus ultrices ut tortor at porta. Praesent maximus, lacus sed rutrum aliquet, lacus tellus tincidunt nisl, vitae molestie nisi sapien et dolor suspendisse mi est ', 'themesflat-core' ),
+					'default' => esc_html__( 'Uses strong magnets & radio waves create detailed images.', 'themesflat-core' ),
 
 				]
 
 			);
-			$repeater->add_control(
-				'rating',
-				[
-					'label' => esc_html__( 'Rating (Only style 2)', 'themesflat-core' ),
-					'type' => \Elementor\Controls_Manager::SELECT,
-					'default' => '100',
-					'options' => [
-						'0'   => esc_html__( '0 stars', 'themesflat-core' ),
-						'20'  => esc_html__( '1 star', 'themesflat-core' ),
-						'40'  => esc_html__( '2 stars', 'themesflat-core' ),
-						'60'  => esc_html__( '3 stars', 'themesflat-core' ),
-						'80'  => esc_html__( '4 stars', 'themesflat-core' ),
-						'100' => esc_html__( '5 stars', 'themesflat-core' ),
-					],
-				]
-			);
 
-			$repeater->add_control(
-				'icon_quote',
-				[
-					'label' => esc_html__( 'Icon', 'themesflat-core' ),
-					'type' => \Elementor\Controls_Manager::ICONS,
-					'default' => [
-						'value' => 'icon-micare-chat',
-						'library' => 'solid',
-					],
-				]
-			);
-			
 			
 			$this->add_control( 
 
@@ -503,7 +347,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .item-testimonial' => 'text-align: {{VALUE}}',
+						'{{WRAPPER}} .tfc-carousel-box .item-box-carousel' => 'text-align: {{VALUE}}',
 
 					],
 
@@ -523,7 +367,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'label' => esc_html__( 'Background', 'themesflat-core' ),
 
-					'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .item-testimonial',
+					'selector' => '{{WRAPPER}} .tfc-carousel-box .item-box-carousel',
 
 				]
 
@@ -539,7 +383,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'label' => esc_html__( 'Border', 'plugin-domain' ),
 
-					'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .item-testimonial',
+					'selector' => '{{WRAPPER}} .tfc-carousel-box .item-box-carousel',
 
 				]
 
@@ -555,7 +399,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'label' => esc_html__( 'Box Shadow', 'plugin-domain' ),
 
-					'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .item-testimonial',
+					'selector' => '{{WRAPPER}} .tfc-carousel-box .item-box-carousel',
 
 				]
 
@@ -573,7 +417,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 			// 		'selectors' => [
 
-			// 			'{{WRAPPER}} .tfc-testimonial-carousel .item-testimonial' => 'background-color: {{VALUE}}',
+			// 			'{{WRAPPER}} .tfc-carousel-box .item-box-carousel' => 'background-color: {{VALUE}}',
 
 			// 		],
 
@@ -595,7 +439,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}}  .tfc-testimonial-carousel .item-testimonial' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}}  .tfc-carousel-box .item-box-carousel' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -617,7 +461,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .item-testimonial' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .item-box-carousel' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -639,7 +483,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .item-testimonial ' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .item-box-carousel ' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -647,107 +491,6 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 			);
 
-
-
-			$this->add_control(
-
-				'h_avatar',
-
-				[
-
-					'label' => esc_html__( 'Avatar', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::HEADING,
-
-					'separator' => 'before',
-
-				]
-
-			);
-
-			$this->add_control(
-
-				'avatar_size',
-
-				[
-
-					'label' => esc_html__( 'With & Height', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::SLIDER,
-
-					'size_units' => [ 'px', '%' ],
-
-					'range' => [
-
-						'px' => [
-
-							'min' => 0,
-
-							'max' => 1000,
-
-							'step' => 1,
-
-						],
-
-					],
-
-					'selectors' => [
-
-						'{{WRAPPER}} .tfc-testimonial-carousel .testimonial-image,
-
-						 {{WRAPPER}} .tfc-testimonial-carousel.style-1 .avatar,
-
-						 {{WRAPPER}} .tfc-testimonial-carousel.style-2 .testimonial-image' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
-
-					],
-
-				]
-
-			);
-
-			$this->add_responsive_control( 
-
-				'avata_border_radius',
-
-				[
-
-					'label' => esc_html__( 'Border Radius', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::DIMENSIONS,
-
-					'size_units' => [ 'px', '%', 'em' ],
-
-					'selectors' => [
-
-						'{{WRAPPER}} .tfc-testimonial-carousel .avatar' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-
-					]
-
-				]
-
-			);
-
-			$this->add_responsive_control(
-
-				'avatar_margin',
-
-				[
-
-					'label' => esc_html__( 'Margin', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::DIMENSIONS,
-
-					'size_units' => [ 'px', '%', 'em' ],
-
-					'selectors' => [
-
-						'{{WRAPPER}} .tfc-testimonial-carousel .item .avatar' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-
-					],
-
-				]
-
-			);
 
 			$this->add_control(
 
@@ -779,7 +522,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .testimonial-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .testimonial-content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -801,7 +544,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .testimonial-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .testimonial-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -823,7 +566,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .testimonial-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .testimonial-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -844,7 +587,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .testimonial-content' => 'background-color: {{VALUE}}',
+						'{{WRAPPER}} .tfc-carousel-box .testimonial-content' => 'background-color: {{VALUE}}',
 
 					],
 
@@ -881,7 +624,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'label' => esc_html__( 'Typography', 'themesflat-core' ),
 
-					'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .item .name',
+					'selector' => '{{WRAPPER}} .tfc-carousel-box .item .name',
 
 				]
 
@@ -899,7 +642,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .item .name' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .tfc-carousel-box .item .name' => 'color: {{VALUE}}',
 
 					],
 
@@ -921,7 +664,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .item .name' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .item .name' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -957,7 +700,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'label' => esc_html__( 'Typography', 'themesflat-core' ),
 
-					'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .item .position',
+					'selector' => '{{WRAPPER}} .tfc-carousel-box .item .position',
 
 				]
 
@@ -975,7 +718,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .item .position' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .tfc-carousel-box .item .position' => 'color: {{VALUE}}',
 
 					],
 
@@ -997,7 +740,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .item .position' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .item .position' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -1033,7 +776,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'label' => esc_html__( 'Typography', 'themesflat-core' ),
 
-					'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .item .description',
+					'selector' => '{{WRAPPER}} .tfc-carousel-box .item .description',
 
 				]
 
@@ -1053,7 +796,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .item .description' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .tfc-carousel-box .item .description' => 'color: {{VALUE}}',
 
 					],
 
@@ -1077,7 +820,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .item .description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .item .description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -1122,7 +865,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .sale' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .tfc-carousel-box .sale' => 'color: {{VALUE}}',
 
 					],
 
@@ -1143,7 +886,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'label' => esc_html__( 'Typography Sale', 'themesflat-core' ),
 
-					'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .sale',
+					'selector' => '{{WRAPPER}} .tfc-carousel-box .sale',
 
 
 				]
@@ -1166,7 +909,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .sale ' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .sale ' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -1186,7 +929,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .testimonial-inner' => 'border-bottom: 1px solid {{VALUE}}',
+						'{{WRAPPER}} .tfc-carousel-box .testimonial-inner' => 'border-bottom: 1px solid {{VALUE}}',
 
 					],
 
@@ -1209,7 +952,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 					'label' => esc_html__( 'Rating Color', 'themesflat-core' ),
 					'type' => \Elementor\Controls_Manager::COLOR,
 					'selectors' => [
-						'{{WRAPPER}} .tfc-testimonial-carousel .item .testimonial-star-rating' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .tfc-carousel-box .item .testimonial-star-rating' => 'color: {{VALUE}}',
 					],
 				]
 			);
@@ -1221,7 +964,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 					'type' => \Elementor\Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', '%', 'em' ],
 					'selectors' => [
-						'{{WRAPPER}} .tfc-testimonial-carousel .rating ' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .rating ' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 					],
 				]
 			);
@@ -1620,7 +1363,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next' => 'font-size: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next' => 'font-size: {{SIZE}}{{UNIT}};',
 
 					],
 
@@ -1672,7 +1415,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next' => 'width: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next' => 'width: {{SIZE}}{{UNIT}};',
 
 					],
 
@@ -1724,7 +1467,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next' => 'height: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next' => 'height: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
 
 					],
 
@@ -1784,7 +1527,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev' => 'left: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev' => 'left: {{SIZE}}{{UNIT}};',
 
 					],
 
@@ -1844,7 +1587,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next' => 'right: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next' => 'right: {{SIZE}}{{UNIT}};',
 
 					],
 
@@ -1904,7 +1647,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next' => 'top: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next' => 'top: {{SIZE}}{{UNIT}};',
 
 					],
 
@@ -1964,7 +1707,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 		                'selectors' => [
 
-							'{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next' => 'color: {{VALUE}} !important',
+							'{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next' => 'color: {{VALUE}} !important',
 
 						],
 
@@ -1992,7 +1735,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 		                'selectors' => [
 
-							'{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next' => 'background-color: {{VALUE}} !important;',
+							'{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next' => 'background-color: {{VALUE}} !important;',
 
 						],
 
@@ -2018,7 +1761,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 						'label' => esc_html__( 'Border', 'themesflat-core' ),
 
-						'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next',
+						'selector' => '{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next',
 
 						'condition' => [
 
@@ -2062,7 +1805,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 		                'selectors' => [
 
-		                    '{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		                    '{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 		                ],
 
@@ -2108,9 +1851,9 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 		                'selectors' => [
 
-							'{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev:hover, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next:hover' => 'color: {{VALUE}} !important',
+							'{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev:hover, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next:hover' => 'color: {{VALUE}} !important',
 
-							'{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev.disabled, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next.disabled' => 'color: {{VALUE}} !important',
+							'{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev.disabled, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next.disabled' => 'color: {{VALUE}} !important',
 
 						],
 
@@ -2140,9 +1883,9 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 		                'selectors' => [
 
-							'{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev:hover, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next:hover' => 'background-color: {{VALUE}} !important;',
+							'{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev:hover, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next:hover' => 'background-color: {{VALUE}} !important;',
 
-							'{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev.disabled, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next.disabled' => 'background-color: {{VALUE}} !important;',
+							'{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev.disabled, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next.disabled' => 'background-color: {{VALUE}} !important;',
 
 						],
 
@@ -2168,7 +1911,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 						'label' => esc_html__( 'Border', 'themesflat-core' ),
 
-						'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev:hover, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next:hover, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev.disabled, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next.disabled',
+						'selector' => '{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev:hover, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next:hover, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev.disabled, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next.disabled',
 
 						'condition' => [
 
@@ -2196,9 +1939,9 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 		                'selectors' => [
 
-		                    '{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev:hover, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		                    '{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev:hover, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
-		                    '{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev.disabled, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next.disabled' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		                    '{{WRAPPER}} .tfc-carousel-box .owl-nav .owl-prev.disabled, {{WRAPPER}} .tfc-carousel-box .owl-nav .owl-next.disabled' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 		                ],
 
@@ -2314,7 +2057,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .owl-dots' => 'left: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .owl-dots' => 'left: {{SIZE}}{{UNIT}};',
 
 					],
 
@@ -2374,7 +2117,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .owl-dots' => 'bottom: {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .owl-dots' => 'bottom: {{SIZE}}{{UNIT}};',
 
 					],
 
@@ -2426,7 +2169,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot' => 'margin: 0 {{SIZE}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot' => 'margin: 0 {{SIZE}}{{UNIT}};',
 
 					],
 
@@ -2464,7 +2207,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .owl-dots' => 'transform: rotate({{VALUE}}deg);',
+						'{{WRAPPER}} .tfc-carousel-box .owl-dots' => 'transform: rotate({{VALUE}}deg);',
 
 					],			
 
@@ -2540,7 +2283,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 							'selectors' => [
 
-								'{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot' => 'width: {{SIZE}}{{UNIT}};',
+								'{{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot' => 'width: {{SIZE}}{{UNIT}};',
 
 							],
 
@@ -2592,7 +2335,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 						'selectors' => [
 
-							'{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot' => 'height: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
+							'{{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot' => 'height: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
 
 						],
 
@@ -2622,7 +2365,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 		                'selectors' => [
 
-							'{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot' => 'background-color: {{VALUE}};',
+							'{{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot' => 'background-color: {{VALUE}};',
 
 						],
 
@@ -2648,7 +2391,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 						'label' => esc_html__( 'Border', 'themesflat-core' ),
 
-						'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot',						
+						'selector' => '{{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot',						
 
 						'condition' => [
 
@@ -2692,7 +2435,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 		                'selectors' => [
 
-		                    '{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot, {{WRAPPER}} .tfc-testimonial-carousel .owl-carousel .owl-dot.active::after' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		                    '{{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot, {{WRAPPER}} .tfc-carousel-box .owl-carousel .owl-dot.active::after' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 		                ],
 
@@ -2762,7 +2505,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 							'selectors' => [
 
-								'{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot.active' => 'width: {{SIZE}}{{UNIT}};',
+								'{{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot.active' => 'width: {{SIZE}}{{UNIT}};',
 
 							],
 
@@ -2814,7 +2557,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 						'selectors' => [
 
-							'{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot.active' => 'height: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
+							'{{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot.active' => 'height: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
 
 						],
 
@@ -2866,7 +2609,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 							'selectors' => [
 
-								'{{WRAPPER}} .tfc-testimonial-carousel .owl-carousel .owl-dot.active::after' => 'width: {{SIZE}}{{UNIT}};',
+								'{{WRAPPER}} .tfc-carousel-box .owl-carousel .owl-dot.active::after' => 'width: {{SIZE}}{{UNIT}};',
 
 							],
 
@@ -2918,7 +2661,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 						'selectors' => [
 
-							'{{WRAPPER}} .tfc-testimonial-carousel .owl-carousel .owl-dot.active::after' => 'height: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
+							'{{WRAPPER}} .tfc-carousel-box .owl-carousel .owl-dot.active::after' => 'height: {{SIZE}}{{UNIT}};line-height: {{SIZE}}{{UNIT}};',
 
 						],
 
@@ -2946,7 +2689,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 		                'selectors' => [
 
-							'{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot.active span' => 'border-color: {{VALUE}} !important;',
+							'{{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot.active span' => 'border-color: {{VALUE}} !important;',
 
 						],
 
@@ -2998,7 +2741,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 						'selectors' => [
 
-							'{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot.active, {{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot:hover' => 'transform: scale({{SIZE}});',
+							'{{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot.active, {{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot:hover' => 'transform: scale({{SIZE}});',
 
 						],
 
@@ -3022,7 +2765,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 		                'selectors' => [
 
-							'{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot:hover, {{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot.active' => 'background-color: {{VALUE}}',
+							'{{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot:hover, {{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot.active' => 'background-color: {{VALUE}}',
 
 						],
 
@@ -3048,7 +2791,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 						'label' => esc_html__( 'Border', 'themesflat-core' ),
 
-						'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot:hover, {{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot.active',
+						'selector' => '{{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot:hover, {{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot.active',
 
 						'condition' => [
 
@@ -3076,7 +2819,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 		                'selectors' => [
 
-		                    '{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot:hover, {{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot.active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		                    '{{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot:hover, {{WRAPPER}} .tfc-carousel-box .owl-dots .owl-dot.active' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 		                ],
 
@@ -3140,7 +2883,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 		?>
 
-<div class="tfc-testimonial-carousel <?php echo esc_attr($settings['testimonial_style']) ?> <?php echo esc_attr($carousel_arrow); ?> <?php echo esc_attr($carousel_bullets); ?>"
+<div class="tfc-carousel-box <?php echo esc_attr($settings['testimonial_style']) ?> <?php echo esc_attr($carousel_arrow); ?> <?php echo esc_attr($carousel_bullets); ?>"
     data-loop="<?php echo esc_attr($settings['carousel_loop']); ?>"
     data-auto="<?php echo esc_attr($settings['carousel_auto']); ?>"
     data-column="<?php echo esc_attr($settings['carousel_column_desk']); ?>"
@@ -3160,7 +2903,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 						$attr['carousel'] = $carousel; 
 						$attr['icon_quote'] = $icon_quote; 
 
-						tf_get_template_widget("testimonial/{$settings['testimonial_style']}", $attr);
+						tf_get_template_widget("box-carousel/{$settings['testimonial_style']}", $attr);
 
 					?>
 

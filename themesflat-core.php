@@ -507,6 +507,10 @@ final class ThemesFlat_Addon_For_Elementor_micare {
 
         \Elementor\Plugin::instance()->widgets_manager->register( new \TFTestimonialCarousel_Widget() );
 
+         require_once( __DIR__ . '/widgets/widget-carousel-box.php' );
+
+        \Elementor\Plugin::instance()->widgets_manager->register( new \TFCarouselBox_Widget() );
+
 
         require_once( __DIR__ . '/widgets/widget-step-carouse.php' );
 
