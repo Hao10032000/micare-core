@@ -256,63 +256,6 @@ class TFPortfolio_Widget extends \Elementor\Widget_Base {
 
 				$this->add_control( 
 
-		        	'style',
-
-					[
-
-						'label' => esc_html__( 'Styles', 'themesflat-core' ),
-
-						'type' => \Elementor\Controls_Manager::SELECT,
-
-						'default' => 'style1',
-
-						'options' => [
-
-							'style1' => esc_html__( 'Style 1', 'themesflat-core' ),
-
-							'style2' => esc_html__( 'Style 2', 'themesflat-core' ),
-
-							'style3' => esc_html__( 'Style 3', 'themesflat-core' ),
-
-							'style4' => esc_html__( 'Style 4', 'themesflat-core' ),
-						],
-
-					]
-
-				);
-
-				$this->add_control( 
-
-					'style_dark',
-
-					[
-
-						'label' => esc_html__( 'Style Dark', 'themesflat-core' ),
-
-						'type' => \Elementor\Controls_Manager::SWITCHER,
-
-						'label_on' => esc_html__( 'Enable', 'themesflat-core' ),
-
-						'label_off' => esc_html__( 'Disable', 'themesflat-core' ),
-
-						'return_value' => 'yes',
-
-						'default' => 'no',
-
-						'condition' => [
-
-							'style'	=> 'style2',
-
-						],
-
-					]
-
-				);
-
-
-
-				$this->add_control( 
-
 					'show_exc',
 
 					[
@@ -414,60 +357,6 @@ class TFPortfolio_Widget extends \Elementor\Widget_Base {
 				);	
 
 
-
-				$this->add_control(
-
-					'post_icon_readmore',
-
-					[
-
-						'label' => esc_html__( 'Post Icon ', 'micare' ),
-
-						'type' => \Elementor\Controls_Manager::ICONS,
-
-						'default' => [
-
-							'value' => 'icon-micare-arrowright2',
-
-							'library' => 'theme_icon',
-
-						],
-
-						'condition' => [
-
-							'show_button' => 'yes',
-
-						],
-
-					]
-
-				);	
-
-				$this->add_control(
-					'show_filter',
-					[
-						'label' => esc_html__( 'Filter', 'themesflat-core' ),
-						'type' => \Elementor\Controls_Manager::SWITCHER,
-						'label_on' => esc_html__( 'Show', 'themesflat-core' ),
-						'label_off' => esc_html__( 'Hide', 'themesflat-core' ),
-						'return_value' => 'yes',
-						'default' => 'no',
-					]
-				);
-	
-				$this->add_control( 
-					'filter_category_order',
-					[
-						'label' => esc_html__( 'Filter Order', 'themesflat-core' ),
-						'type'	=> \Elementor\Controls_Manager::TEXT,	
-						'description' => esc_html__( 'Filter Slug Categories Order Split By ","', 'themesflat-core' ),
-						'default' => '',
-						'label_block' => true,	
-						'condition' => [
-							'show_filter' => 'yes',
-						],			
-					]
-				);
 
 			
 
@@ -642,33 +531,6 @@ $this->add_control(
 
 );
 
-$this->add_control( 
-
-	'carousel_centered',
-
-	[
-
-		'label' => esc_html__( 'Active Center', 'themesflat-core' ),
-
-		'type' => \Elementor\Controls_Manager::SWITCHER,
-
-		'label_on' => esc_html__( 'Yes', 'themesflat-core' ),
-
-		'label_off' => esc_html__( 'No', 'themesflat-core' ),
-
-		'return_value' => 'yes',
-
-		'default' => 'no',
-
-		'condition' => [
-
-			'carousel' => 'yes',
-
-		],
-
-	]
-
-);
 
 $this->add_control( 
 
@@ -697,38 +559,6 @@ $this->add_control(
 	]
 
 );
-
-// $this->add_control( 
-
-// 	'carousel_arrow',
-
-// 	[
-
-// 		'label' => esc_html__( 'Arrow', 'themesflat-core' ),
-
-// 		'type' => \Elementor\Controls_Manager::SWITCHER,
-
-// 		'label_on' => esc_html__( 'Show', 'themesflat-core' ),
-
-// 		'label_off' => esc_html__( 'Hide', 'themesflat-core' ),
-
-// 		'return_value' => 'yes',
-
-// 		'default' => 'no',
-
-// 		'condition' => [
-
-// 			'carousel' => 'yes',
-
-// 		],
-
-// 		'description'	=> 'Just show when you have two slide',
-
-// 		'separator' => 'before',
-
-// 	]
-
-// );
 
 
 $this->add_control( 
@@ -924,43 +754,48 @@ $this->end_controls_section();
 
 		);
 
+
+					$this->add_responsive_control( 
+
+				'image_height',
+
+				[
+
+					'label' => esc_html__( 'Height', 'themesflat-core' ),
+
+					'type' => \Elementor\Controls_Manager::SLIDER,
+
+					'size_units' => [ 'px' ],
+
+					'range' => [
+
+						'px' => [
+
+							'min' => 0,
+
+							'max' => 1000,
+
+							'step' => 1,
+
+						]
+
+					],
+
+
+					'selectors' => [
+
+						'{{WRAPPER}} .tf-portfolio-wrap .portfolio-post .featured-post img' => 'height: {{SIZE}}{{UNIT}};',
+
+					],
+
+
+				]
+
+			);	
 		
 
-		$this->add_responsive_control( 
+	
 
-			'image_sv',
-
-			[
-
-				'label' => esc_html__( 'Image Height', 'themesflat-core' ),
-
-				'type' => \Elementor\Controls_Manager::SLIDER,
-
-				'size_units' => [ 'px' ],
-
-				'range' => [
-
-					'px' => [
-
-						'min' => 0,
-
-						'max' => 1000,
-
-						'step' => 1,
-
-					]
-
-				],
-
-				'selectors' => [
-
-					'{{WRAPPER}} .tf-portfolio-wrap .portfolio-post img' => 'height: {{SIZE}}{{UNIT}}; !important',
-
-				],
-
-			]
-
-		);
 		$this->add_responsive_control( 
 
 			'image_border_radius',
@@ -975,7 +810,7 @@ $this->end_controls_section();
 
 				'selectors' => [
 
-					'{{WRAPPER}} .tf-portfolio-wrap .portfolio-post .featured-post a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .tf-portfolio-wrap .portfolio-post' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 				],
 
@@ -1217,12 +1052,6 @@ $this->end_controls_section();
 
 					'tab' => \Elementor\Controls_Manager::TAB_STYLE,
 
-					'condition' => [
-
-	                    'style'	=> ['style2','style3','style5'],
-						
-	                    ],
-
 				]
 
 			);	
@@ -1240,12 +1069,6 @@ $this->end_controls_section();
 					'label' => esc_html__( 'Typography', 'themesflat-core' ),
 
 					'selector' => '{{WRAPPER}} .wrap-portfolio-post  .portfolio-post .description',
-
-					'condition' => [
-
-	                    'style'	=> ['style2','style3','style5'],
-						
-	                    ],
 
 				]
 
@@ -1270,13 +1093,6 @@ $this->end_controls_section();
 						'{{WRAPPER}} .wrap-portfolio-post  .portfolio-post .description' => 'color: {{VALUE}}',
 
 					],
-					'condition' => [
-
-	                    'style'	=> ['style2','style3','style5'],
-						
-	                    ],
-
-					
 
 				]
 
@@ -1299,12 +1115,6 @@ $this->end_controls_section();
 						'{{WRAPPER}} .wrap-portfolio-post  .portfolio-post .description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
-					'condition' => [
-
-	                    'style'	=> ['style2','style3','style5'],
-						
-	                    ],
-
 				]
 
 			);  
@@ -1413,32 +1223,12 @@ $this->end_controls_section();
 								'{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a' => 'background-color: {{VALUE}}',
 
 							],
-							'condition' => [
-	                          'style'	=> ['style1','style2','style3','style4'],
-	                         ], 
-
 							
 
 						]
 
 					); 
-					$this->add_group_control( 
-
-						\Elementor\Group_Control_Border::get_type(),
 			
-						[
-			
-							'name' => 'inner_case_border',
-			
-							'label' => esc_html__( 'Border', 'themesflat-core' ),
-			
-							'selector' => '{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a',
-							'condition' => [
-	                          'style'	=> ['style1','style2','style3','style4'],
-	                         ],
-			
-						] 
-						);
 
 
 
@@ -1474,7 +1264,7 @@ $this->end_controls_section();
 
 							'selectors' => [
 
-								'{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a:hover ,{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a:hover i ,{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a:hover .read' => 'color: {{VALUE}}',
+								'{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a:hover ,{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a:hover span' => 'color: {{VALUE}}',
 
 							],
 
@@ -1500,33 +1290,10 @@ $this->end_controls_section();
 								'{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a:hover::after,{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a:hover' => 'background-color: {{VALUE}}',
 
 							],
-							'condition' => [
-	                          'style'	=> ['style1','style2','style3','style4'],
-	                         ],
-
-							
 
 						]
 
 					); 
-					$this->add_group_control( 
-
-						\Elementor\Group_Control_Border::get_type(),
-			
-						[
-			
-							'name' => 'inner_case_hv_border',
-			
-							'label' => esc_html__( 'Border', 'themesflat-core' ),
-			
-							'selector' => '{{WRAPPER}} .wrap-portfolio-post .portfolio-post .tf-button-container a:hover',
-							'condition' => [
-	                          'style'	=> ['style1','style2','style3','style4'],
-	                         ],
-			
-						] 
-						);
-
 
 
 				$this->end_controls_tab();
@@ -1562,7 +1329,7 @@ $this->end_controls_section();
 
 
 
-		$this->add_render_attribute( 'tf_portfolio_wrap', ['class' => ['tf-portfolio-wrap', 'themesflat-portfolio-taxonomy', $settings['style'], $has_carousel ], 'data-tabid' => $this->get_id()] );
+		$this->add_render_attribute( 'tf_portfolio_wrap', ['class' => ['tf-portfolio-wrap style1', 'themesflat-portfolio-taxonomy', $has_carousel ], 'data-tabid' => $this->get_id()] );
 
 
 
@@ -1644,34 +1411,6 @@ $this->end_controls_section();
 
 		?>
 
-<?php 
-				if ($settings['show_filter'] == 'yes'):
-					$show_filter_class = 'show-filter'; 
-					$filter_category_order = $settings['filter_category_order'];
-					$filters = wp_list_pluck( get_terms( 'portfolio_category','hide_empty=1'), 'name','slug' );
-					echo '<ul class="portfolio-filter posttype-filter">';
-						echo '<li class="active"><a data-filter="*" href="#">' . esc_html('Show All', 'themesflat-core') . '</a></li>'; 
-						if ($filter_category_order == '') { 
-
-							foreach ($filters as $key => $value) {
-								echo '<li><a data-filter=".' . esc_attr( strtolower($key)) . '" href="#" title="' . esc_attr( $value ) . '">' . esc_html( $value ) . '</a></li>'; 
-							}
-						
-						}
-						else {
-							$filter_category_order = explode(",", $filter_category_order);
-							foreach ($filter_category_order as $key) {
-								$key = trim($key);
-								echo '<li><a data-filter=".' . esc_attr( strtolower($key)) . '" href="#" title="' . esc_attr( $filters[$key] ) . '">' . esc_html( $filters[$key] ) . '</a></li>'; 
-							}
-						}
-	                echo '</ul>';
-					
-					echo '<div class="container-filter ' . esc_attr($show_filter_class) . ' wrap-portfolio-post">';
-
-	            endif;
-		?>
-
 <?php $query = new WP_Query( $query_args );
 		if ( $query->have_posts() ) : ?>
 
@@ -1682,26 +1421,9 @@ $this->end_controls_section();
     data-column2="<?php echo esc_attr($settings['carousel_column_tablet']); ?>"
     data-column3="<?php echo esc_attr($settings['carousel_column_mobile']); ?>"
     data-spacer="<?php echo esc_attr($settings['carousel_spacer']); ?>"
-    data-centered="<?php echo esc_attr($settings['carousel_centered']); ?>" data-prev_icon="icon-micare-chevron-left"
+    data-centered="false" data-prev_icon="icon-micare-chevron-left"
     data-next_icon="icon-micare-chevron-right" data-loop="<?php echo esc_attr($settings['carousel_loop']) ?>"
     data-arrow="false" data-bullets="<?php echo esc_attr($settings['carousel_bullets']) ?>">
-
-	<?php if ( $settings['style'] == 'style3' ): ?>
-
-		<div class="wrap-thumbnail">
-			<?php $count=1;  while ( $query->have_posts() ) : $query->the_post(); ?>
-				<div class="thumbnail-image" data-item="<?php echo esc_attr($count); ?>">
-					<a href="<?php echo get_the_permalink(); ?>">
-						<?php 
-						$get_id_post_thumbnail = get_post_thumbnail_id();
-						echo sprintf('<img src="%s" class="lazyload" alt="image">', \Elementor\Group_Control_Image_Size::get_attachment_image_src( $get_id_post_thumbnail, 'thumbnail', $settings ));
-						?>
-					</a>
-				</div>
-            <?php $count++; endwhile; ?>
-		</div>
-
-	<?php endif; ?>
 
 
     <div class="wrap-portfolio-post row <?php echo esc_attr($settings['layout']); ?> ">
@@ -1717,9 +1439,8 @@ $this->end_controls_section();
 
 						$attr['settings'] = $settings; 
 						$attr['count'] = $count; 
-						$attr['icon'] = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( themesflat_get_opt_elementor('portfolio_post_icon') );
 
-						tf_get_template_widget("portfolio/{$settings['style']}", $attr); 
+						tf_get_template_widget("portfolio/style1", $attr); 
 
 						?>
 
@@ -1736,11 +1457,6 @@ $this->end_controls_section();
     </div>
 
 </div>
-
-<?php 
-	if ($settings['show_filter'] == 'yes'): ?>
-</div>
-<?php endif; ?>
 
 
 <?php

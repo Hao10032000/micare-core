@@ -32,10 +32,10 @@
                 <div class="tf-button-container">
                     <a href="<?php echo esc_url( get_permalink() ) ?>" class="tf-btn">
                         <span><?php echo esc_attr( $settings['button_text'] ); ?></span>
-                        <?php endif; ?>
                         <i class="icon-micare-arrow-right"></i>
                     </a>
                 </div>
+            <?php endif; ?>
 
         </div>
 

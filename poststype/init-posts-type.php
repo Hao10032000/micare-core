@@ -235,9 +235,9 @@ add_filter( 'request', 'themesflat_fix_custom_posttype_posts_per_page' );
 
 function themesflat_pagination_posttype( $query = '' , $paging_style = '' ) {    
 
-    $prev_arrow = 'icon-micare-arrow-right';
+    $prev_arrow = 'icon-micare-angles-left1';
 
-    $next_arrow = 'icon-micare-right';
+    $next_arrow = 'icon-micare-angles-left';
 
     
 
