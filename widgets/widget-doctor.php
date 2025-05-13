@@ -1,12 +1,12 @@
 <?php
 
-class TFTeam_Widget extends \Elementor\Widget_Base {
+class TFDoctor_Widget extends \Elementor\Widget_Base {
 
 
 
 	public function get_name() {
 
-        return 'tf-team';
+        return 'tf-doctor';
 
     }
 
@@ -38,7 +38,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 	public function get_style_depends(){
 
-		return ['tf-team'];
+		return ['tf-doctor'];
 
 	}
 
@@ -144,7 +144,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 						'type' => \Elementor\Controls_Manager::SELECT2,
 
-						'options' => ThemesFlat_Addon_For_Elementor_micare::tf_get_taxonomies('team_category'),
+						'options' => ThemesFlat_Addon_For_Elementor_micare::tf_get_taxonomies('doctor_category'),
 
 						'label_block' => true,
 
@@ -239,6 +239,52 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 				);
 
 
+				$this->add_control( 
+
+					'show_button',
+
+					[
+
+						'label' => esc_html__( 'Show Button', 'themesflat-core' ),
+
+						'type' => \Elementor\Controls_Manager::SWITCHER,
+
+						'label_on' => esc_html__( 'Show', 'themesflat-core' ),
+
+						'label_off' => esc_html__( 'Hide', 'themesflat-core' ),
+
+						'return_value' => 'yes',
+
+						'default' => 'yes',
+
+					]
+
+				);
+
+
+
+				$this->add_control( 
+
+					'button_text',
+
+					[
+
+						'label' => esc_html__( 'Button Text', 'themesflat-core' ),
+
+						'type' => \Elementor\Controls_Manager::TEXT,
+
+						'default' => esc_html__( 'Lets Talk', 'themesflat-core' ),
+
+						'condition' => [
+
+							'show_button'	=> 'yes',
+
+						],
+
+					]
+
+				);	
+
 
 				$this->add_control( 
 
@@ -322,7 +368,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .wrap-team-post .item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .wrap-doctor-post .item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],					
 
@@ -358,7 +404,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .wrap-team-post .item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .wrap-doctor-post .item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -380,7 +426,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 	
 					'selectors' => [
 	
-						'{{WRAPPER}} .tf-team-wrap .team-post' => 'background-color: {{VALUE}}',
+						'{{WRAPPER}} .tf-doctor-wrap .doctor-post' => 'background-color: {{VALUE}}',
 	
 					],
 	
@@ -472,7 +518,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 				'selectors' => [
 
-					'{{WRAPPER}} .tf-team-wrap .featured-post img' => 'height: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .tf-doctor-wrap .featured-post img' => 'height: {{SIZE}}{{UNIT}};',
 
 				],
 
@@ -493,7 +539,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 				'selectors' => [
 
-					'{{WRAPPER}} .tf-team-wrap .featured-post img, {{WRAPPER}} .tf-team-wrap .featured-post > a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .tf-doctor-wrap .featured-post img, {{WRAPPER}} .tf-doctor-wrap .featured-post > a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 				],
 
@@ -511,7 +557,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 		$this->start_controls_section( 
 
-			'content-team',
+			'content-doctor',
 
 			[
 
@@ -534,7 +580,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 				'selectors' => [
 
-					'{{WRAPPER}} .tf-team-wrap .content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .tf-doctor-wrap .content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 				],					
 
@@ -555,7 +601,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 				'selectors' => [
 
-					'{{WRAPPER}} .tf-team-wrap .content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .tf-doctor-wrap .content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 				],
 
@@ -576,7 +622,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 				'selectors' => [
 
-					'{{WRAPPER}} .tf-team-wrap .content' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .tf-doctor-wrap .content' => 'background-color: {{VALUE}}',
 
 				],
 
@@ -600,7 +646,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 				'selectors' => [
 
-					'{{WRAPPER}} .tf-team-wrap .content:hover' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .tf-doctor-wrap .content:hover' => 'background-color: {{VALUE}}',
 
 				],
 
@@ -645,7 +691,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 					'label' => esc_html__( 'Typography', 'themesflat-core' ),
 
-					'selector' => '{{WRAPPER}} .wrap-team-post .team-post .title ',
+					'selector' => '{{WRAPPER}} .wrap-doctor-post .doctor-post .title ',
 
 				]
 
@@ -665,7 +711,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .wrap-team-post .team-post .title ' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .wrap-doctor-post .doctor-post .title ' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -705,7 +751,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 							'selectors' => [
 
-								'{{WRAPPER}} .wrap-team-post .team-post .title a' => 'color: {{VALUE}}',
+								'{{WRAPPER}} .wrap-doctor-post .doctor-post .title a' => 'color: {{VALUE}}',
 
 							],
 
@@ -749,7 +795,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 							'selectors' => [
 
-								'{{WRAPPER}} .wrap-team-post  .team-post  .title a:hover' => 'color: {{VALUE}}',
+								'{{WRAPPER}} .wrap-doctor-post  .doctor-post  .title a:hover' => 'color: {{VALUE}}',
 
 							],
 
@@ -801,7 +847,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 					'label' => esc_html__( 'Typography', 'themesflat-core' ),
 
-					'selector' => '{{WRAPPER}} .wrap-team-post .team-post .category-team a',
+					'selector' => '{{WRAPPER}} .wrap-doctor-post .doctor-post .category-doctor a',
 
 				]
 
@@ -823,7 +869,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .wrap-team-post .team-post .category-team a' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .wrap-doctor-post .doctor-post .category-doctor a' => 'color: {{VALUE}}',
 
 					],
 
@@ -847,7 +893,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .wrap-team-post .team-post .category-team' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .wrap-doctor-post .doctor-post .category-doctor' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -898,7 +944,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 				'selectors' => [
 
-					'{{WRAPPER}} .team-post .list-social a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
+					'{{WRAPPER}} .doctor-post .list-social a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 
 				],
 
@@ -921,7 +967,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 				'selectors' => [
 
-					'{{WRAPPER}} .team-post .list-social a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .doctor-post .list-social a' => 'color: {{VALUE}}',
 
 				],
 
@@ -945,7 +991,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 				'selectors' => [
 
-					'{{WRAPPER}} .team-post .list-social a:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .doctor-post .list-social a:hover' => 'color: {{VALUE}}',
 
 				],
 
@@ -969,7 +1015,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 				'selectors' => [
 
-					'{{WRAPPER}} .team-post .list-social a' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .doctor-post .list-social a' => 'background-color: {{VALUE}}',
 
 				],
 
@@ -993,7 +1039,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 				'selectors' => [
 
-					'{{WRAPPER}} .team-post .list-social a:hover' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .doctor-post .list-social a:hover' => 'background-color: {{VALUE}}',
 
 				],
 
@@ -1013,7 +1059,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 				'label' => esc_html__( 'Border', 'themesflat-core' ),
 
-				'selector' => '{{WRAPPER}} .team-post .list-social a',
+				'selector' => '{{WRAPPER}} .doctor-post .list-social a',
 
 			]
 
@@ -1032,7 +1078,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 				'selectors' => [
 
-					'{{WRAPPER}} .team-post .list-social a:hover' => 'border-color: {{VALUE}}',
+					'{{WRAPPER}} .doctor-post .list-social a:hover' => 'border-color: {{VALUE}}',
 
 				],
 
@@ -1070,7 +1116,7 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 
 
-		$this->add_render_attribute( 'tf_team_wrap', ['class' => ['tf-team-wrap', 'themesflat-team-taxonomy', $settings['style'] ], 'data-tabid' => $this->get_id()] );
+		$this->add_render_attribute( 'tf_doctor_wrap', ['class' => ['tf-doctor-wrap', 'themesflat-doctor-taxonomy', $settings['style'] ], 'data-tabid' => $this->get_id()] );
 
 
 
@@ -1156,11 +1202,11 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
 		if ( $query->have_posts() ) : ?>
 
-<div <?php echo $this->get_render_attribute_string('tf_team_wrap'); ?>>
+<div <?php echo $this->get_render_attribute_string('tf_doctor_wrap'); ?>>
 
 
 
-    <div class="wrap-team-post row <?php echo esc_attr($settings['layout']); ?> ">
+    <div class="wrap-doctor-post row <?php echo esc_attr($settings['layout']); ?> ">
 
 
 
@@ -1168,29 +1214,19 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 
                             global $post;
 
-                            $facebook = get_post_meta($post->ID, 'facebook_team_value', true);
-
-                            $twitter = get_post_meta($post->ID, 'twitter_team_value', true);
-
-                            $linkedin = get_post_meta($post->ID, 'linkedin_team_value', true);
-
-                            $youtube = get_post_meta($post->ID, 'youtube_team_value', true);
-
-                            $custom1 = get_post_meta($post->ID, 'custom1_team_value', true);
-
-                            $custom2 = get_post_meta($post->ID, 'custom2_team_value', true);
-
-                            $facebook_icon = get_post_meta($post->ID, 'facebook_icon_value', true);
-
-                            $twitter_icon = get_post_meta($post->ID, 'twitter_icon_value', true);
-
-                            $linkedin_icon = get_post_meta($post->ID, 'linkedin_icon_value', true);
-
-                            $youtube_icon = get_post_meta($post->ID, 'youtube_icon_value', true);
-
-                            $custom1_icon = get_post_meta($post->ID, 'custom1_icon_value', true);
-
-                            $custom2_icon = get_post_meta($post->ID, 'custom2_icon_value', true);
+								$facebook = get_post_meta($post->ID, 'facebook_doctor_value', true);
+								$twitter = get_post_meta($post->ID, 'twitter_doctor_value', true);
+								$linkedin = get_post_meta($post->ID, 'linkedin_doctor_value', true);
+								$youtube = get_post_meta($post->ID, 'youtube_doctor_value', true);
+								$custom1 = get_post_meta($post->ID, 'custom1_doctor_value', true);
+								$custom2 = get_post_meta($post->ID, 'custom2_doctor_value', true);
+								$facebook_icon = get_post_meta($post->ID, 'facebook_icon_value', true);
+								$twitter_icon = get_post_meta($post->ID, 'twitter_icon_value', true);
+								$linkedin_icon = get_post_meta($post->ID, 'linkedin_icon_value', true);
+								$youtube_icon = get_post_meta($post->ID, 'youtube_icon_value', true);
+								$custom1_icon = get_post_meta($post->ID, 'custom1_icon_value', true);
+								$custom2_icon = get_post_meta($post->ID, 'custom2_icon_value', true);
+								$position_doctor_value = get_post_meta($post->ID, 'position_doctor_value', true);
 
                 ?>
 
@@ -1209,8 +1245,9 @@ class TFTeam_Widget extends \Elementor\Widget_Base {
 					$attr['youtube_icon'] = $youtube_icon; 
 					$attr['custom1_icon'] = $custom1_icon; 
 					$attr['custom2_icon'] = $custom2_icon; 
+					$attr['position_doctor_value'] = $position_doctor_value; 
 							
-					tf_get_template_widget("team/{$settings['style']}", $attr); 
+					tf_get_template_widget("doctor/{$settings['style']}", $attr); 
 
 					?>
 

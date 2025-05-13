@@ -12,7 +12,7 @@ if ( ! class_exists( 'themesflat_custom_post_type' ) ) {
 
             
 
-            require_once THEMESFLAT_PATH . '/poststype/register-team.php';
+            require_once THEMESFLAT_PATH . '/poststype/register-doctor.php';
 
             require_once THEMESFLAT_PATH . '/poststype/register-services.php';
 
@@ -20,11 +20,11 @@ if ( ! class_exists( 'themesflat_custom_post_type' ) ) {
 
 
 
-            add_filter( 'single_template', array( $this,'themesflat_single_team' ) );  
+            add_filter( 'single_template', array( $this,'themesflat_single_doctor' ) );  
 
-            add_filter( 'taxonomy_template', array( $this,'themesflat_taxonomy_team' ) );
+            add_filter( 'taxonomy_template', array( $this,'themesflat_taxonomy_doctor' ) );
 
-            add_filter( 'archive_template', array( $this,'themesflat_archive_team' ) );
+            add_filter( 'archive_template', array( $this,'themesflat_archive_doctor' ) );
 
 
 
@@ -47,33 +47,33 @@ if ( ! class_exists( 'themesflat_custom_post_type' ) ) {
 
 
 
-        /* Temlate team */
+        /* Temlate doctor */
 
-        function themesflat_single_team( $single_template ) {
+        function themesflat_single_doctor( $single_template ) {
 
             global $post;
 
-            if ( $post->post_type == 'team' ) $single_template = THEMESFLAT_PATH . '/poststype/inc/single-team.php';
+            if ( $post->post_type == 'doctor' ) $single_template = THEMESFLAT_PATH . '/poststype/inc/single-doctor.php';
 
             return $single_template;
 
         }
 
-        function themesflat_taxonomy_team( $taxonomy_template ) {
+        function themesflat_taxonomy_doctor( $taxonomy_template ) {
 
             global $post;
 
-            if ( $post->post_type == 'team' ) $taxonomy_template = THEMESFLAT_PATH . '/poststype/inc/taxonomy-team_category.php';
+            if ( $post->post_type == 'doctor' ) $taxonomy_template = THEMESFLAT_PATH . '/poststype/inc/taxonomy-doctor_category.php';
 
             return $taxonomy_template;
 
         }
 
-        function themesflat_archive_team( $archive_template ) {
+        function themesflat_archive_doctor( $archive_template ) {
 
             global $post;
 
-            if ( is_post_type_archive ( 'team' ) ) $archive_template = THEMESFLAT_PATH . '/poststype/inc/archive-team.php';
+            if ( is_post_type_archive ( 'doctor' ) ) $archive_template = THEMESFLAT_PATH . '/poststype/inc/archive-doctor.php';
 
             return $archive_template;
 
@@ -169,7 +169,7 @@ function themesflat_fix_custom_posttype_posts_per_page( $query_string ){
 
 
 
-    $team_number_post = themesflat_get_opt( 'team_number_post' ) ? themesflat_get_opt( 'team_number_post' ) : 9;
+    $doctor_number_post = themesflat_get_opt( 'doctor_number_post' ) ? themesflat_get_opt( 'doctor_number_post' ) : 9;
 
     $services_number_post = themesflat_get_opt( 'services_number_post' ) ? themesflat_get_opt( 'services_number_post' ) : 6;
 
@@ -181,9 +181,9 @@ function themesflat_fix_custom_posttype_posts_per_page( $query_string ){
 
         array(
 
-            'post_type' => 'team',
+            'post_type' => 'doctor',
 
-            'posts_per_page' => $team_number_post
+            'posts_per_page' => $doctor_number_post
 
         ),       
 

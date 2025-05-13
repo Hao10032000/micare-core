@@ -178,24 +178,6 @@
         })       
     } 
 
-    var popupOverlay = function(){
-        $(document).ready(function () {
-            $(".single-team .overlay-team, .tf-team-wrap .overlay-team,.icon-close-team").click(function () {
-                $('.single-information-author, .overlay-team,.icon-close-team').removeClass('active');
-            });
-        
-            $(".single-information-author .btn-switch").click(function () {
-                $('.single-information-author, .single-team .overlay-team,.icon-close-team').toggleClass('active');
-            });
-
-            $(".tf-team-wrap .title, .tf-team-wrap .featured-post").click(function () {
-                $(this).closest('.item').find('.single-information-author').addClass('active');
-                $(this).closest('.item').find('.overlay-team').addClass('active');
-                $(this).closest('.item').find('.icon-close-team').addClass('active');
-            });
-        });
-    }
-
     var activeStep = function(){
         if($('.hover-active-step').length) {
             $(document).ready(function () {
@@ -229,7 +211,6 @@
         iziModal();
         styleSingleServices();
         portfolioLoadMore();
-        popupOverlay();
         activeStep();
         activeStep2();
     })

@@ -1,6 +1,6 @@
 /* Services Archive
 -------------------------------------------------------------- */
-.wrap-team-post .item {
+.wrap-doctor-post .item {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
@@ -695,7 +695,7 @@ line-height: 24px;
     transform: translateY(-50%);
 }
 
-/* Single Team */
+/* Single doctor */
 
 .single-information-author {
     display: flex;
@@ -919,7 +919,7 @@ display: block;
 
 @media only screen and (max-width: 991px) {
 
-    .wrap-team-post.column-4 .item,
+    .wrap-doctor-post.column-4 .item,
     .wrap-services-post.column-4 .item {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 50%;
@@ -927,7 +927,7 @@ display: block;
         max-width: 50%;
     }
 
-    .wrap-team-post.column-5 .item,
+    .wrap-doctor-post.column-5 .item,
     .wrap-services-post.column-5 .item {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 50%;
@@ -959,7 +959,7 @@ display: block;
 
 @media only screen and (max-width: 767px) {
 
-    .wrap-team-post .item,
+    .wrap-doctor-post .item,
     .wrap-services-post .item {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 100%;
@@ -973,7 +973,7 @@ display: block;
         display: none;
     }
 
-    .wrap-team-post.column-3 .item,
+    .wrap-doctor-post.column-3 .item,
     .wrap-services-post.column-3 .item {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 100%;
@@ -981,7 +981,7 @@ display: block;
         max-width: 100%;
     }
 
-    .wrap-team-post.column-4 .item,
+    .wrap-doctor-post.column-4 .item,
     .wrap-services-post.column-4 .item {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 100%;
@@ -989,7 +989,7 @@ display: block;
         max-width: 100%;
     }
 
-    .wrap-team-post.column-5 .item,
+    .wrap-doctor-post.column-5 .item,
     .wrap-services-post.column-5 .item {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 100%;

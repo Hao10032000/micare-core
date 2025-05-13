@@ -4,7 +4,7 @@
 
     var blogPostsOwl = function() {
         if ( $().owlCarousel ) {
-            $('.tf-team-wrap.has-carousel .owl-carousel').each(function(){
+            $('.tf-doctor-wrap.has-carousel .owl-carousel').each(function(){
                 var
                 $this = $(this),
                 item = $this.data("column"),
@@ -61,7 +61,7 @@
     } 
 
     $(window).on('elementor/frontend/init', function() {        
-        elementorFrontend.hooks.addAction( 'frontend/element_ready/tf-team.default', blogPostsOwl );
+        elementorFrontend.hooks.addAction( 'frontend/element_ready/tf-doctor.default', blogPostsOwl );
     });
 
 })(jQuery);

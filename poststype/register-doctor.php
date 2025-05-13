@@ -378,14 +378,7 @@ function doctor_custom_metabox() {
 
 
     $data_description = get_post_meta($post->ID, 'description_doctor_value', true);
-	$data_age = get_post_meta($post->ID, 'age_doctor_value', true);
-	$data_email = get_post_meta($post->ID, 'email_doctor_value', true);
-	$data_phone = get_post_meta($post->ID, 'phone_doctor_value', true);
-	$data_location = get_post_meta($post->ID, 'location_doctor_value', true);
-	$data_education = get_post_meta($post->ID, 'education_doctor_value', true);
-	$data_experience = get_post_meta($post->ID, 'experience_doctor_value', true);
-	$data_awards = get_post_meta($post->ID, 'awards_doctor_value', true);
-	$data_yoex = get_post_meta($post->ID, 'yoex_doctor_value', true);
+	$data_position = get_post_meta($post->ID, 'position_doctor_value', true);
 
     // Use nonce for verification to secure data sending
 
@@ -404,51 +397,10 @@ function doctor_custom_metabox() {
         </textarea>
     </div>
 
-    <div class="inner-group" style="display: flex;margin-left: -30px; margin-bottom: 30px;">
-        <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="age_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Age', 'themesflat' ) ?></label>
-            <input type="text" id="age_doctor" name="age_doctor_value"  value="<?php echo (isset($data_age)) ? $data_age : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
-        </div>
-        <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="email_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Email', 'themesflat' ) ?></label>
-            <input type="text" id="email_doctor" name="email_doctor_value"  value="<?php echo (isset($data_email)) ? $data_email : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
-        </div>
+    <div class="inner-full" style="margin-bottom: 30px;">
+<label for="position_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Position', 'themesflat' ) ?></label>
+            <input type="text" id="position_doctor" name="position_doctor_value"  value="<?php echo (isset($data_position)) ? $data_position : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
     </div>
-
-    <div class="inner-group" style="display: flex;margin-left: -30px; margin-bottom: 30px;">
-        <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="phone_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Phone Number', 'themesflat' ) ?></label>
-            <input type="text" id="phone_doctor" name="phone_doctor_value"  value="<?php echo (isset($data_phone)) ? $data_phone : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
-        </div>
-        <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="location_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Location', 'themesflat' ) ?></label>
-            <input type="text" id="location_doctor" name="location_doctor_value"  value="<?php echo (isset($data_location)) ? $data_location : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
-        </div>
-    </div>
-
-    <div class="inner-group" style="display: flex;margin-left: -30px; margin-bottom: 30px;">
-        <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="education_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Education', 'themesflat' ) ?></label>
-            <input type="text" id="education_doctor" name="education_doctor_value"  value="<?php echo (isset($data_education)) ? $data_education : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
-        </div>
-        <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="experience_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Experience', 'themesflat' ) ?></label>
-            <input type="text" id="experience_doctor" name="experience_doctor_value"  value="<?php echo (isset($data_experience)) ? $data_experience : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
-        </div>
-    </div>
-
-    <div class="inner-group" style="display: flex;margin-left: -30px; margin-bottom: 30px;">
-        <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="awards_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Awards', 'themesflat' ) ?></label>
-            <input type="text" id="awards_doctor" name="awards_doctor_value"  value="<?php echo (isset($data_awards)) ? $data_awards : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
-        </div>
-        <div class="inner" style="width: calc(50% - 30px);margin-left: 30px;">
-            <label for="yoex_doctor" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Years of Experience:', 'themesflat' ) ?></label>
-            <input type="text" id="yoex_doctor" name="yoex_doctor_value"  value="<?php echo (isset($data_yoex)) ? $data_yoex : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
-        </div>
-    </div>
-
-
 
     <?php
 
@@ -488,19 +440,19 @@ function facebook_doctor_metabox() {
 
             <option value="">Select Icon</option>
 
-            <option value="facebook" <?php selected($icon, 'facebook'); ?>>&#xe922; Facebook</option>
+            <option value="facebook" <?php selected($icon, 'facebook'); ?>>&#xe989; Facebook</option>
 
-            <option value="instagram" <?php selected($icon, 'instagram'); ?>>&#xe90b; Instagram</option>
+            <option value="instagram" <?php selected($icon, 'instagram'); ?>>&#xe9cf; Instagram</option>
 
-            <option value="linkedin" <?php selected($icon, 'linkedin'); ?>>&#xe950; Linkedin</option>
+            <option value="linkedin" <?php selected($icon, 'linkedin'); ?>>&#xe9d1; Linkedin</option>
 
-            <option value="twitter" <?php selected($icon, 'twitter'); ?>>&#xe93e; Twitter</option>
+            <option value="twitter" <?php selected($icon, 'twitter'); ?>>&#xe900; Twitter</option>
 
-            <option value="google-plus" <?php selected($icon, 'google-plus'); ?>>&#xe957; Google / Gmail</option>
+            <option value="google-plus" <?php selected($icon, 'google-plus'); ?>>&#xe9f6; Google / Gmail</option>
 
-            <option value="youtube" <?php selected($icon, 'youtube'); ?>>&#xe94f; Youtube</option>
+            <option value="youtube" <?php selected($icon, 'youtube'); ?>>&#xe9ef; Youtube</option>
 
-            <option value="skype" <?php selected($icon, 'skype'); ?>>&#xe923; Skype</option>
+            <option value="skype" <?php selected($icon, 'skype'); ?>>&#xe9ee; Skype</option>
 
         </select>
 
@@ -546,19 +498,19 @@ function twitter_doctor_metabox() {
 
 <option value="">Select Icon</option>
 
-<option value="facebook" <?php selected($icon, 'facebook'); ?>>&#xe922; Facebook</option>
+<option value="facebook" <?php selected($icon, 'facebook'); ?>>&#xe989; Facebook</option>
 
-<option value="instagram" <?php selected($icon, 'instagram'); ?>>&#xe90b; Instagram</option>
+<option value="instagram" <?php selected($icon, 'instagram'); ?>>&#xe9cf; Instagram</option>
 
-<option value="linkedin" <?php selected($icon, 'linkedin'); ?>>&#xe950; Linkedin</option>
+<option value="linkedin" <?php selected($icon, 'linkedin'); ?>>&#xe9d1; Linkedin</option>
 
-<option value="twitter" <?php selected($icon, 'twitter'); ?>>&#xe93e; Twitter</option>
+<option value="twitter" <?php selected($icon, 'twitter'); ?>>&#xe900; Twitter</option>
 
-<option value="google-plus" <?php selected($icon, 'google-plus'); ?>>&#xe957; Google / Gmail</option>
+<option value="google-plus" <?php selected($icon, 'google-plus'); ?>>&#xe9f6; Google / Gmail</option>
 
-<option value="youtube" <?php selected($icon, 'youtube'); ?>>&#xe94f; Youtube</option>
+<option value="youtube" <?php selected($icon, 'youtube'); ?>>&#xe9ef; Youtube</option>
 
-<option value="skype" <?php selected($icon, 'skype'); ?>>&#xe923; Skype</option>
+<option value="skype" <?php selected($icon, 'skype'); ?>>&#xe9ee; Skype</option>
 
         </select>
 
@@ -604,19 +556,19 @@ function linkedin_doctor_metabox() {
 
 <option value="">Select Icon</option>
 
-<option value="facebook" <?php selected($icon, 'facebook'); ?>>&#xe922; Facebook</option>
+<option value="facebook" <?php selected($icon, 'facebook'); ?>>&#xe989; Facebook</option>
 
-<option value="instagram" <?php selected($icon, 'instagram'); ?>>&#xe90b; Instagram</option>
+<option value="instagram" <?php selected($icon, 'instagram'); ?>>&#xe9cf; Instagram</option>
 
-<option value="linkedin" <?php selected($icon, 'linkedin'); ?>>&#xe950; Linkedin</option>
+<option value="linkedin" <?php selected($icon, 'linkedin'); ?>>&#xe9d1; Linkedin</option>
 
-<option value="twitter" <?php selected($icon, 'twitter'); ?>>&#xe93e; Twitter</option>
+<option value="twitter" <?php selected($icon, 'twitter'); ?>>&#xe900; Twitter</option>
 
-<option value="google-plus" <?php selected($icon, 'google-plus'); ?>>&#xe957; Google / Gmail</option>
+<option value="google-plus" <?php selected($icon, 'google-plus'); ?>>&#xe9f6; Google / Gmail</option>
 
-<option value="youtube" <?php selected($icon, 'youtube'); ?>>&#xe94f; Youtube</option>
+<option value="youtube" <?php selected($icon, 'youtube'); ?>>&#xe9ef; Youtube</option>
 
-<option value="skype" <?php selected($icon, 'skype'); ?>>&#xe923; Skype</option>
+<option value="skype" <?php selected($icon, 'skype'); ?>>&#xe9ee; Skype</option>
 
         </select>
 
@@ -664,19 +616,19 @@ function youtube_doctor_metabox() {
 
 <option value="">Select Icon</option>
 
-<option value="facebook" <?php selected($icon, 'facebook'); ?>>&#xe922; Facebook</option>
+<option value="facebook" <?php selected($icon, 'facebook'); ?>>&#xe989; Facebook</option>
 
-<option value="instagram" <?php selected($icon, 'instagram'); ?>>&#xe90b; Instagram</option>
+<option value="instagram" <?php selected($icon, 'instagram'); ?>>&#xe9cf; Instagram</option>
 
-<option value="linkedin" <?php selected($icon, 'linkedin'); ?>>&#xe950; Linkedin</option>
+<option value="linkedin" <?php selected($icon, 'linkedin'); ?>>&#xe9d1; Linkedin</option>
 
-<option value="twitter" <?php selected($icon, 'twitter'); ?>>&#xe93e; Twitter</option>
+<option value="twitter" <?php selected($icon, 'twitter'); ?>>&#xe900; Twitter</option>
 
-<option value="google-plus" <?php selected($icon, 'google-plus'); ?>>&#xe957; Google / Gmail</option>
+<option value="google-plus" <?php selected($icon, 'google-plus'); ?>>&#xe9f6; Google / Gmail</option>
 
-<option value="youtube" <?php selected($icon, 'youtube'); ?>>&#xe94f; Youtube</option>
+<option value="youtube" <?php selected($icon, 'youtube'); ?>>&#xe9ef; Youtube</option>
 
-<option value="skype" <?php selected($icon, 'skype'); ?>>&#xe923; Skype</option>
+<option value="skype" <?php selected($icon, 'skype'); ?>>&#xe9ee; Skype</option>
 
         </select>
 
@@ -724,19 +676,19 @@ function custom1_doctor_metabox() {
 
 <option value="">Select Icon</option>
 
-<option value="facebook" <?php selected($icon, 'facebook'); ?>>&#xe922; Facebook</option>
+<option value="facebook" <?php selected($icon, 'facebook'); ?>>&#xe989; Facebook</option>
 
-<option value="instagram" <?php selected($icon, 'instagram'); ?>>&#xe90b; Instagram</option>
+<option value="instagram" <?php selected($icon, 'instagram'); ?>>&#xe9cf; Instagram</option>
 
-<option value="linkedin" <?php selected($icon, 'linkedin'); ?>>&#xe950; Linkedin</option>
+<option value="linkedin" <?php selected($icon, 'linkedin'); ?>>&#xe9d1; Linkedin</option>
 
-<option value="twitter" <?php selected($icon, 'twitter'); ?>>&#xe93e; Twitter</option>
+<option value="twitter" <?php selected($icon, 'twitter'); ?>>&#xe900; Twitter</option>
 
-<option value="google-plus" <?php selected($icon, 'google-plus'); ?>>&#xe957; Google / Gmail</option>
+<option value="google-plus" <?php selected($icon, 'google-plus'); ?>>&#xe9f6; Google / Gmail</option>
 
-<option value="youtube" <?php selected($icon, 'youtube'); ?>>&#xe94f; Youtube</option>
+<option value="youtube" <?php selected($icon, 'youtube'); ?>>&#xe9ef; Youtube</option>
 
-<option value="skype" <?php selected($icon, 'skype'); ?>>&#xe923; Skype</option>
+<option value="skype" <?php selected($icon, 'skype'); ?>>&#xe9ee; Skype</option>
 
         </select>
 
@@ -784,19 +736,19 @@ function custom2_doctor_metabox() {
 
 <option value="">Select Icon</option>
 
-<option value="facebook" <?php selected($icon, 'facebook'); ?>>&#xe922; Facebook</option>
+<option value="facebook" <?php selected($icon, 'facebook'); ?>>&#xe989; Facebook</option>
 
-<option value="instagram" <?php selected($icon, 'instagram'); ?>>&#xe90b; Instagram</option>
+<option value="instagram" <?php selected($icon, 'instagram'); ?>>&#xe9cf; Instagram</option>
 
-<option value="linkedin" <?php selected($icon, 'linkedin'); ?>>&#xe950; Linkedin</option>
+<option value="linkedin" <?php selected($icon, 'linkedin'); ?>>&#xe9d1; Linkedin</option>
 
-<option value="twitter" <?php selected($icon, 'twitter'); ?>>&#xe93e; Twitter</option>
+<option value="twitter" <?php selected($icon, 'twitter'); ?>>&#xe900; Twitter</option>
 
-<option value="google-plus" <?php selected($icon, 'google-plus'); ?>>&#xe957; Google / Gmail</option>
+<option value="google-plus" <?php selected($icon, 'google-plus'); ?>>&#xe9f6; Google / Gmail</option>
 
-<option value="youtube" <?php selected($icon, 'youtube'); ?>>&#xe94f; Youtube</option>
+<option value="youtube" <?php selected($icon, 'youtube'); ?>>&#xe9ef; Youtube</option>
 
-<option value="skype" <?php selected($icon, 'skype'); ?>>&#xe923; Skype</option>
+<option value="skype" <?php selected($icon, 'skype'); ?>>&#xe9ee; Skype</option>
 
         </select>
 
@@ -874,14 +826,7 @@ function social_save_meta_fields( $post_id ) {
 
     // information
 	update_post_meta( $post_id, 'description_doctor_value', wp_kses_post($_POST[ 'description_doctor_value' ]) );
-	update_post_meta( $post_id, 'age_doctor_value', wp_kses_post($_POST[ 'age_doctor_value' ]) );
-	update_post_meta( $post_id, 'email_doctor_value', wp_kses_post($_POST[ 'email_doctor_value' ]) );
-	update_post_meta( $post_id, 'phone_doctor_value', wp_kses_post($_POST[ 'phone_doctor_value' ]) );
-	update_post_meta( $post_id, 'location_doctor_value', wp_kses_post($_POST[ 'location_doctor_value' ]) );
-	update_post_meta( $post_id, 'education_doctor_value', wp_kses_post($_POST[ 'education_doctor_value' ]) );
-	update_post_meta( $post_id, 'experience_doctor_value', wp_kses_post($_POST[ 'experience_doctor_value' ]) );
-	update_post_meta( $post_id, 'awards_doctor_value', wp_kses_post($_POST[ 'awards_doctor_value' ]) );
-	update_post_meta( $post_id, 'yoex_doctor_value', wp_kses_post($_POST[ 'yoex_doctor_value' ]) );
+	update_post_meta( $post_id, 'position_doctor_value', wp_kses_post($_POST[ 'position_doctor_value' ]) );
 
 
     // social

@@ -544,11 +544,9 @@ final class ThemesFlat_Addon_For_Elementor_micare {
 
         \Elementor\Plugin::instance()->widgets_manager->register( new \TFTabs_Widget() );  
 
+        require_once( __DIR__ . '/widgets/widget-doctor.php' );
 
-
-        require_once( __DIR__ . '/widgets/widget-team.php' );
-
-        \Elementor\Plugin::instance()->widgets_manager->register( new \TFTeam_Widget() );
+        \Elementor\Plugin::instance()->widgets_manager->register( new \TFDoctor_Widget() );
 
         require_once( __DIR__ . '/widgets/widget-portfolio.php' );
 
@@ -628,29 +626,7 @@ final class ThemesFlat_Addon_For_Elementor_micare {
 
  
 
- 
-
-        if( is_rtl() ){
-
-            wp_style_add_data( 'tf-team', 'rtl', 'replace' );
-
-            wp_style_add_data( 'tf-testimonial1', 'rtl', 'replace' );
-
-            wp_style_add_data( 'tf-posts', 'rtl', 'replace' );
-
-            wp_style_add_data( 'tf-step', 'rtl', 'replace' );
-
-            wp_style_add_data( 'tf-piechart', 'rtl', 'replace' );
-
-            wp_style_add_data( 'tf-pricetable', 'rtl', 'replace' );
-
-            wp_style_add_data( 'tf-iconbox', 'rtl', 'replace' );
-
-            wp_style_add_data( 'tf-imagebox', 'rtl', 'replace' );
-
-            wp_style_add_data( 'tf-video', 'rtl', 'replace' );
-
-        }      
+     
 
     }
 
@@ -703,7 +679,7 @@ final class ThemesFlat_Addon_For_Elementor_micare {
 
         wp_register_script( 'tf-accordion', plugins_url( '/assets/js/accordion/tf-accordion.js', __FILE__ ), [ 'jquery' ], false, true );
 
-        wp_register_script( 'tf-team', plugins_url( '/assets/js/team/tf-team.js', __FILE__ ), [ 'jquery' ], false, true );
+        wp_register_script( 'tf-doctor', plugins_url( '/assets/js/doctor/tf-doctor.js', __FILE__ ), [ 'jquery' ], false, true );
 
         wp_register_script( 'tf-service', plugins_url( '/assets/js/service/tf-service.js', __FILE__ ), [ 'jquery' ], false, true );
 
@@ -1393,28 +1369,29 @@ final class ThemesFlat_Addon_For_Elementor_micare {
 
 
 
-        static function tf_get_taxonomies( $category = 'category' ){
-
-            $category_posts = get_terms( 
-
-                array(
-
-                    'taxonomy' => $category,
-
-                )
-
-            );
-
+    static function tf_get_taxonomies( $category = 'category' ) {
+        // Initialize your output array
+        $category_posts_name = [];
     
-            foreach ( $category_posts as $category_post ) {
-
-                $category_posts_name[$category_post->slug] = $category_post->name;      
-
-            }
-
+        // Fetch the terms — you can also pass 'hide_empty' => false if you want to include empty terms
+        $terms = get_terms([
+            'taxonomy'   => $category,
+            'hide_empty' => false,
+        ]);
+    
+        // Bail early if something went wrong
+        if ( is_wp_error( $terms ) ) {
             return $category_posts_name;
+        }
+    
+        // Build slug => name map
+        foreach ( $terms as $term ) {
+            $category_posts_name[ $term->slug ] = $term->name;
+        }
+    
+        return $category_posts_name;
+    }
 
-        }  
 
 
 
