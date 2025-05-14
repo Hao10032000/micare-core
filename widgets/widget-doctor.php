@@ -38,7 +38,13 @@ class TFDoctor_Widget extends \Elementor\Widget_Base {
 
 	public function get_style_depends(){
 
-		return ['tf-doctor'];
+		return ['owl-carousel'];
+
+	}
+
+		public function get_script_depends(){
+
+		return ['owl-carousel','tf-doctor'];
 
 	}
 
@@ -232,6 +238,8 @@ class TFDoctor_Widget extends \Elementor\Widget_Base {
 
 							'style2' => esc_html__( 'Style 2', 'themesflat-core' ),
 
+							'style3' => esc_html__( 'Style 3', 'themesflat-core' ),
+
 						],
 
 					]
@@ -320,7 +328,539 @@ class TFDoctor_Widget extends \Elementor\Widget_Base {
 
         // /.End Posts Query
 
+		// Start Carousel        
 
+$this->start_controls_section( 
+
+	'section_posts_carousel',
+
+	[
+
+		'label' => esc_html__('Carousel', 'themesflat-core'),
+	]
+
+);	
+
+
+
+$this->add_control( 
+
+	'carousel',
+
+	[
+
+		'label' => esc_html__( 'Carousel', 'themesflat-core' ),
+
+		'type' => \Elementor\Controls_Manager::SWITCHER,
+
+		'label_on' => esc_html__( 'On', 'themesflat-core' ),
+
+		'label_off' => esc_html__( 'Off', 'themesflat-core' ),
+
+		'return_value' => 'yes',
+
+		'default' => 'no',
+
+	]
+
+);
+
+$this->add_control( 
+
+	'carousel_column_desk',
+
+	[
+
+		'label' => esc_html__( 'Columns Desktop', 'themesflat-core' ),
+
+		'type' => \Elementor\Controls_Manager::SELECT,
+
+		'default' => '3',
+
+		'options' => [
+
+			'1' => esc_html__( '1', 'themesflat-core' ),
+
+			'2' => esc_html__( '2', 'themesflat-core' ),
+
+			'3' => esc_html__( '3', 'themesflat-core' ),
+
+			'4' => esc_html__( '4', 'themesflat-core' ),
+
+			'5' => esc_html__( '5', 'themesflat-core' ),
+
+			'6' => esc_html__( '6', 'themesflat-core' ),
+
+		],
+
+		'condition' => [
+
+			'carousel' => 'yes',
+
+		],
+
+	]
+
+);
+
+
+
+$this->add_control( 
+
+	'carousel_column_tablet',
+
+	[
+
+		'label' => esc_html__( 'Columns Tablet', 'themesflat-core' ),
+
+		'type' => \Elementor\Controls_Manager::SELECT,
+
+		'default' => '1',
+
+		'options' => [
+
+			'1' => esc_html__( '1', 'themesflat-core' ),
+
+			'2' => esc_html__( '2', 'themesflat-core' ),
+
+			'3' => esc_html__( '3', 'themesflat-core' ),
+
+		],
+
+		'condition' => [
+
+			'carousel' => 'yes',
+
+		],
+
+	]
+
+);
+
+
+
+$this->add_control( 
+
+	'carousel_column_mobile',
+
+	[
+
+		'label' => esc_html__( 'Columns Mobile', 'themesflat-core' ),
+
+		'type' => \Elementor\Controls_Manager::SELECT,
+
+		'default' => '1',
+
+		'options' => [
+
+			'1' => esc_html__( '1', 'themesflat-core' ),
+
+			'2' => esc_html__( '2', 'themesflat-core' ),
+
+		],
+
+		'condition' => [
+
+			'carousel' => 'yes',
+
+		],
+
+	]
+
+);	
+
+$this->add_control(
+
+	'carousel_spacer',
+
+	[
+
+		'label' => esc_html__( 'Spacer', 'themesflat-core' ),
+
+		'type' => \Elementor\Controls_Manager::NUMBER,
+
+		'min' => 0,
+
+		'max' => 100,
+
+		'step' => 1,
+
+		'default' => 30,				
+
+	]
+
+);
+
+$this->add_control( 
+
+	'carousel_arrow',
+
+	[
+
+		'label' => esc_html__( 'Arrow', 'themesflat-core' ),
+
+		'type' => \Elementor\Controls_Manager::SWITCHER,
+
+		'label_on' => esc_html__( 'Show', 'themesflat-core' ),
+
+		'label_off' => esc_html__( 'Hide', 'themesflat-core' ),
+
+		'return_value' => 'yes',
+
+		'default' => 'no',
+
+		'condition' => [
+
+			'carousel' => 'yes',
+
+		],
+
+		'description'	=> 'Just show when you have two slide',
+
+		'separator' => 'before',
+
+	]
+
+);
+
+$this->add_control( 
+
+	'arrow_direction',
+
+	[
+
+		'label' => esc_html__( 'Arrow Direction', 'themesflat-core' ),
+
+		'type' => \Elementor\Controls_Manager::SELECT,
+
+		'default' => '',
+
+		'options' => [
+
+			'' => esc_html__( 'Flex', 'themesflat-core' ),
+
+			'flex-row' => esc_html__( 'Row', 'themesflat-core' ),
+
+		],
+
+		'condition' => [
+
+			'carousel_arrow' => 'yes',
+
+		],
+
+	]
+
+);	
+
+
+$this->add_responsive_control(
+	'nav_position_top',
+	[
+		'label' => esc_html__( 'Arrow Vertical Position', 'themesflat-core' ),
+		'type' => \Elementor\Controls_Manager::SLIDER,
+
+		'size_units' => [ 'px', '%' ],
+
+		'range' => [
+
+			'px' => [
+
+				'min' => -2000,
+
+				'max' => 2000,
+
+				'step' => 1,
+
+			],
+			'%' => [
+
+				'min' => -1000,
+
+				'max' => 1000,
+
+				'step' => 1,
+
+			],
+
+		],
+		'selectors' => [
+			'{{WRAPPER}}  .tf-services-wrap .owl-nav' => 'top: {{SIZE}}{{UNIT}};',
+		],
+		'condition' => [
+
+			'carousel_arrow' => 'yes',
+
+		],
+	]
+);
+
+$this->add_responsive_control(
+	'arrow_right',
+	[
+		'label' => esc_html__( 'Arrow Horizontal Position', 'themesflat-core' ),
+		'type' => \Elementor\Controls_Manager::SLIDER,
+
+		'size_units' => [ 'px', '%' ],
+
+		'range' => [
+
+			'px' => [
+
+				'min' => -2000,
+
+				'max' => 2000,
+
+				'step' => 1,
+
+			],
+			'%' => [
+
+				'min' => -1000,
+
+				'max' => 1000,
+
+				'step' => 1,
+
+			],
+
+		],
+		'selectors' => [
+			'{{WRAPPER}}  .tf-services-wrap .owl-nav ' => 'right: {{SIZE}}{{UNIT}};',
+		],
+		'condition' => [
+
+			'carousel_arrow' => 'yes',
+
+		],
+	]
+);
+
+$this->start_controls_tabs( 
+
+	'carousel_arrow_tabs',
+
+	[
+
+		'condition' => [
+
+			'carousel_arrow' => 'yes',
+
+			'carousel' => 'yes',
+
+		]
+
+	] );
+
+	$this->start_controls_tab( 
+
+		'carousel_arrow_normal_tab',
+
+		[
+
+			'label' => esc_html__( 'Normal', 'themesflat-core' ),						
+
+		]
+
+	);
+
+	$this->add_control( 
+
+		'carousel_arrow_color',
+
+		[
+
+			'label' => esc_html__( 'Color', 'themesflat-core' ),
+
+			'type' => \Elementor\Controls_Manager::COLOR,
+
+			'selectors' => [
+
+				'{{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next' => 'color: {{VALUE}}',
+
+			],
+
+			'condition' => [
+
+				'carousel_arrow' => 'yes',
+
+			]
+
+		]
+
+	);
+
+	$this->add_control( 
+
+		'carousel_arrow_bg_color',
+
+		[
+
+			'label' => esc_html__( 'Background Color', 'themesflat-core' ),
+
+			'type' => \Elementor\Controls_Manager::COLOR,
+
+			'selectors' => [
+
+				'{{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next' => 'background-color: {{VALUE}};',
+
+			],
+
+			'condition' => [
+
+				'carousel_arrow' => 'yes',
+
+			]
+
+		]
+
+	);	
+	
+	
+	$this->add_control( 
+
+		'carousel_border_arrow_color',
+
+		[
+
+			'label' => esc_html__( 'Border Color', 'themesflat-core' ),
+
+			'type' => \Elementor\Controls_Manager::COLOR,
+
+			'selectors' => [
+
+				'{{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next' => 'border-color: {{VALUE}}',
+
+			],
+
+			'condition' => [
+
+				'carousel_arrow' => 'yes',
+
+			]
+
+		]
+
+	);
+
+
+
+
+	$this->end_controls_tab();
+
+	$this->start_controls_tab( 
+
+		'carousel_arrow_hover_tab',
+
+		[
+
+			'label' => esc_html__( 'Hover', 'themesflat-core' ),
+
+		]
+
+	);
+
+	$this->add_control( 
+
+		'carousel_arrow_color_hover',
+
+		[
+
+			'label' => esc_html__( 'Color', 'themesflat-core' ),
+
+			'type' => \Elementor\Controls_Manager::COLOR,
+
+			'selectors' => [
+
+				'{{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button.active,
+				 {{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button:hover,
+				  {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev.active,
+				   {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next:hover,
+				    {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev.active,
+					 {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next:hover' => 'color: {{VALUE}}',
+
+			],
+
+			'condition' => [
+
+				'carousel_arrow' => 'yes',
+
+			]
+
+		]
+
+	);
+
+	$this->add_control( 
+
+		'carousel_arrow_hover_bg_color',
+
+		[
+
+			'label' => esc_html__( 'Background Color', 'themesflat-core' ),
+
+			'type' => \Elementor\Controls_Manager::COLOR,
+
+			'selectors' => [
+
+				'{{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button.active,
+				 {{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button:hover,
+				  {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev.active,
+				   {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next:hover,
+				    {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev.active,
+					 {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next:hover' => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
+
+			],
+
+			'condition' => [
+
+				'carousel_arrow' => 'yes',
+
+			]
+
+		]
+
+	);
+
+
+   $this->end_controls_tab();
+
+$this->end_controls_tabs();
+
+
+$this->add_control( 
+
+	'carousel_bullets',
+
+	[
+
+		'label'         => esc_html__( 'Bullets', 'themesflat-core' ),
+
+		'type'          => \Elementor\Controls_Manager::SWITCHER,
+
+		'label_on'      => esc_html__( 'Show', 'themesflat-core' ),
+
+		'label_off'     => esc_html__( 'Hide', 'themesflat-core' ),
+
+		'return_value'  => 'yes',
+
+		'default'       => 'no',
+
+		'condition' => [
+
+			'carousel' => 'yes',
+
+		],
+
+		'separator' => 'before',
+
+	]
+
+);	
+
+$this->end_controls_section();
+
+// /.End Carousel
 
 		// Start General Style 
 
@@ -412,147 +952,12 @@ class TFDoctor_Widget extends \Elementor\Widget_Base {
 
 			);  
 
-			$this->add_control( 
-
-				'bg_wrap_color',
-	
-				[
-	
-					'label' => esc_html__( 'Background Color', 'themesflat-core' ),
-	
-					'type' => \Elementor\Controls_Manager::COLOR,
-	
-					'default' => '',
-	
-					'selectors' => [
-	
-						'{{WRAPPER}} .tf-doctor-wrap .doctor-post' => 'background-color: {{VALUE}}',
-	
-					],
-	
-					
-	
-				]
-	
-			);
-	
 			$this->end_controls_section();    
 
 		// /.End General Style
 
 
 
-		// Start Post Icon Style 
-
-		$this->start_controls_section( 
-
-			'image_hei',
-
-			[
-
-				'label' => esc_html__( 'Image', 'themesflat-core' ),
-
-				'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-
-			]
-
-		);
-
-		
-
-		$this->add_responsive_control( 
-
-			'image_sv',
-
-			[
-
-				'label' => esc_html__( 'Image Height', 'themesflat-core' ),
-
-				'type' => \Elementor\Controls_Manager::SLIDER,
-
-				'size_units' => [ 'px', '%', 'rem', 'em' ],
-
-				'range' => [
-
-					'px' => [
-
-						'min' => 0,
-
-						'max' => 1000,
-
-						'step' => 1,
-
-					],
-
-					'%' => [
-
-						'min' => 0,
-
-						'max' => 100,
-
-						'step' => 1,
-
-					],
-
-					'rem' => [
-
-						'min' => 0,
-
-						'max' => 10,
-
-						'step' => 0.1,
-
-					],
-
-					'em' => [
-
-						'min' => 0,
-
-						'max' => 10,
-
-						'step' => 0.1,
-
-					],
-
-				],
-
-				'selectors' => [
-
-					'{{WRAPPER}} .tf-doctor-wrap .featured-post img' => 'height: {{SIZE}}{{UNIT}};',
-
-				],
-
-			]
-
-		);
-		$this->add_responsive_control( 
-
-			'image_border_radius',
-
-			[
-
-				'label' => esc_html__( 'Border Radius', 'themesflat-core' ),
-
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-
-				'size_units' => [ 'px' , '%' ],
-
-				'selectors' => [
-
-					'{{WRAPPER}} .tf-doctor-wrap .featured-post img, {{WRAPPER}} .tf-doctor-wrap .featured-post > a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-
-				],
-
-			]
-
-		);
-
-
-
-		$this->end_controls_section(); 
-
-
-		
 		// Start Post Icon Style 
 
 		$this->start_controls_section( 
@@ -587,74 +992,7 @@ class TFDoctor_Widget extends \Elementor\Widget_Base {
 			]
 
 		);	
-		$this->add_responsive_control( 
 
-			'content_border_radius',
-
-			[
-
-				'label' => esc_html__( 'Border Radius', 'themesflat-core' ),
-
-				'type' => \Elementor\Controls_Manager::DIMENSIONS,
-
-				'size_units' => [ 'px' , '%' ],
-
-				'selectors' => [
-
-					'{{WRAPPER}} .tf-doctor-wrap .content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-
-				],
-
-			]
-
-		);
-		$this->add_control( 
-
-			'bg_content_color',
-
-			[
-
-				'label' => esc_html__( 'Background Color', 'themesflat-core' ),
-
-				'type' => \Elementor\Controls_Manager::COLOR,
-
-				'default' => '',
-
-				'selectors' => [
-
-					'{{WRAPPER}} .tf-doctor-wrap .content' => 'background-color: {{VALUE}}',
-
-				],
-
-				
-
-			]
-
-		);
-
-		$this->add_control( 
-
-			'bg_content_color_hover',
-
-			[
-
-				'label' => esc_html__( 'Background Color Hover', 'themesflat-core' ),
-
-				'type' => \Elementor\Controls_Manager::COLOR,
-
-				'default' => '',
-
-				'selectors' => [
-
-					'{{WRAPPER}} .tf-doctor-wrap .content:hover' => 'background-color: {{VALUE}}',
-
-				],
-
-				
-
-			]
-
-		);
 
 		$this->end_controls_section(); 
 
@@ -847,7 +1185,7 @@ class TFDoctor_Widget extends \Elementor\Widget_Base {
 
 					'label' => esc_html__( 'Typography', 'themesflat-core' ),
 
-					'selector' => '{{WRAPPER}} .wrap-doctor-post .doctor-post .category-doctor a',
+					'selector' => '{{WRAPPER}} .wrap-doctor-post .doctor-post .position',
 
 				]
 
@@ -869,7 +1207,7 @@ class TFDoctor_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .wrap-doctor-post .doctor-post .category-doctor a' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .wrap-doctor-post .doctor-post .position' => 'color: {{VALUE}}',
 
 					],
 
@@ -1098,10 +1436,184 @@ class TFDoctor_Widget extends \Elementor\Widget_Base {
 
 	// /.End Description Style
 
+	// Start Button Style 
+
+			$this->start_controls_section( 
+
+				'section_style_btn',
+
+				[
+
+					'label' => esc_html__( 'Button', 'themesflat-core' ),
+
+					'tab' => \Elementor\Controls_Manager::TAB_STYLE,
+
+				]
+
+			);	
 
 
-	
 
+			$this->add_group_control( 
+
+	        	\Elementor\Group_Control_Typography::get_type(),
+
+				[
+
+					'name' => 'typography_button',
+
+					'label' => esc_html__( 'Typography', 'themesflat-core' ),
+
+					'selector' => '{{WRAPPER}} .wrap-doctor-post .doctor-post .tf-button-container a ',
+
+				]
+
+			);
+
+
+
+			$this->start_controls_tabs( 
+
+				'background_button_tabs',
+
+				);
+
+				$this->start_controls_tab( 
+
+					'button_style_normal_tab',
+
+					[
+
+						'label' => esc_html__( 'Normal', 'themesflat-core' ),
+
+					] ); 
+
+					$this->add_control( 
+
+						'button_color_a',
+
+						[
+
+							'label' => esc_html__( 'Color', 'themesflat-core' ),
+
+							'type' => \Elementor\Controls_Manager::COLOR,
+
+							'default' => '',
+
+							'selectors' => [
+
+								'{{WRAPPER}} .wrap-doctor-post .doctor-post .tf-button-container a' => 'color: {{VALUE}}',
+
+							],
+
+							
+
+						]
+
+					);  
+
+					$this->add_control( 
+
+						'button_bgcolor_a',
+
+						[
+
+							'label' => esc_html__( 'Background', 'themesflat-core' ),
+
+							'type' => \Elementor\Controls_Manager::COLOR,
+
+							'default' => '',
+
+							'selectors' => [
+
+								'{{WRAPPER}} .wrap-doctor-post .doctor-post .tf-button-container a' => 'background: {{VALUE}}',
+
+							],
+
+							
+
+						]
+
+					);  
+
+
+				$this->end_controls_tab();
+
+
+
+				$this->start_controls_tab( 
+
+					'social_style_hover_tab',
+
+					[
+
+						'label' => esc_html__( 'Hover', 'themesflat-core' ),
+
+					] );
+
+
+
+
+
+					$this->add_control( 
+
+						'button_color_hover',
+
+						[
+
+							'label' => esc_html__( 'Color Hover', 'themesflat-core' ),
+
+							'type' => \Elementor\Controls_Manager::COLOR,
+
+							'default' => '',
+
+							'selectors' => [
+
+								'{{WRAPPER}} .wrap-doctor-post .doctor-post .tf-button-container a:hover' => 'color: {{VALUE}}',
+							],
+
+							
+
+						]
+
+					);  
+
+					$this->add_control( 
+
+						'button_bgcolor_hover',
+
+						[
+
+							'label' => esc_html__( 'Background Color Hover', 'themesflat-core' ),
+
+							'type' => \Elementor\Controls_Manager::COLOR,
+
+							'selectors' => [
+
+								'{{WRAPPER}} .wrap-doctor-post .doctor-post .tf-button-container a:hover' => 'background: {{VALUE}}; border-color: {{VALUE}}; ',
+							],
+
+							
+
+						]
+
+					);  
+
+
+
+				$this->end_controls_tab();
+
+			$this->end_controls_tabs(); 
+
+			
+
+
+
+			
+
+			$this->end_controls_section();    
+
+		// /.End Button Style
 
 
 	}
@@ -1113,10 +1625,16 @@ class TFDoctor_Widget extends \Elementor\Widget_Base {
 		$settings = $this->get_settings_for_display();
 
 
+		$has_carousel = 'no-carousel';
+
+		if ( $settings['carousel'] == 'yes' ) {
+
+			$has_carousel = 'has-carousel';
+
+		}
 
 
-
-		$this->add_render_attribute( 'tf_doctor_wrap', ['class' => ['tf-doctor-wrap', 'themesflat-doctor-taxonomy', $settings['style'] ], 'data-tabid' => $this->get_id()] );
+		$this->add_render_attribute( 'tf_doctor_wrap', ['class' => ['tf-doctor-wrap', 'themesflat-doctor-taxonomy', $settings['style'], $has_carousel ], 'data-tabid' => $this->get_id()] );
 
 
 
@@ -1208,7 +1726,25 @@ class TFDoctor_Widget extends \Elementor\Widget_Base {
 
     <div class="wrap-doctor-post row <?php echo esc_attr($settings['layout']); ?> ">
 
+       <?php if ( $settings['carousel'] == 'yes' ): ?>
+        <div class="owl-carousel"	    data-loop="false"
 
+    data-auto=""
+
+    data-column="<?php echo esc_attr($settings['carousel_column_desk']); ?>"
+
+    data-column2="<?php echo esc_attr($settings['carousel_column_tablet']); ?>"
+
+    data-column3="<?php echo esc_attr($settings['carousel_column_mobile']); ?>"
+
+    data-prev_icon="icon-micare-left"
+
+    data-next_icon="icon-micare-right"
+
+    data-arrow="<?php echo esc_attr($settings['carousel_arrow']) ?>"
+
+    data-bullets="<?php echo esc_attr($settings['carousel_bullets']) ?>">
+            <?php endif; ?>
 
         <?php while ( $query->have_posts() ) : $query->the_post(); 
 
@@ -1253,7 +1789,11 @@ class TFDoctor_Widget extends \Elementor\Widget_Base {
 
         <?php endwhile; ?>
 
+            <?php if ( $settings['carousel'] == 'yes' ): ?>
 
+        </div>
+
+        <?php endif; ?>
 
         <?php wp_reset_postdata(); ?>
 
