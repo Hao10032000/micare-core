@@ -339,10 +339,15 @@ margin-bottom: 20px;
 
 .tf-services-wrap.style2 .services-post .tf-btn {
     display: block;
+    border: 1px solid #0C171A;
+    background: transparent;
+    color: #0C171A;
 }
 
 .tf-services-wrap.style2 .services-post .tf-btn:hover {
     color: #fff;
+      border: 1px solid #4B168C;
+    background: #4B168C;
 }
 
 .tf-services-wrap.style2 .services-post .tf-button-container {
@@ -461,7 +466,7 @@ margin-bottom: 31px;
 
 .tf-services-wrap.style3 .item.box-5 .featured-post {
     position: absolute;
-    right: -50%;
+    right: 0%;
     top: 0;
     bottom: 0;
 }
@@ -1831,6 +1836,7 @@ color: #666B68;
     gap: 7px;
     justify-content: center;
     padding: 0;
+    margin-bottom: 0;
 }
 
 .tf-doctor-wrap.style1 .doctor-post .list-social a {
@@ -1838,12 +1844,12 @@ color: #666B68;
     height: 35px;
     border: 1px solid #EEEFEF;
     border-radius: 50%;
-    font-size: 16px;
+       font-size: 13px;
     color: #666B68;
     display: flex;
     align-items: center;
     justify-content: center;
-        margin-bottom: 0;
+           margin-bottom: 11px;
 }
 
 .tf-doctor-wrap.style1 .doctor-post .list-social a:hover {
@@ -1868,6 +1874,7 @@ color: #666B68;
     background: #fff;
     border: 1px solid #0C171A;
     color: #0C171A;
+    padding: 11px 30px;
 }
 
 .tf-doctor-wrap.style1 .doctor-post .tf-btn:hover {

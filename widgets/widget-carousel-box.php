@@ -88,6 +88,8 @@ class TFCarouselBox_Widget extends \Elementor\Widget_Base {
 
 						'style-2' => esc_html__( 'Style 2', 'themesflat-core' ),
 
+						'style-3' => esc_html__( 'Style 3', 'themesflat-core' ),
+
 
 
 					],

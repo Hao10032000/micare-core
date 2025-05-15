@@ -995,6 +995,53 @@
   line-height: 30px;
   color: var(--theme-primary-color);
 }
+.tfc-carousel-box.style-3 .item-box-carousel{
+    background: #D6E8EB;
+    border-radius: 10px;
+    padding: 40px 40px 32px 40px;
+}
+.tfc-carousel-box.style-3 .position {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #0C171A;
+    line-height: 40px;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0C171A;
+    margin-bottom: 30px;
+}
+.tfc-carousel-box.style-3 .sale {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3em;
+    color: #0C171A;
+    margin-bottom: 30px;
+}
+.tfc-carousel-box.style-3 .description {
+    color: #666B68;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    display: inline-block;
+    transition: all 0.7s ease-in-out;
+    opacity: 0;
+     transform: translateY(30px);
+
+}
+.tfc-carousel-box.style-3 .item-box-carousel:hover .description {
+    opacity: 1;
+     transform: translateY(0px);
+}
+.tfc-carousel-box.style-3 .inner-content {
+    transform: translateY(81px);
+    transition: all 0.3s ease-in-out;
+}
+.tfc-carousel-box.style-3 .item-box-carousel:hover .inner-content {
+    transform: translateY(0px);
+}
 @keyframes spinAround {
   0% {
     transform: rotate(0deg);
