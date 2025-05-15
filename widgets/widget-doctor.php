@@ -585,7 +585,7 @@ $this->add_responsive_control(
 
 		],
 		'selectors' => [
-			'{{WRAPPER}}  .tf-services-wrap .owl-nav' => 'top: {{SIZE}}{{UNIT}};',
+			'{{WRAPPER}}  .tf-doctor-wrap .owl-nav' => 'top: {{SIZE}}{{UNIT}};',
 		],
 		'condition' => [
 
@@ -626,7 +626,7 @@ $this->add_responsive_control(
 
 		],
 		'selectors' => [
-			'{{WRAPPER}}  .tf-services-wrap .owl-nav ' => 'right: {{SIZE}}{{UNIT}};',
+			'{{WRAPPER}}  .tf-doctor-wrap .owl-nav ' => 'right: {{SIZE}}{{UNIT}};',
 		],
 		'condition' => [
 
@@ -676,7 +676,7 @@ $this->start_controls_tabs(
 
 			'selectors' => [
 
-				'{{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next' => 'color: {{VALUE}}',
+				'{{WRAPPER}} .tf-doctor-wrap .owl-carousel .owl-nav button, {{WRAPPER}} .tf-doctor-wrap .owl-nav .owl-prev, {{WRAPPER}} .tf-doctor-wrap .owl-nav .owl-next' => 'color: {{VALUE}}',
 
 			],
 
@@ -702,7 +702,7 @@ $this->start_controls_tabs(
 
 			'selectors' => [
 
-				'{{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next' => 'background-color: {{VALUE}};',
+				'{{WRAPPER}} .tf-doctor-wrap .owl-carousel .owl-nav button, {{WRAPPER}} .tf-doctor-wrap .owl-nav .owl-prev, {{WRAPPER}} .tf-doctor-wrap .owl-nav .owl-next' => 'background-color: {{VALUE}};',
 
 			],
 
@@ -729,7 +729,7 @@ $this->start_controls_tabs(
 
 			'selectors' => [
 
-				'{{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev, {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next' => 'border-color: {{VALUE}}',
+				'{{WRAPPER}} .tf-doctor-wrap .owl-carousel .owl-nav button, {{WRAPPER}} .tf-doctor-wrap .owl-nav .owl-prev, {{WRAPPER}} .tf-doctor-wrap .owl-nav .owl-next' => 'border-color: {{VALUE}}',
 
 			],
 
@@ -772,12 +772,12 @@ $this->start_controls_tabs(
 
 			'selectors' => [
 
-				'{{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button.active,
-				 {{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button:hover,
-				  {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev.active,
-				   {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next:hover,
-				    {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev.active,
-					 {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next:hover' => 'color: {{VALUE}}',
+				'{{WRAPPER}} .tf-doctor-wrap .owl-carousel .owl-nav button.active,
+				 {{WRAPPER}} .tf-doctor-wrap .owl-carousel .owl-nav button:hover,
+				  {{WRAPPER}} .tf-doctor-wrap .owl-nav .owl-prev.active,
+				   {{WRAPPER}} .tf-doctor-wrap .owl-nav .owl-next:hover,
+				    {{WRAPPER}} .tf-doctor-wrap .owl-nav .owl-prev.active,
+					 {{WRAPPER}} .tf-doctor-wrap .owl-nav .owl-next:hover' => 'color: {{VALUE}}',
 
 			],
 
@@ -803,12 +803,12 @@ $this->start_controls_tabs(
 
 			'selectors' => [
 
-				'{{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button.active,
-				 {{WRAPPER}} .tf-services-wrap .owl-carousel .owl-nav button:hover,
-				  {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev.active,
-				   {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next:hover,
-				    {{WRAPPER}} .tf-services-wrap .owl-nav .owl-prev.active,
-					 {{WRAPPER}} .tf-services-wrap .owl-nav .owl-next:hover' => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
+				'{{WRAPPER}} .tf-doctor-wrap .owl-carousel .owl-nav button.active,
+				 {{WRAPPER}} .tf-doctor-wrap .owl-carousel .owl-nav button:hover,
+				  {{WRAPPER}} .tf-doctor-wrap .owl-nav .owl-prev.active,
+				   {{WRAPPER}} .tf-doctor-wrap .owl-nav .owl-next:hover,
+				    {{WRAPPER}} .tf-doctor-wrap .owl-nav .owl-prev.active,
+					 {{WRAPPER}} .tf-doctor-wrap .owl-nav .owl-next:hover' => 'background-color: {{VALUE}}; border-color: {{VALUE}};',
 
 			],
 
@@ -1724,7 +1724,7 @@ $this->end_controls_section();
 
 
 
-    <div class="wrap-doctor-post row <?php echo esc_attr($settings['layout']); ?> ">
+    <div class="wrap-doctor-post row <?php echo esc_attr($settings['layout']); ?> <?php echo esc_attr($settings['arrow_direction']);  ?>">
 
        <?php if ( $settings['carousel'] == 'yes' ): ?>
         <div class="owl-carousel"	    data-loop="false"

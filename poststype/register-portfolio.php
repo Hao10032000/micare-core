@@ -182,6 +182,39 @@ function themesflat_register_portfolio_taxonomy() {
 
 }
 
+function themesflat_register_portfolio_tags() {
+    $labels = array(
+        'name'                       => _x( 'Portfolio Tags', 'taxonomy general name', 'themesflat-core' ),
+        'singular_name'              => _x( 'Portfolio Tags', 'taxonomy singular name', 'themesflat-core' ),
+        'search_items'               => __( 'Search Portfolio Tags', 'themesflat-core' ),
+        'popular_items'              => __( 'Popular Portfolio Tags', 'themesflat-core' ),
+        'all_items'                 => __( 'All Portfolio Tags', 'themesflat-core' ),
+        'edit_item'                 => __( 'Edit Portfolio Tags', 'themesflat-core' ),
+        'update_item'               => __( 'Update Portfolio Tags', 'themesflat-core' ),
+        'add_new_item'              => __( 'Add New Portfolio Tags', 'themesflat-core' ),
+        'new_item_name'             => __( 'New Portfolio Tags Name', 'themesflat-core' ),
+        'separate_items_with_commas' => __( 'Separate tags with commas', 'themesflat-core' ),
+        'add_or_remove_items'       => __( 'Add or remove tags', 'themesflat-core' ),
+        'choose_from_most_used'     => __( 'Choose from the most used tags', 'themesflat-core' ),
+        'not_found'                 => __( 'No tags found.', 'themesflat-core' ),
+        'menu_name'                 => __( 'Portfolio Tags', 'themesflat-core' ),
+    );
+
+    $args = array(
+        'labels'            => $labels,
+        'public'            => true,
+        'hierarchical'      => false, 
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'portfolio-tag' ),
+    );
+
+    register_taxonomy( 'portfolio_tags', 'portfolio', $args );
+}
+add_action( 'init', 'themesflat_register_portfolio_tags' );
+
 
 function case_custom_meta() {
 
@@ -215,8 +248,6 @@ function case_custom_metabox() {
 	$data_desc = get_post_meta($post->ID, 'desc_case_value', true);
 	$data_client = get_post_meta($post->ID, 'client_case_value', true);
 	$data_date = get_post_meta($post->ID, 'date_case_value', true);
-	$data_duration = get_post_meta($post->ID, 'duration_case_value', true);
-	$data_location = get_post_meta($post->ID, 'location_case_value', true);
 
     // Use nonce for verification to secure data sending
 
@@ -241,16 +272,6 @@ function case_custom_metabox() {
     <div class="inner-full" style="margin-bottom: 30px;">
         <label for="date_case" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Start Date', 'themesflat' ) ?></label>
         <input type="text" id="date_case" name="date_case_value"  value="<?php echo (isset($data_date)) ? $data_date : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
-    </div>
-
-    <div class="inner-full" style="margin-bottom: 30px;">
-        <label for="duration_case" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Duration', 'themesflat' ) ?></label>
-        <input type="text" id="duration_case" name="duration_case_value"  value="<?php echo (isset($data_duration)) ? $data_duration : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
-    </div>
-
-    <div class="inner-full" style="margin-bottom: 30px;">
-        <label for="location_case" style="    display: block;font-size: 18px;font-weight: 600;color: #3C210E;text-transform: capitalize;    margin-bottom: 20px;"><?php esc_html_e( 'Location', 'themesflat' ) ?></label>
-        <input type="text" id="location_case" name="location_case_value"  value="<?php echo (isset($data_location)) ? $data_location : ''; ?>" style="    border: 1px solid #E4E4E4; background-color: #f6f6f6; padding: 16px 20px 16px 20px;">
     </div>
 
 
@@ -324,8 +345,6 @@ function case_save_meta_fields( $post_id ) {
 	update_post_meta( $post_id, 'desc_case_value', wp_kses_post($_POST[ 'desc_case_value' ]) );
 	update_post_meta( $post_id, 'client_case_value', wp_kses_post($_POST[ 'client_case_value' ]) );
 	update_post_meta( $post_id, 'date_case_value', wp_kses_post($_POST[ 'date_case_value' ]) );
-	update_post_meta( $post_id, 'duration_case_value', wp_kses_post($_POST[ 'duration_case_value' ]) );
-	update_post_meta( $post_id, 'location_case_value', wp_kses_post($_POST[ 'location_case_value' ]) );
 
 
 
