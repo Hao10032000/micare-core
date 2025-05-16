@@ -650,6 +650,11 @@
   cursor: grab;
 }
 
+.tfc-testimonial-carousel .item-testimonial .avatar img {
+    height: 100%;
+    object-fit: cover;
+}
+
 @media (max-width: 1200px) {
   .group-style3-testimonial {
     gap: 40px;

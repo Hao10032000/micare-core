@@ -30,9 +30,9 @@ $order = themesflat_get_opt('doctor_order_direction');
 
 $exclude = themesflat_get_opt('doctor_exclude');
 
-$terms_slug = wp_list_pluck( get_terms( 'doctor_category','hide_empty=0'), 'slug' );
+$terms = get_terms( 'doctor_category', array( 'hide_empty' => false ) );
 
-
+$terms_slug = wp_list_pluck( $terms, 'slug' );
 
 $paged = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
 
@@ -50,7 +50,7 @@ $args = array(
 
     'posts_per_page' => $doctor_number_post,
 
-    'tax_query' => array(
+        'tax_query' => array(
 
         array(
 
@@ -100,7 +100,7 @@ $query = new WP_Query( $args );
 
                         <main id="main" class="main-content" role="main">
 
-                            <div class="container-archive tf-doctor-wrap style1">
+                            <div class="container-archive tf-doctor-wrap style2">
 
                                 <?php 
 
@@ -110,153 +110,165 @@ $query = new WP_Query( $args );
 
                                     global $post;
 
-                                    $facebook = get_post_meta($post->ID, 'facebook_doctor_value', true);
-
-                                    $twitter = get_post_meta($post->ID, 'twitter_doctor_value', true);
-
-                                    $linkedin = get_post_meta($post->ID, 'linkedin_doctor_value', true);
-
-                                    $youtube = get_post_meta($post->ID, 'youtube_doctor_value', true);
-
-                                    $custom1 = get_post_meta($post->ID, 'custom1_doctor_value', true);
-
-                                    $custom2 = get_post_meta($post->ID, 'custom2_doctor_value', true);
-
-                                    $facebook_icon = get_post_meta($post->ID, 'facebook_icon_value', true);
-
-                                    $twitter_icon = get_post_meta($post->ID, 'twitter_icon_value', true);
-
-                                    $linkedin_icon = get_post_meta($post->ID, 'linkedin_icon_value', true);
-
-                                    $youtube_icon = get_post_meta($post->ID, 'youtube_icon_value', true);
-
-                                    $custom1_icon = get_post_meta($post->ID, 'custom1_icon_value', true);
-
-                                    $custom2_icon = get_post_meta($post->ID, 'custom2_icon_value', true);
+								$facebook = get_post_meta($post->ID, 'facebook_doctor_value', true);
+								$twitter = get_post_meta($post->ID, 'twitter_doctor_value', true);
+								$linkedin = get_post_meta($post->ID, 'linkedin_doctor_value', true);
+								$youtube = get_post_meta($post->ID, 'youtube_doctor_value', true);
+								$custom1 = get_post_meta($post->ID, 'custom1_doctor_value', true);
+								$custom2 = get_post_meta($post->ID, 'custom2_doctor_value', true);
+								$facebook_icon = get_post_meta($post->ID, 'facebook_icon_value', true);
+								$twitter_icon = get_post_meta($post->ID, 'twitter_icon_value', true);
+								$linkedin_icon = get_post_meta($post->ID, 'linkedin_icon_value', true);
+								$youtube_icon = get_post_meta($post->ID, 'youtube_icon_value', true);
+								$custom1_icon = get_post_meta($post->ID, 'custom1_icon_value', true);
+								$custom2_icon = get_post_meta($post->ID, 'custom2_icon_value', true);
+								$position_doctor_value = get_post_meta($post->ID, 'position_doctor_value', true);
+								$description_doctor_value = get_post_meta($post->ID, 'description_doctor_value', true);
 
                                     ?>           
 
 <div class="item">
 
-<div class="doctor-post hover-flash scale-hover">
+<div class="doctor-post scale-hover">
+
 
     <div class="featured-post">
-    <a href="<?php echo get_the_permalink(); ?>">
+<a href="<?php echo get_the_permalink(); ?>">
 
 <?php 
 
-    if ( has_post_thumbnail() ) { 
+if ( has_post_thumbnail() ) { 
 
-        $themesflat_thumbnail = "themesflat-project-grid";                              
+$themesflat_thumbnail = "full";                              
 
-        the_post_thumbnail( $themesflat_thumbnail );
+the_post_thumbnail( $themesflat_thumbnail );
 
-    }                                           
+}                                           
 
 ?>
 
 </a>
 
-                        <?php if ( !empty($facebook_icon) || !empty($twitter_icon) || !empty($linkedin_icon) || !empty($youtube_icon) || !empty($custom1_icon) || !empty($custom2_icon )): ?>
+                                <?php if ( !empty($facebook_icon) || !empty($twitter_icon) || !empty($linkedin_icon) || !empty($youtube_icon) || !empty($custom1_icon) || !empty($custom2_icon )): ?>
 
-<ul class="list-social">
+                    <ul class="list-social">
 
-    <?php if ( !empty($facebook) ): ?>
+                        <li class="share-btn">
+                                    
+                            <a href="#"><i class="icon-micare-plus"></i></a>
+                        
+                        </li>
 
-    <li>
+                        <?php if ( !empty($facebook) ): ?>
+                        
+                        <li>
+                        
+                            <a href="<?php echo esc_url($facebook); ?>"><i
+                        
+                                    class="icon-micare-<?php echo esc_attr($facebook_icon); ?>"></i></a>
+                        
+                        </li>
+                        
+                        <?php endif; ?>
+                        
+                        <?php if ( !empty($twitter) ): ?>
+                        
+                        <li>
+                        
+                            <a href="<?php echo esc_url($twitter) ?>"><i
+                        
+                                    class="icon-micare-<?php echo esc_attr($twitter_icon); ?>"></i></a>
+                        
+                        </li>
+                        
+                        <?php endif; ?>
+                        
+                        <?php if ( !empty($linkedin) ): ?>
+                        
+                        <li>
+                        
+                            <a href="<?php echo esc_url($linkedin) ?>"><i
+                        
+                                    class="icon-micare-<?php echo esc_attr($linkedin_icon); ?>"></i></a>
+                        
+                        </li>
+                        
+                        <?php endif; ?>
+                        
+                        <?php if ( !empty($youtube) ): ?>
+                        
+                        <li>
+                        
+                            <a href="<?php echo esc_url($youtube) ?>"><i
+                        
+                                    class="icon-micare-<?php echo esc_attr($youtube_icon); ?>"></i></a>
+                        
+                        </li>
+                        
+                        <?php endif; ?>
+                        
+                        <?php if ( !empty($custom1) ): ?>
+                        
+                        <li>
+                        
+                            <a href="<?php echo esc_url($custom1) ?>"><i
+                        
+                                    class="icon-micare-<?php echo esc_attr($custom1_icon); ?>"></i></a>
+                        
+                        </li>
+                        
+                        <?php endif; ?>
+                        
+                        <?php if ( !empty($custom2) ): ?>
+                        
+                        <li>
+                        
+                            <a href="<?php echo esc_url($custom2) ?>"><i
+                        
+                                    class="icon-micare-<?php echo esc_attr($custom2_icon); ?>"></i></a>
+                        
+                        </li>
+                        
+                        <?php endif; ?>
+                        
+                    </ul>
 
-        <a href="<?php echo esc_url($facebook); ?>"><i
 
-                class="icon-micare2-<?php echo esc_attr($facebook_icon); ?>"></i></a>
+        <?php endif; ?>
 
-    </li>
-
-    <?php endif; ?>
-
-    <?php if ( !empty($twitter) ): ?>
-
-    <li>
-
-        <a href="<?php echo esc_url($twitter) ?>"><i
-
-                class="icon-micare-<?php echo esc_attr($twitter_icon); ?>"></i></a>
-
-    </li>
-
-    <?php endif; ?>
-
-    <?php if ( !empty($linkedin) ): ?>
-
-    <li>
-
-        <a href="<?php echo esc_url($linkedin) ?>"><i
-
-                class="icon-micare-<?php echo esc_attr($linkedin_icon); ?>"></i></a>
-
-    </li>
-
-    <?php endif; ?>
-
-    <?php if ( !empty($youtube) ): ?>
-
-    <li>
-
-        <a href="<?php echo esc_url($youtube) ?>"><i
-
-                class="icon-micare-<?php echo esc_attr($youtube_icon); ?>"></i></a>
-
-    </li>
-
-    <?php endif; ?>
-
-    <?php if ( !empty($custom1) ): ?>
-
-    <li>
-
-        <a href="<?php echo esc_url($custom1) ?>"><i
-
-                class="icon-micare-<?php echo esc_attr($custom1_icon); ?>"></i></a>
-
-    </li>
-
-    <?php endif; ?>
-
-    <?php if ( !empty($custom2) ): ?>
-
-    <li>
-
-        <a href="<?php echo esc_url($custom2) ?>"><i
-
-                class="icon-micare-<?php echo esc_attr($custom2_icon); ?>"></i></a>
-
-    </li>
-
-    <?php endif; ?>
-
-</ul>
-
-<?php endif; ?>
+                <div class="tf-button-container">
+                    <a href="<?php echo esc_url( get_permalink() ) ?>" class="tf-btn">
+                        <span><?php esc_html_e('Make Appointment','themesflat-core') ?></span>
+                        <i class="icon-micare-arrow-right"></i>
+                    </a>
+                </div>
 
 
     </div>
 
     <div class="content">
 
-        <h5 class="title border_eff">
-
-            <a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a>
-
+                    <h5 class="title border_eff">
+             <a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a>
         </h5>
 
-        <div class="category-doctor">
-
-            <?php echo esc_attr ( the_terms( get_the_ID(), 'doctor_category', '', ', ', '' ) ); ?></div>
+        <p class="position"> <?php echo $position_doctor_value; ?> </p>
 
     </div>
 
-</div>
+
+
+
+
+
+
+
+
+
 
 </div>
+</div>
+
 
                                         <?php 
 
