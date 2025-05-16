@@ -243,70 +243,79 @@ add_filter( 'render_block', function( $block_content, $block ) {
 }, 10, 2 );
 
     function themesflat_post_navigation_postype() {
-        // Don't print empty markup if there's nowhere to navigate.
-        $previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
-        $next     = get_adjacent_post( false, '', false );
-    
-        if ( ! $next && ! $previous ) {
-            return;
-        }
-        ?>
-        <nav class="navigation post-type" role="navigation">
-            <h2 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'themesflat-core' ); ?></h2>
-            <ul class="nav-links clearfix">
-                <?php
-                if ( is_attachment() ) :
-    
-                    $prevPost = get_adjacent_post( false, '', true);
-                    if( is_object( $prevPost ) ){
-                        $prevthumbnail = get_the_post_thumbnail($prevPost->ID);
-                        $prev_title = get_the_title($prevPost->ID);
-                    }
-                    $prev = esc_html__( 'Published In', 'themesflat-core' );
-                    $date = get_the_date();
+    $previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
+    $next     = get_adjacent_post( false, '', false );
+
+    if ( ! $next && ! $previous ) {
+        return;
+    }
+    ?>
+    <nav class="navigation post-type" role="navigation">
+        <h2 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'themesflat-core' ); ?></h2>
+        <ul class="nav-links clearfix">
+            <?php if ( is_attachment() ) :
+
+                $prevPost = get_adjacent_post( false, '', true );
+                if ( is_object( $prevPost ) ) {
+                    $prev_title = get_the_title( $prevPost->ID );
+                }
+                $prev_label = esc_html__( 'Published In', 'themesflat-core' );
+
+                echo '<li class="post-navigation previous-post">';
+                    echo '<div class="content">';
+                        previous_post_link( '<div class="prev-button">%link</div>', $prev_label );
+                        previous_post_link( '<div class="title-post border_eff">%link</div>', $prev_title );
+                    echo '</div>';
+                echo '</li>';
+
+            else :
+
+                $prevPost = get_adjacent_post( false, '', true );
+                if ( is_object( $prevPost ) ) {
+                    $prev_title = get_the_title( $prevPost->ID );
+                    $prev_link = get_permalink( $prevPost->ID );
+
                     echo '<li class="post-navigation previous-post">';
                         echo '<div class="content">';
-                            previous_post_link('<div class="prev-button">%link</div>', $prev); 
-                            previous_post_link('<div class="title-post border_eff">%link</div>', $prev_title); 
+                            echo '<a href="' . esc_url( $prev_link ) . '" class="post-button prev-button">';
+                                echo '<i class="icon-micare-chevron-left"></i>';
+                            echo '</a>';
+                            previous_post_link( '<div class="title-post border_eff">%link</div>', $prev_title );
                         echo '</div>';
                     echo '</li>';
-                else :
-    
-                    $prevPost = get_adjacent_post( false, '', true);
-                    if( is_object( $prevPost ) ){
-                        $prevthumbnail = get_the_post_thumbnail($prevPost->ID);
-                        $prev_title = get_the_title($prevPost->ID);
-                        $date = get_the_date();
-                        $prev = esc_html__( 'PREVIOUS', 'themesflat-core' );
-    
-                        echo '<li class="post-navigation previous-post">';
-                            echo '<div class="content">';
-                                echo '<div class="post-button prev-button">'.$prev.'</div>'; 
-                                previous_post_link('<div class="title-post border_eff">%link</div>', $prev_title); 
-                            echo '</div>';
-                        echo '</li>';
-                    }
-    
-                    $nextPost = get_adjacent_post( false, '', false);
-                    if( is_object( $nextPost ) ){
-                        $nextthumbnail = get_the_post_thumbnail($nextPost->ID);
-                        $next_title = get_the_title($nextPost->ID);
-                        $date = get_the_date();
-                        $next = esc_html__( 'NEXT', 'themesflat-core' );
-                        echo '<li class="post-navigation next-post">';
-                            echo '<div class="content">';
-                            echo '<div class="post-button next-button">'.$next.'</div>';
-                                next_post_link('<div class="title-post border_eff">%link</div>', $next_title); 
-                            echo '</div>';
-                        echo '</li>';
-                    }
-                    
-                endif;
-                ?>
-            </ul><!-- .nav-links --> 
-        </nav><!-- .navigation -->
-        <?php
+                }
+
+                $nextPost = get_adjacent_post( false, '', false );
+                if ( is_object( $nextPost ) ) {
+                    $next_title = get_the_title( $nextPost->ID );
+                    $next_link = get_permalink( $nextPost->ID );
+
+                    echo '<li class="post-navigation next-post">';
+                        echo '<div class="content">';
+                            echo '<a href="' . esc_url( $next_link ) . '" class="post-button next-button">';
+                                echo '<i class="icon-micare-chevron-right"></i>';
+                            echo '</a>';
+                            next_post_link( '<div class="title-post border_eff">%link</div>', $next_title );
+                        echo '</div>';
+                    echo '</li>';
+                }
+
+            endif; ?>
+        </ul><!-- .nav-links -->
+    </nav><!-- .navigation -->
+    <?php
+}
+
+function display_post_tags_links( $post_id, $taxonomy = 'post_tag' ) {
+    $terms = get_the_terms( $post_id, $taxonomy );
+    if ( $terms && ! is_wp_error( $terms ) ) {
+        $links = array();
+        foreach ( $terms as $term ) {
+            $links[] = '<a href="' . esc_url( get_term_link($term) ) . '">' . esc_html( $term->name ) . '</a>';
+        }
+        echo implode( ', ', $links );
     }
+}
 
     function get_current_project_info_shortcode() {
         if (!is_singular('case-study')) {
