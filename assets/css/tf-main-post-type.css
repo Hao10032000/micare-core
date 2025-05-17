@@ -2131,9 +2131,11 @@ color: #666B68;
     overflow: hidden;
     position: relative;
     margin-right: 5px;
-    max-height: 330px;
+    height: 330px;
 }
-
+ .tf-imagebox .tf-button.bt_icon_after i {
+    vertical-align: middle;
+}
 .tf-doctor-wrap.style3 .doctor-post .featured-post img {
     height: 100%;
     width: 100%;
