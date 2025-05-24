@@ -178,41 +178,11 @@
         })       
     } 
 
-    var activeStep = function(){
-        if($('.hover-active-step').length) {
-            $(document).ready(function () {
-                $(".hover-active-step .step-hover").hover(function () {
-                    let hoveredIndex = $(this).index(); 
-                    $(".hover-active-step .step-hover").each(function (index) {
-                        if (index <= hoveredIndex && !$(this).hasClass("active")) {
-                            let $item = $(this);
-                            setTimeout(function () {
-                                $item.addClass("active");
-                            }, index * 300); 
-                        }
-                    });
-                });
-            });
-        }
-    }
-
-    var activeStep2 = function(){
-        if($('.step-carousel.style-1').length) {
-            $(document).ready(function () {
-                $(".step-carousel.style-1 .item-step").hover(function () {
-                    $(this).addClass('active');
-                });
-            });
-        }
-    }
-
     $(function() {
 
         iziModal();
         styleSingleServices();
         portfolioLoadMore();
-        activeStep();
-        activeStep2();
     })
 
 

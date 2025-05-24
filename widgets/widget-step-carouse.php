@@ -66,37 +66,7 @@ class TFStepCarousel_Widget extends \Elementor\Widget_Base {
 
 	            ]
 
-	        );
-
-
-
-	        $this->add_control(
-
-				'testimonial_style',
-
-				[
-
-					'label' => esc_html__( 'Layout Style', 'themesflat-core' ),
-
-					'type' => \Elementor\Controls_Manager::SELECT,
-
-					'default' => 'style-1',
-
-					'options' => [
-
-						'style-1'  => esc_html__( 'Style 1', 'themesflat-core' ),
-
-						// 'style-2' => esc_html__( 'Style 2', 'themesflat-core' ),
-
-						// 'style-3' => esc_html__( 'Style 3', 'themesflat-core' ),
-
-						// 'style-4' => esc_html__( 'Style 4', 'themesflat-core' ),
-
-					],
-
-				]
-
-			);	    
+	        );   
 
 
 			$this->add_control( 
@@ -150,11 +120,11 @@ class TFStepCarousel_Widget extends \Elementor\Widget_Base {
 
 			$this->add_control( 
 
-				'show_position',
+				'show_year',
 
 				[
 
-					'label' => esc_html__( 'Show Position', 'themesflat-core' ),
+					'label' => esc_html__( 'Show Year', 'themesflat-core' ),
 
 					'type' => \Elementor\Controls_Manager::SWITCHER,
 
@@ -191,11 +161,11 @@ class TFStepCarousel_Widget extends \Elementor\Widget_Base {
 			);
 			$repeater->add_control(
 
-				'position',
+				'year',
 
 				[
 
-					'label' => esc_html__( 'Position', 'themesflat-core' ),
+					'label' => esc_html__( 'Year', 'themesflat-core' ),
 
 					'type' => \Elementor\Controls_Manager::TEXT,
 
@@ -224,6 +194,25 @@ class TFStepCarousel_Widget extends \Elementor\Widget_Base {
 
 			);
 
+			$repeater->add_control(
+
+				'images',
+
+				[
+
+					'label' => esc_html__( 'Thumbnails', 'themesflat-core' ),
+
+					'type' => \Elementor\Controls_Manager::MEDIA,
+
+					'default' => [
+
+						'url' => URL_THEMESFLAT_ADDONS_ELEMENTOR_THEME."assets/img/default-team.jpg",
+
+					],
+
+				]
+
+			);
 			
 			$this->add_control( 
 
@@ -241,7 +230,7 @@ class TFStepCarousel_Widget extends \Elementor\Widget_Base {
 
 								'name' => 'Alice Guzman',
 
-								'position' => 'Designer manager',
+								'year' => '(1994)',
 
 								'description'=> 'Phasellus ultrices ut tortor at porta. Praesent maximus, lacus sed rutrum aliquet, lacus tellus tincidunt nisl, vitae molestie nisi sapien et dolor suspendisse mi est',
 
@@ -251,7 +240,7 @@ class TFStepCarousel_Widget extends \Elementor\Widget_Base {
 
 								'name' => 'Kelly Coleman',
 
-								'position' => 'Designer manager',
+								'year' => '(1995)',
 
 								'description'=> 'Phasellus ultrices ut tortor at porta. Praesent maximus, lacus sed rutrum aliquet, lacus tellus tincidunt nisl, vitae molestie nisi sapien et dolor suspendisse mi est',
 
@@ -261,7 +250,7 @@ class TFStepCarousel_Widget extends \Elementor\Widget_Base {
 
 								'name' => 'Eugene Freeman',
 
-								'position' => 'Designer manager',
+								'year' => '(1996)',
 
 								'description'=> 'Phasellus ultrices ut tortor at porta. Praesent maximus, lacus sed rutrum aliquet, lacus tellus tincidunt nisl, vitae molestie nisi sapien et dolor suspendisse mi est',
 
@@ -1624,8 +1613,6 @@ class TFStepCarousel_Widget extends \Elementor\Widget_Base {
 
 		                'type' => \Elementor\Controls_Manager::COLOR,
 
-		                'default' => '#24283E',
-
 		                'selectors' => [
 
 							'{{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-prev, {{WRAPPER}} .tfc-testimonial-carousel .owl-nav .owl-next' => 'color: {{VALUE}}',
@@ -2282,8 +2269,6 @@ class TFStepCarousel_Widget extends \Elementor\Widget_Base {
 
 		                'type' => \Elementor\Controls_Manager::COLOR,
 
-		                'default' => '#24283E',
-
 		                'selectors' => [
 
 							'{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot' => 'background-color: {{VALUE}};',
@@ -2420,7 +2405,7 @@ class TFStepCarousel_Widget extends \Elementor\Widget_Base {
 
 								'unit' => 'px',
 
-								'size' => 8,
+								'size' => 7,
 
 							],
 
@@ -2682,8 +2667,6 @@ class TFStepCarousel_Widget extends \Elementor\Widget_Base {
 
 		                'type' => \Elementor\Controls_Manager::COLOR,
 
-						'default' => '#317C6F',
-
 		                'selectors' => [
 
 							'{{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot:hover, {{WRAPPER}} .tfc-testimonial-carousel .owl-dots .owl-dot.active' => 'background-color: {{VALUE}}',
@@ -2806,15 +2789,15 @@ class TFStepCarousel_Widget extends \Elementor\Widget_Base {
 
 		?>
 
-<div class="tfc-testimonial-carousel  step-carousel <?php echo esc_attr($settings['testimonial_style']) ?> <?php echo esc_attr($carousel_arrow); ?> <?php echo esc_attr($carousel_bullets); ?>"
+<div class="tfc-testimonial-carousel  step-carousel <?php echo esc_attr($carousel_arrow); ?> <?php echo esc_attr($carousel_bullets); ?>"
     data-loop="<?php echo esc_attr($settings['carousel_loop']); ?>"
     data-auto="<?php echo esc_attr($settings['carousel_auto']); ?>"
     data-column="<?php echo esc_attr($settings['carousel_column_desk']); ?>"
     data-column2="<?php echo esc_attr($settings['carousel_column_tablet']); ?>"
     data-column3="<?php echo esc_attr($settings['carousel_column_mobile']); ?>"
     data-spacer="<?php echo esc_attr($settings['carousel_spacer']); ?>"
-    data-prev_icon="<?php echo esc_attr($settings['carousel_prev_icon']) ?>"
-    data-next_icon="<?php echo esc_attr($settings['carousel_next_icon']) ?>"
+    data-prev_icon="icon-micare-left"
+    data-next_icon="icon-micare-chev-righ"
     data-arrow="<?php echo esc_attr($settings['carousel_arrow']) ?>"
     data-bullets="<?php echo esc_attr($settings['carousel_bullets']) ?>"
     data-index_active="<?php echo esc_attr($settings['index_active']) ?>">
@@ -2824,90 +2807,46 @@ class TFStepCarousel_Widget extends \Elementor\Widget_Base {
         <?php foreach ($settings['carousel_list'] as $carousel): ?>
 
         <div class="item">
-            <?php if ($settings['testimonial_style'] == 'style-2'): ?>
 
-            <div class="item-step">
+			<div class="header-step">
 
-                <div class="testimonial-content">
-                    <div class="testimonial-inner">
+			    <?php if ( $settings['show_year'] == 'yes' ): ?>
 
-                        <?php if ( $settings['show_percent'] == 'yes' ): ?>
-
-                        <div class="percent"><?php echo esc_attr($carousel['title-percent']); ?></div>
-
-                        <?php endif; ?>
-
-                        <?php if ( $settings['show_sale'] == 'yes' ): ?>
-
-                        <div class="sale"><?php echo esc_attr($carousel['title-sale']); ?></div>
-
-                        <?php endif; ?>
-                    </div>
-
-                    <div class="testimonial-content-wrap">
-                        <?php if ( $settings['show_content'] == 'yes' ): ?>
-
-                        <div class="description"><?php echo sprintf( '%1$s', $carousel['description'] ); ?></div>
-
-                        <?php endif; ?>
-
-                        <?php if ( $settings['show_name'] == 'yes' ): ?>
-
-                        <div class="name"><?php echo esc_attr($carousel['name']); ?></div>
-
-                        <?php endif; ?>
-
-                        <?php if ( $settings['show_position'] == 'yes' ): ?>
-
-                        <div class="position"><?php echo esc_attr($carousel['position']); ?></div>
-
-                        <?php endif; ?>
-
-
-                    </div>
-
-                </div>
-                <div class="testimonial-image">
-
-                    <?php if ( $settings['show_avt'] == 'yes' ): ?>
-
-                    <div class="avatar"><img src="<?php echo esc_attr($carousel['avatar']['url']); ?>" class="lazyload" alt="image">
-
-                    </div>
-
-                    <?php endif; ?>
-
-                </div>
-
-            </div>
-            <?php else: ?>
-
-            <div class="item-step">
-
-				<div class="border-line"></div>
-
-                <?php if ( $settings['show_name'] == 'yes' ): ?>
-
-                <div class="name"><?php echo esc_attr($carousel['name']); ?></div>
+                	<div class="date"><?php echo esc_attr($carousel['year']); ?></div>
 
                 <?php endif; ?>
 
-                <?php if ( $settings['show_position'] == 'yes' ): ?>
-
-                <div class="position"><?php echo esc_attr($carousel['position']); ?></div>
-
+				<?php if ( $settings['show_name'] == 'yes' ): ?>
+                	<div class="name"><?php echo esc_attr($carousel['name']); ?></div>
                 <?php endif; ?>
+			</div>
+
+			<div class="spacing">
+				<div class="icon">
+					<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+					<circle cx="20" cy="20" r="20" fill="var(--theme-secondary-color)"/>
+					<path d="M25.5938 15.625C25.75 15.4688 26 15.4688 26.125 15.625L27.0312 16.5C27.1562 16.6562 27.1562 16.9062 27.0312 17.0312L17.6562 26.4062C17.5 26.5625 17.2812 26.5625 17.125 26.4062L12.9375 22.25C12.8125 22.0938 12.8125 21.8438 12.9375 21.7188L13.8438 20.8125C13.9688 20.6875 14.2188 20.6875 14.375 20.8125L17.375 23.8438L25.5938 15.625Z" fill="white"/>
+					</svg>
+				</div>
+			</div>
+
+            <div class="item-step">
 
                 <?php if ( $settings['show_content'] == 'yes' ): ?>
 
-                <div class="description"><?php echo sprintf( '%1$s', $carousel['description'] ); ?></div>
+                	<div class="description"><?php echo sprintf( '%1$s', $carousel['description'] ); ?></div>
 
+                <?php endif; ?>
+
+                <?php if ( !empty($carousel['images']) ): ?>
+					<div class="features-post">
+						<img src="<?php echo esc_attr($carousel['images']['url']); ?>" alt="image">
+					</div>
                 <?php endif; ?>
 
             </div>
 
 
-            <?php endif; ?>
 
         </div>
 
