@@ -910,6 +910,12 @@
   right: 10px;
   top: 10px;
 }
+.tfc-testimonial-carousel.style-1 .name {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0C171A;
+    letter-spacing: -0.5px;
+}
 .tfc-carousel-box.style-1 .icon-quote {
   font-size: 55px;
   color: var(--theme-primary-color);

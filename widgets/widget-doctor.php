@@ -950,7 +950,45 @@ $this->end_controls_section();
 
 				]
 
-			);  
+			); 
+				$this->add_group_control( 
+
+				\Elementor\Group_Control_Border::get_type(),
+
+				[
+
+					'name' => 'border',
+
+					'label' => esc_html__( 'Border', 'themesflat-core' ),
+
+					'selector' => '{{WRAPPER}} .wrap-doctor-post .item .doctor-post',
+
+				]
+
+			);
+			$this->add_responsive_control( 
+
+				'border_radius',
+
+				[
+
+					'label' => esc_html__( 'Border Radius', 'themesflat-core' ),
+
+					'type' => \Elementor\Controls_Manager::DIMENSIONS,
+
+					'size_units' => [ 'px' , '%' ],
+
+					'selectors' => [
+
+						'{{WRAPPER}}  .wrap-doctor-post .item .doctor-post' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};overflow: hidden;',
+
+					],
+
+				]
+
+			);
+		
+
 
 			$this->end_controls_section();    
 

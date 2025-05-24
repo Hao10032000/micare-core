@@ -28,7 +28,11 @@
 
 }
 
-
+.tf-title-section .title-section .heading p {
+    display: initial;
+    font-weight: 400;
+    font-style: italic;
+}
 
 
 .tf-title-section .title-section .descrition {

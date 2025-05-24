@@ -1166,6 +1166,21 @@ $this->end_controls_section();
 	
 				]
 	
+			);
+			$this->add_group_control( 
+
+				\Elementor\Group_Control_Border::get_type(),
+
+				[
+
+					'name' => 'content_border_over',
+
+					'label' => esc_html__( 'Border', 'themesflat-core' ),
+
+					'selector' => '{{WRAPPER}} .tf-services-wrap .services-post',
+
+				]
+
 			); 
 
 			$this->add_responsive_control( 
@@ -1444,11 +1459,68 @@ $this->end_controls_section();
 						'label' => esc_html__( 'Color', 'themesflat-core' ),
 						'type' => \Elementor\Controls_Manager::COLOR,
 						'selectors' => [
-							'{{WRAPPER}} .tf-services-wrap .icon' => 'color: {{VALUE}}',
-							'{{WRAPPER}} .tf-services-wrap .icon svg *' => 'fill: {{VALUE}}',
+							'{{WRAPPER}} .tf-services-wrap .icon' => 'color: {{VALUE}} !important',
+							'{{WRAPPER}} .tf-services-wrap .icon svg *' => 'fill: {{VALUE}} !important',
 						],
 					]
 				);
+				$this->add_control( 
+
+						'icon_bgcolor_a',
+
+						[
+
+							'label' => esc_html__( 'Background', 'themesflat-core' ),
+
+							'type' => \Elementor\Controls_Manager::COLOR,
+
+							'default' => '',
+
+							'selectors' => [
+
+								'{{WRAPPER}} .tf-services-wrap .services-post .icon' => 'background: {{VALUE}} !important',
+
+							],
+
+							
+
+						]
+
+					);
+					$this->add_control(
+					'icon_color_hover',
+					[
+						'label' => esc_html__( 'Color Hover', 'themesflat-core' ),
+						'type' => \Elementor\Controls_Manager::COLOR,
+						'selectors' => [
+							'{{WRAPPER}} .tf-services-wrap .services-post:hover .icon' => 'color: {{VALUE}} !important',
+							'{{WRAPPER}} .tf-services-wrap .services-post:hover .icon svg *' => 'fill: {{VALUE}} !important',
+						],
+					]
+				);
+				$this->add_control( 
+
+						'icon_bgcolor_a_hover',
+
+						[
+
+							'label' => esc_html__( 'Background Hover', 'themesflat-core' ),
+
+							'type' => \Elementor\Controls_Manager::COLOR,
+
+							'default' => '',
+
+							'selectors' => [
+
+								'{{WRAPPER}} .tf-services-wrap .services-post:hover .icon' => 'background: {{VALUE}} !important',
+
+							],
+
+							
+
+						]
+
+					);   
 				
 		$this->end_controls_section(); 
 
@@ -1814,11 +1886,11 @@ $this->end_controls_section();
 			
 							'label' => esc_html__( 'Border', 'themesflat-core' ),
 			
-							'selector' => '{{WRAPPER}} .tf-services-wrap.style3 .tf-button',
+							'selector' => '{{WRAPPER}} .tf-services-wrap .tf-btn',
 
 							'condition' => [
 
-								'style' => 'style3'
+								'style' => ['style2','style3','style4']
 		
 							]
 			
@@ -1890,7 +1962,28 @@ $this->end_controls_section();
 
 						]
 
-					);  
+					); 
+					$this->add_group_control( 
+
+						\Elementor\Group_Control_Border::get_type(),
+			
+						[
+			
+							'name' => 'button_border_hover',
+			
+							'label' => esc_html__( 'Border Hover', 'themesflat-core' ),
+			
+							'selector' => '{{WRAPPER}} .tf-services-wrap .services-post .tf-btn:hover',
+
+							'condition' => [
+
+								'style' => ['style2','style3','style4']
+		
+							]
+			
+						]
+			
+					); 
 
 
 

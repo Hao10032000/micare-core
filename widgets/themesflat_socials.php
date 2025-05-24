@@ -226,7 +226,7 @@ class themesflat_socials extends WP_Widget {
 
             'dribble'          => array( 'iclass' => 'icon-micare-dribble', 'title' => 'Dribble','share_link' => ''),
 
-            'linkedin2'          => array( 'iclass' => 'icon-micare-linkedin', 'title' => 'Linkedin','share_link' => ''),
+            'linkedin'          => array( 'iclass' => 'icon-micare-linkedin', 'title' => 'Linkedin','share_link' => ''),
 
         ) );
 
