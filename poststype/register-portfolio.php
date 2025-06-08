@@ -10,7 +10,7 @@ add_action('init', 'themesflat_register_portfolio_post_type');
 
 function themesflat_register_portfolio_post_type() {
 
-    $portfolio_slug = themesflat_get_opt('portfolio_slug', 'portfolio');
+    $portfolio_slug = safe_themesflat_get_opt('portfolio_slug', 'portfolio');
 
     $labels = array(
 

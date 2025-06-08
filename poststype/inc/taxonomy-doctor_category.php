@@ -4,9 +4,9 @@ get_header();
 
 $term_slug = $wp_query->tax_query->queries[0]['terms'][0];
 
-$doctor_number_post = themesflat_get_opt( 'doctor_number_post' ) ? themesflat_get_opt( 'doctor_number_post' ) : 9;
+$doctor_number_post = safe_themesflat_get_opt( 'doctor_number_post' ) ? safe_themesflat_get_opt( 'doctor_number_post' ) : 9;
 
-$columns = themesflat_get_opt('doctor_grid_columns');
+$columns = safe_themesflat_get_opt('doctor_grid_columns');
 
 $paged = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
 

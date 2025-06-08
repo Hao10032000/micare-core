@@ -20,21 +20,21 @@ get_header(); ?>
 
 <?php 
 
-$services_number_post = themesflat_get_opt( 'services_number_post' ) ? themesflat_get_opt( 'services_number_post' ) : 6;
+$services_number_post = safe_themesflat_get_opt( 'services_number_post' ) ? safe_themesflat_get_opt( 'services_number_post' ) : 6;
 
-$columns = themesflat_get_opt('services_grid_columns');
+$columns = safe_themesflat_get_opt('services_grid_columns');
 
-$themesflat_paging_style = themesflat_get_opt('services_archive_pagination_style');
+$themesflat_paging_style = safe_themesflat_get_opt('services_archive_pagination_style');
 
-$orderby = themesflat_get_opt('services_order_by');
+$orderby = safe_themesflat_get_opt('services_order_by');
 
-$order = themesflat_get_opt('services_order_direction');
+$order = safe_themesflat_get_opt('services_order_direction');
 
-$exclude = themesflat_get_opt('services_exclude');
+$exclude = safe_themesflat_get_opt('services_exclude');
 
-$show_filter = themesflat_get_opt('services_show_filter');
+$show_filter = safe_themesflat_get_opt('services_show_filter');
 
-$filter_category_order = themesflat_get_opt('services_filter_category_order');	
+$filter_category_order = safe_themesflat_get_opt('services_filter_category_order');	
 
 $terms_slug = wp_list_pluck( get_terms( 'services_category','hide_empty=0'), 'slug' );
 
@@ -91,7 +91,7 @@ if ( ! empty( $exclude ) ) {
 }
 
 $query = new WP_Query( $query_args );
-$icon = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( themesflat_get_opt_elementor('services_post_icon') );
+$icon = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( safe_themesflat_get_opt_elementor('services_post_icon') );
 ?>
 
 

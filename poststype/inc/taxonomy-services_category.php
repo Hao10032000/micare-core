@@ -4,13 +4,13 @@ get_header();
 
 $term_slug = $wp_query->tax_query->queries[0]['terms'][0];
 
-$services_number_post = themesflat_get_opt( 'services_number_post' ) ? themesflat_get_opt( 'services_number_post' ) : 6;
+$services_number_post = safe_themesflat_get_opt( 'services_number_post' ) ? safe_themesflat_get_opt( 'services_number_post' ) : 6;
 
-$columns = themesflat_get_opt('services_grid_columns');
+$columns = safe_themesflat_get_opt('services_grid_columns');
 
 $paged = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
 
-$themesflat_paging_style = themesflat_get_opt('services_archive_pagination_style');
+$themesflat_paging_style = safe_themesflat_get_opt('services_archive_pagination_style');
 
     
 
@@ -39,7 +39,7 @@ $args['tax_query'] = array(
 ); 
 
 $query = new WP_Query($args);
-$icon = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( themesflat_get_opt_elementor('services_post_icon') );
+$icon = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( safe_themesflat_get_opt_elementor('services_post_icon') );
 
 ?>
 

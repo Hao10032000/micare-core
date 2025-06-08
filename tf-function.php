@@ -146,77 +146,6 @@ if(!function_exists('tf_get_template_widget')){
 
 
 
-// Get post views
-
-// function themesflat_set_post_views($postID) {
-
-//     $count_key = 'themesflat_post_views_count';
-
-//     $count = get_post_meta($postID, $count_key, true);
-
-//     if($count==''){
-
-//         $count = 0;
-
-//         delete_post_meta($postID, $count_key);
-
-//         add_post_meta($postID, $count_key, '0');
-
-//     }else{
-
-//         $count++;
-
-//         update_post_meta($postID, $count_key, $count);
-
-//     }
-
-// }
-
-// remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
-
-
-
-// function themesflat_track_post_views ($post_id) {
-
-//     if ( !is_single() ) return;
-
-//     if ( empty ( $post_id) ) {
-
-//         global $post;
-
-//         $post_id = $post->ID;    
-
-//     }
-
-//     themesflat_set_post_views($post_id);
-
-// }
-
-// add_action( 'wp_head', 'themesflat_track_post_views');
-
-
-
-// function themesflat_get_post_views($postID){
-
-//     $count_key = 'themesflat_post_views_count';
-
-//     $count = get_post_meta($postID, $count_key, true);
-
-//     if($count==''){
-
-//         delete_post_meta($postID, $count_key);
-
-//         add_post_meta($postID, $count_key, '0');
-
-//         return "0 View";
-
-//     }
-
-//     return $count.' Views';
-
-// }
-
-
 
 // Hide render sidebar container css
 
@@ -387,4 +316,24 @@ function my_custom_nav_menu_output( $item_output, $item, $depth, $args ) {
     return $item_output;
 }
 add_filter( 'walker_nav_menu_start_el', 'my_custom_nav_menu_output', 10, 4 );
+
+if ( ! function_exists( 'safe_themesflat_get_opt' ) ) {
+    function safe_themesflat_get_opt( $key, $default = '' ) {
+        if ( function_exists( 'themesflat_get_opt' ) ) {
+            return themesflat_get_opt( $key );
+        }
+        return $default;
+    }
+}
+
+if ( ! function_exists( 'safe_themesflat_get_opt_elementor' ) ) {
+    function safe_themesflat_get_opt_elementor( $key, $default = '' ) {
+        if ( function_exists( 'themesflat_get_opt_elementor' ) ) {
+            return themesflat_get_opt_elementor( $key );
+        }
+        return $default;
+    }
+}
+
+
 

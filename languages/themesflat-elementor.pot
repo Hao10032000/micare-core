@@ -30,13 +30,13 @@ msgstr ""
 msgid " Color"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:126
+#: themesflat-core.php:126
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:137
-#: themesflat-addons-for-elementor.php:151
+#: themesflat-core.php:137
+#: themesflat-core.php:151
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
 msgstr ""
@@ -130,7 +130,7 @@ msgstr ""
 msgid "4 stars"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:682
+#: themesflat-core.php:682
 msgid "404 Page"
 msgstr ""
 
@@ -165,12 +165,12 @@ msgstr ""
 msgid "Active"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:449
+#: themesflat-core.php:449
 msgid "Add Display Rule Group"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:468
-#: themesflat-addons-for-elementor.php:952
+#: themesflat-core.php:468
+#: themesflat-core.php:952
 msgid "Add Exclusion Rule Group"
 msgstr ""
 
@@ -182,15 +182,15 @@ msgstr ""
 msgid "Add files"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:371
+#: themesflat-core.php:371
 msgid "Add New"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:372
+#: themesflat-core.php:372
 msgid "Add New Template"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:791
+#: themesflat-core.php:791
 msgid "Add Rule"
 msgstr ""
 
@@ -225,26 +225,26 @@ msgid ""
 "porta ante lectus dapibus est. Aliquam a bibendum mi, sed condimentum"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:843
+#: themesflat-core.php:843
 #, php-format
 msgid "All %s"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:848
-#: themesflat-addons-for-elementor.php:856
+#: themesflat-core.php:848
+#: themesflat-core.php:856
 #, php-format
 msgid "All %s Archive"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:700
+#: themesflat-core.php:700
 msgid "All Archives"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:699
+#: themesflat-core.php:699
 msgid "All Singulars"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:376
+#: themesflat-core.php:376
 msgid "All Template"
 msgstr ""
 
@@ -299,7 +299,7 @@ msgstr ""
 msgid "Ascending"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:687
+#: themesflat-core.php:687
 msgid "Author Archive"
 msgstr ""
 
@@ -422,7 +422,7 @@ msgstr ""
 msgid "Bar Color"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:696
+#: themesflat-core.php:696
 msgid "Basic"
 msgstr ""
 
@@ -448,7 +448,7 @@ msgstr ""
 msgid "Best Selling Products"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1623
+#: themesflat-core.php:1623
 msgid "Bleed"
 msgstr ""
 
@@ -464,7 +464,7 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:684
+#: themesflat-core.php:684
 msgid "Blog / Posts Page"
 msgstr ""
 
@@ -586,15 +586,15 @@ msgstr ""
 msgid "Bottom"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1541
+#: themesflat-core.php:1541
 msgid "Bottom Center"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1542
+#: themesflat-core.php:1542
 msgid "Bottom Left"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1543
+#: themesflat-core.php:1543
 msgid "Bottom Right"
 msgstr ""
 
@@ -735,15 +735,15 @@ msgstr ""
 msgid "Center"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1535
+#: themesflat-core.php:1535
 msgid "Center Center"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1536
+#: themesflat-core.php:1536
 msgid "Center Left"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1537
+#: themesflat-core.php:1537
 msgid "Center Right"
 msgstr ""
 
@@ -1020,7 +1020,7 @@ msgstr ""
 msgid "Current Subcategories"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1544 widgets/widget-slide-swiper.php:284
+#: themesflat-core.php:1544 widgets/widget-slide-swiper.php:284
 #: widgets/widget-step.php:120
 msgid "Custom"
 msgstr ""
@@ -1056,7 +1056,7 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:686
+#: themesflat-core.php:686
 msgid "Date Archive"
 msgstr ""
 
@@ -1071,7 +1071,7 @@ msgstr ""
 msgid "Days"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1534 widgets/widget-counter.php:43
+#: themesflat-core.php:1534 widgets/widget-counter.php:43
 #: widgets/widget-iconbox.php:180 widgets/widget-iconbox.php:498
 #: widgets/widget-iconbox.php:1059 widgets/widget-imagebox.php:433
 #: widgets/widget-imagebox.php:465 widgets/widget-imagebox.php:1151
@@ -1129,11 +1129,11 @@ msgstr ""
 msgid "Digits"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:438
+#: themesflat-core.php:438
 msgid "Display On"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:445
+#: themesflat-core.php:445
 msgid "Display Rules"
 msgstr ""
 
@@ -1149,7 +1149,7 @@ msgstr ""
 msgid "div"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:458
+#: themesflat-core.php:458
 msgid "Do Not Display On"
 msgstr ""
 
@@ -1195,7 +1195,7 @@ msgstr ""
 msgid "Due Date"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:374
+#: themesflat-core.php:374
 msgid "Edit Template Item"
 msgstr ""
 
@@ -1219,8 +1219,8 @@ msgstr ""
 msgid "Effect Type"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:128
-#: themesflat-addons-for-elementor.php:139
+#: themesflat-core.php:128
+#: themesflat-core.php:139
 msgid "Elementor"
 msgstr ""
 
@@ -1256,7 +1256,7 @@ msgstr ""
 msgid "Enter your URL"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:698
+#: themesflat-core.php:698
 msgid "Entire Website"
 msgstr ""
 
@@ -1285,7 +1285,7 @@ msgstr ""
 msgid "Exclude"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:465
+#: themesflat-core.php:465
 msgid "Exclude On"
 msgstr ""
 
@@ -1386,7 +1386,7 @@ msgstr ""
 msgid "Font Size"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:421
+#: themesflat-core.php:421
 msgid "Footer"
 msgstr ""
 
@@ -1418,7 +1418,7 @@ msgstr ""
 msgid "From Top"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:685
+#: themesflat-core.php:685
 msgid "Front Page"
 msgstr ""
 
@@ -1499,7 +1499,7 @@ msgstr ""
 msgid "Head Shake"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:420 widgets/widget-price-table.php:29
+#: themesflat-core.php:420 widgets/widget-price-table.php:29
 #: widgets/widget-price-table.php:478
 msgid "Header"
 msgstr ""
@@ -2070,7 +2070,7 @@ msgstr ""
 msgid "Navigation"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:373
+#: themesflat-core.php:373
 msgid "New Template Item"
 msgstr ""
 
@@ -2095,19 +2095,19 @@ msgstr ""
 msgid "No product found"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:381
+#: themesflat-core.php:381
 msgid "No Template found"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:382
+#: themesflat-core.php:382
 msgid "No Template found in Trash"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:378
+#: themesflat-core.php:378
 msgid "No Template Items Found"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:379
+#: themesflat-core.php:379
 msgid "No Template Items Found In Trash"
 msgstr ""
 
@@ -2164,7 +2164,7 @@ msgstr ""
 msgid "Number Suffix"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1510 widgets/widget-posts.php:328
+#: themesflat-core.php:1510 widgets/widget-posts.php:328
 #: widgets/widget-posts.php:340 widgets/widget-posts.php:355
 #: widgets/widget-project.php:279 widgets/widget-testimonial-carousel.php:659
 #: widgets/widget-testimonial-carousel.php:671
@@ -2179,7 +2179,7 @@ msgstr ""
 msgid "Official Color"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1511 widgets/widget-posts.php:327
+#: themesflat-core.php:1511 widgets/widget-posts.php:327
 #: widgets/widget-posts.php:339 widgets/widget-posts.php:354
 #: widgets/widget-project.php:278 widgets/widget-testimonial-carousel.php:658
 #: widgets/widget-testimonial-carousel.php:670
@@ -2280,7 +2280,7 @@ msgstr ""
 msgid "Padding Top & Bottom"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1508 widgets/widget-slide-swiper.php:869
+#: themesflat-core.php:1508 widgets/widget-slide-swiper.php:869
 #: widgets/widget-slide-swiper.php:913
 msgid "Parallax"
 msgstr ""
@@ -2289,7 +2289,7 @@ msgstr ""
 msgid "Parent"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:380
+#: themesflat-core.php:380
 msgid "Parent Template:"
 msgstr ""
 
@@ -2306,7 +2306,7 @@ msgstr ""
 msgid "Percentage"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:153
+#: themesflat-core.php:153
 msgid "PHP"
 msgstr ""
 
@@ -2334,7 +2334,7 @@ msgstr ""
 msgid "Popular "
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1529 widgets/widget-price-table.php:1153
+#: themesflat-core.php:1529 widgets/widget-price-table.php:1153
 #: widgets/widget-tabs.php:207 widgets/widget-team.php:78
 #: widgets/widget-team.php:452 widgets/widget-testimonial-carousel.php:76
 #: widgets/widget-testimonial-carousel.php:491
@@ -2581,15 +2581,15 @@ msgstr ""
 msgid "Screen"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:683
+#: themesflat-core.php:683
 msgid "Search Page"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:332
+#: themesflat-core.php:332
 msgid "Search pages / post / categories"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:377
+#: themesflat-core.php:377
 msgid "Search Template"
 msgstr ""
 
@@ -2599,8 +2599,8 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:806
-#: themesflat-addons-for-elementor.php:885
+#: themesflat-core.php:806
+#: themesflat-core.php:885
 msgid "Select"
 msgstr ""
 
@@ -2608,7 +2608,7 @@ msgstr ""
 msgid "Select menu"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:419
+#: themesflat-core.php:419
 msgid "Select Option"
 msgstr ""
 
@@ -2911,19 +2911,19 @@ msgstr ""
 msgid "span"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:705
+#: themesflat-core.php:705
 msgid "Special Pages"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:747
+#: themesflat-core.php:747
 msgid "Specific Pages / Posts / Taxonomies, etc."
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:745
+#: themesflat-core.php:745
 msgid "Specific Target"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1600
+#: themesflat-core.php:1600
 msgid "Speed"
 msgstr ""
 
@@ -3118,13 +3118,13 @@ msgstr ""
 msgid "TF Effect"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:367
-#: themesflat-addons-for-elementor.php:368
-#: themesflat-addons-for-elementor.php:370
+#: themesflat-core.php:367
+#: themesflat-core.php:368
+#: themesflat-core.php:370
 msgid "TF Header - Footer Template"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:401
+#: themesflat-core.php:401
 msgid "TF Header Or Footer Options"
 msgstr ""
 
@@ -3148,7 +3148,7 @@ msgstr ""
 msgid "TF Nav Menu"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1500
+#: themesflat-core.php:1500
 msgid "TF Parallax"
 msgstr ""
 
@@ -3232,7 +3232,7 @@ msgstr ""
 msgid "The Best Solution of Wind & Solar"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1602
+#: themesflat-core.php:1602
 msgid ""
 "The speed at which the parallax effect runs. 0 means the image will appear "
 "fixed in place, and 1 the image will flow at the same speed as the page "
@@ -3247,9 +3247,9 @@ msgstr ""
 msgid "Themesflat"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:127
-#: themesflat-addons-for-elementor.php:138
-#: themesflat-addons-for-elementor.php:152
+#: themesflat-core.php:127
+#: themesflat-core.php:138
+#: themesflat-core.php:152
 msgid "Themesflat Addons For Elementor"
 msgstr ""
 
@@ -3257,7 +3257,7 @@ msgstr ""
 msgid "Themesflat Elementor"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1531
+#: themesflat-core.php:1531
 msgid ""
 "This is analogous to the background-position css property. Specify "
 "coordinates as top, bottom, right, left, center, or pixel values (e.g. -10px "
@@ -3338,7 +3338,7 @@ msgstr ""
 msgid "Top"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1538
+#: themesflat-core.php:1538
 msgid "Top Center"
 msgstr ""
 
@@ -3346,7 +3346,7 @@ msgstr ""
 msgid "Top Distance"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1539
+#: themesflat-core.php:1539
 msgid "Top Left"
 msgstr ""
 
@@ -3354,7 +3354,7 @@ msgstr ""
 msgid "Top Rated Products"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1540
+#: themesflat-core.php:1540
 msgid "Top Right"
 msgstr ""
 
@@ -3395,7 +3395,7 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:415
+#: themesflat-core.php:415
 msgid "Type of Template"
 msgstr ""
 
@@ -3523,7 +3523,7 @@ msgstr ""
 msgid "View"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:375
+#: themesflat-core.php:375
 msgid "View Template"
 msgstr ""
 
@@ -3593,7 +3593,7 @@ msgstr ""
 msgid "Wobble Vertical"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:691
+#: themesflat-core.php:691
 msgid "WooCommerce Shop Page"
 msgstr ""
 
@@ -3617,11 +3617,11 @@ msgstr ""
 msgid "Wrap Nav"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1554
+#: themesflat-core.php:1554
 msgid "X Position"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1577
+#: themesflat-core.php:1577
 msgid "Y Position"
 msgstr ""
 
@@ -3631,7 +3631,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: themesflat-addons-for-elementor.php:1625
+#: themesflat-core.php:1625
 msgid ""
 "You can optionally set the parallax mirror element to extend a few pixels "
 "above and below the mirrored element. This can hide slow or stuttering "

@@ -107,8 +107,7 @@
   position: relative;
 }
 .tfc-testimonial-carousel.style-2 .item-testimonial::before {
-  background-image: url(http://localhost/micare/wp-content/uploads/2025/05/line-tes.png);
-  /* background-image: url(/wp-content/plugins/micare-core/assets/img/line-tes.png); */
+  background-image: url(../../img/line-tes.png);
   background-position: bottom right;
   position: absolute;
   background-repeat: no-repeat;
@@ -376,8 +375,8 @@
   position: relative;
 }
 .tfc-testimonial-carousel.style-5 .item-testimonial::before {
-  background-image: url(http://localhost/micare/wp-content/uploads/2025/05/line-tes1.png);
-  /* background-image: url(/wp-content/plugins/micare-core/assets/img/line-tes.png); */
+ background-image: url(../../img/line-tes1.png);
+
   background-position: bottom right;
   position: absolute;
   background-repeat: no-repeat;
@@ -477,7 +476,6 @@
 }
 .tfc-testimonial-carousel.style-6 .item-testimonial::before {
   background-image: url(http://localhost/micare/wp-content/uploads/2025/05/line-tes.png);
-  /* background-image: url(/wp-content/plugins/micare-core/assets/img/line-tes.png); */
   background-position: bottom right;
   position: absolute;
   background-repeat: no-repeat;
@@ -628,7 +626,7 @@
 }
 
 .tfc-testimonial-carousel .owl-dots {
-  display: inline-block;
+  display: inline-flex;
 
   position: absolute;
 
@@ -636,7 +634,10 @@
 
   transform: translateX(-50%);
 }
-
+.tfc-testimonial-carousel.style-2 .owl-dots {
+    display: flex !important;
+    gap: 14px;
+}
 .tfc-testimonial-carousel.has-carousel.no-bullets .owl-dots,
 .tfc-testimonial-carousel.no-bullets .owl-dots {
   display: none;
@@ -658,7 +659,7 @@
 /* Step carousel */
 
 .step-carousel .header-step {
-box-shadow: 10px 4px 60px 0px #C1C1C140;
+/* box-shadow: 10px 4px 60px 0px #C1C1C140; */
 background: #fff;
 border-radius: 7px;
 padding: 23px 30px;
@@ -687,7 +688,9 @@ color: #0C171A;
   position: relative;
       margin-bottom: 25px;
 }
-
+.owl-item.active.indexActiveItem .spacing::after {
+    width: 105%;
+}
 .step-carousel .spacing::after {
   content: '';
   width: 105%;

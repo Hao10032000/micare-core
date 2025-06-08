@@ -169,11 +169,11 @@ function themesflat_fix_custom_posttype_posts_per_page( $query_string ){
 
 
 
-    $doctor_number_post = themesflat_get_opt( 'doctor_number_post' ) ? themesflat_get_opt( 'doctor_number_post' ) : 9;
+    $doctor_number_post = safe_themesflat_get_opt( 'doctor_number_post' ) ? safe_themesflat_get_opt( 'doctor_number_post' ) : 9;
 
-    $services_number_post = themesflat_get_opt( 'services_number_post' ) ? themesflat_get_opt( 'services_number_post' ) : 6;
+    $services_number_post = safe_themesflat_get_opt( 'services_number_post' ) ? safe_themesflat_get_opt( 'services_number_post' ) : 6;
 
-    $portfolio_number_post = themesflat_get_opt( 'portfolio_number_post' ) ? themesflat_get_opt( 'portfolio_number_post' ) : 6;
+    $portfolio_number_post = safe_themesflat_get_opt( 'portfolio_number_post' ) ? safe_themesflat_get_opt( 'portfolio_number_post' ) : 6;
 
 
 

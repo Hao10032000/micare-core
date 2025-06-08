@@ -10,7 +10,7 @@ add_action('init', 'themesflat_register_services_post_type');
 
 function themesflat_register_services_post_type() {
 
-    $services_slug = themesflat_get_opt('services_slug', 'services');
+    $services_slug = safe_themesflat_get_opt('services_slug', 'services');
 
     $labels = array(
 

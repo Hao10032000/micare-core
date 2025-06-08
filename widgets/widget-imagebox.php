@@ -40,7 +40,6 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
 					],
 				]
 			);
-			
 
 			$this->add_group_control(
 				\Elementor\Group_Control_Image_Size::get_type(),
@@ -67,10 +66,6 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
 				[
 					'label' => esc_html__( 'Icon', 'themesflat-core' ),
 					'type' => \Elementor\Controls_Manager::ICONS,
-					'default' => [
-						'value' => 'fas fa-star',
-						'library' => 'fa-solid',
-					],
 				]
 			);         	
 
@@ -84,26 +79,11 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
 			); 
 
 			$this->add_control(
-				'link',
-				[
-					'label' => esc_html__( 'Link', 'themesflat-core' ),
-					'type' => \Elementor\Controls_Manager::URL,
-					'placeholder' => esc_html__( 'https://your-link.com', 'themesflat-core' ),
-					'default' => [
-						'url' => '#',
-						'is_external' => false,
-						'nofollow' => false,
-					],
-				]
-			);
-
-			$this->add_control(
 				'description',
 				[
 					'label' => esc_html__( 'Description', 'themesflat-core' ),
-					'type' => \Elementor\Controls_Manager::WYSIWYG,
+					'type' => \Elementor\Controls_Manager::TEXTAREA,
 					'default' => 'Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium, totam aperiam.',
-					'label_block' => true,
 				]
 			); 
 					
@@ -140,7 +120,19 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
 	                    'show_button'	=> 'yes',
 	                ],
 				]
-			);	        
+			);
+
+	        $this->add_control(
+				'link',
+				[
+					'label' => esc_html__( 'Link', 'themesflat-core' ),
+					'type' => \Elementor\Controls_Manager::URL,
+					'placeholder' => esc_html__( 'https://your-link.com', 'themesflat-core' ),
+					'condition' => [
+						'show_button' => 'yes'
+					]
+				]
+			);
 
 	        $this->end_controls_section();
         // /.End Button	
@@ -181,89 +173,6 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
 					'selectors' => [
 						'{{WRAPPER}} .tf-imagebox' => 'text-align: {{VALUE}}',
 					],
-				]
-			);
-
-			$this->add_control( 
-				'image_padding_tf',
-				[
-					'label' => esc_html__( 'Padding', 'themesflat-core' ),
-					'type' => \Elementor\Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px', 'em' ],
-					'selectors' => [
-						'{{WRAPPER}} .tf-imagebox' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-				]
-			);
-
-			$this->add_control( 
-				'image_margin_tf',
-				[
-					'label' => esc_html__( 'Margin', 'themesflat-core' ),
-					'type' => \Elementor\Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px', 'em' ],
-					'selectors' => [
-						'{{WRAPPER}} .tf-imagebox' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-				]
-			);
-
-			$this->add_group_control( 
-				\Elementor\Group_Control_Border::get_type(),
-				[
-					'name' => 'image_border_tf',
-					'label' => esc_html__( 'Border', 'themesflat-core' ),
-					'selector' => '{{WRAPPER}} .tf-imagebox',
-				]
-			);
-
-	        $this->add_responsive_control( 
-				'image_border_radius_tf',
-				[
-					'label' => esc_html__( 'Border Radius', 'themesflat-core' ),
-					'type' => \Elementor\Controls_Manager::DIMENSIONS,
-					'size_units' => [ 'px' , '%' ],
-					'selectors' => [
-						'{{WRAPPER}} .tf-imagebox' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-					],
-				]
-			); 
-
-			$this->add_group_control(
-				\Elementor\Group_Control_Background::get_type(),
-				[
-					'name' => 'image_background_tf',
-					'label' => esc_html__( 'Background', 'themesflat-core' ),
-					'types' => [ 'classic', 'gradient' ],
-					'selector' => '{{WRAPPER}} .tf-imagebox',
-				]
-			);
-
-			$this->add_group_control(
-				\Elementor\Group_Control_Box_Shadow::get_type(),
-				[
-					'name' => 'image_box_shadow_tf',
-					'label' => esc_html__( 'Box Shadow', 'themesflat-core' ),
-					'selector' => '{{WRAPPER}} .tf-imagebox',
-				]
-			);
-
-			$this->add_group_control(
-				\Elementor\Group_Control_Background::get_type(),
-				[
-					'name' => 'image_background_tf_hover',
-					'label' => esc_html__( 'Background Hover', 'themesflat-core' ),
-					'types' => [ 'classic', 'gradient' ],
-					'selector' => '{{WRAPPER}} .tf-imagebox:hover',
-				]
-			);
-
-			$this->add_group_control(
-				\Elementor\Group_Control_Box_Shadow::get_type(),
-				[
-					'name' => 'image_box_shadow_tf_hover',
-					'label' => esc_html__( 'Box Shadow Hover', 'themesflat-core' ),
-					'selector' => '{{WRAPPER}} .tf-imagebox:hover',
 				]
 			);
 
@@ -680,7 +589,7 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
 				[
 					'label' => esc_html__( 'Background Color', 'themesflat-core' ),
 					'type' => \Elementor\Controls_Manager::COLOR,
-					'default' => '#23A455',
+					'default' => '#3858e9',
 					'selectors' => [
 						'{{WRAPPER}} .tf-imagebox .content-only' => 'background-color: {{VALUE}}',
 					],
@@ -844,28 +753,19 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
 					'type' => \Elementor\Controls_Manager::HEADING,
 					'separator' => 'before',
 				]
-			);
+			);	
 
-			$this->add_group_control(
-				\Elementor\Group_Control_Background::get_type(),
+			$this->add_control( 
+				'icon_color',
 				[
-					'name' => 'icon_gradient_background',
-					'label' => esc_html__( 'Gradient Color', 'themesflat-core' ),
-					'types' => [ 'gradient' ],
-					'fields_options' => [
-						'gradient_type' => [
-							'default' => 'linear'
-						],
-						'color' =>  [
-							'default' => '#eb6d2f'
-						],
-						'color_b' =>  [
-							'default' => '#fdd906'
-						],
+					'label' => esc_html__( 'Color', 'themesflat-core' ),
+					'type' => \Elementor\Controls_Manager::COLOR,
+					'default' => '#000000',
+					'selectors' => [
+						'{{WRAPPER}} .tf-imagebox .content .wrap-icon' => 'color: {{VALUE}}',
 					],
-					'selector' => '{{WRAPPER}} .tf-imagebox .content .wrap-icon i',
 				]
-			);
+			);	
 
 			$this->add_responsive_control(
 				'icon_font_size',
@@ -972,7 +872,7 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
 				[
 					'label' => esc_html__( 'Color Hover', 'themesflat-core' ),
 					'type' => \Elementor\Controls_Manager::COLOR,
-					'default' => '#23A455',
+					'default' => '#3858e9',
 					'selectors' => [
 						'{{WRAPPER}} .tf-imagebox .title a:hover' => 'color: {{VALUE}}',
 					],
@@ -1163,7 +1063,7 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
 						[
 							'label' => esc_html__( 'Background Color', 'themesflat-core' ),
 							'type' => \Elementor\Controls_Manager::COLOR,
-							'default' => '#23A455',
+							'default' => '#3858e9',
 							'selectors' => [
 								'{{WRAPPER}} .tf-imagebox .tf-button' => 'background-color: {{VALUE}}',
 							],
@@ -1244,15 +1144,14 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
 						[
 							'label' => esc_html__( 'Style', 'themesflat-core' ),
 							'type' => \Elementor\Controls_Manager::SELECT,
-							'default' => 'default-theme',
+							'default' => 'from-top',
 							'options' => [								
 								'from-top' => esc_html__( 'From Top', 'themesflat-core' ),
 								'from-bottom' => esc_html__( 'From Bottom', 'themesflat-core' ),
 								'from-left' => esc_html__( 'From Left', 'themesflat-core' ),
 								'from-right' => esc_html__( 'From Right', 'themesflat-core' ),
 								'from-center' => esc_html__( 'From Center', 'themesflat-core' ),
-								'skew' => esc_html__( 'Skew', 'themesflat-core' ),
-								'default-theme' => esc_html__( 'Default Theme', 'themesflat-core' ),								
+								'skew' => esc_html__( 'Skew', 'themesflat-core' ),								
 							],
 							'condition'=> [
 								'button_animation_options' => 'button-overlay',
@@ -1393,11 +1292,6 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
 						'{{WRAPPER}} .tf-imagebox .tf-button.bt_icon_before svg' => 'margin-right: {{SIZE}}{{UNIT}};',
 						'{{WRAPPER}} .tf-imagebox .tf-button.bt_icon_after i' => 'margin-left: {{SIZE}}{{UNIT}};',
 						'{{WRAPPER}} .tf-imagebox .tf-button.bt_icon_after svg' => 'margin-left: {{SIZE}}{{UNIT}};',
-
-						'.rtl {{WRAPPER}} .tf-imagebox .tf-button.bt_icon_before i' => 'margin-left: {{SIZE}}{{UNIT}};margin-right:0;',
-						'.rtl {{WRAPPER}} .tf-imagebox .tf-button.bt_icon_before svg' => 'margin-left: {{SIZE}}{{UNIT}};margin-right:0;',
-						'.rtl {{WRAPPER}} .tf-imagebox .tf-button.bt_icon_after i' => 'margin-right: {{SIZE}}{{UNIT}};margin-left:0;',
-						'.rtl {{WRAPPER}} .tf-imagebox .tf-button.bt_icon_after svg' => 'margin-right: {{SIZE}}{{UNIT}};margin-left:0;',
 					],
 				]
 			);
@@ -1411,17 +1305,15 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
 		
 		$image =  \Elementor\Group_Control_Image_Size::get_attachment_image_html( $settings, 'thumbnail', 'image' );
 
-		$html_title = $html_description = $html_image_overlay = $button = $icon_button = $icon_name = $html_icon = $has_icon = '';
-
-		$target = $settings['link']['is_external'] ? ' target="_blank"' : '';
-		$nofollow = $settings['link']['nofollow'] ? ' rel="nofollow"' : '';
+		$html_title = $html_description = $html_image_overlay = $button = $icon_button = $icon_name = $html_icon = $has_icon = $target = $nofollow = $link_url = '';
 
 		if ( isset( $settings['icon_button']['value'] ) ) {
 			if ( !empty( $settings['icon_button']['value']['url'] ) ) {
 				$icon_button .= sprintf(
 		           '<img class="logo_svg" src="%1$s" alt="%2$s"/>',
-		             $settings['icon_button']['value']['url'],
-		             $settings['icon_button']['value']['id']
+				   	esc_url($settings['icon_button']['value']['url']),
+					esc_attr($settings['icon_button']['value']['id'])
+		            
 		         ); 
 			} else {
 				$icon_button .= sprintf(
@@ -1433,42 +1325,73 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
 
 		$btn_animation = 'hover-default';
 		if ($settings['button_animation_options'] == 'button') {
-			$btn_animation = 'hover-default ' . $settings['button_animation'];
+			$btn_animation = 'hover-default ' . esc_attr($settings['button_animation']);
 		}elseif ($settings['button_animation_options'] == 'button-overlay') {
-			$btn_animation = 'btn-overlay ' . $settings['button_animation_overlay'];
-		}
+			$btn_animation = 'btn-overlay ' . esc_attr($settings['button_animation_overlay']);
+		}		
 
 		if ( $settings['show_button'] == 'yes' ) {
-			if ($settings['button_icon_position'] == 'bt_icon_after') {
-				$button =  sprintf ('<div class="tf-button-container %4$s"><a class="tf-button %5$s %6$s" href="%3$s" %7$s %8$s>%1$s %2$s</a></div>',$settings['button_text'] , $icon_button, $settings['link']['url'], $settings['button_align'], $settings['button_icon_position'], $btn_animation, $target, $nofollow );
-			}else{
-				$button =  sprintf ('<div class="tf-button-container %4$s"><a class="tf-button %5$s %6$s" href="%3$s" %7$s %8$s>%2$s %1$s</a></div>',$settings['button_text'] , $icon_button, $settings['link']['url'], $settings['button_align'], $settings['button_icon_position'], $btn_animation, $target, $nofollow );
+			$link_url = $settings['link']['url'];
+
+			$title_url = $this->add_render_attribute('header_link', 'href', esc_url( $settings['link']['url'] ? $settings['link']['url'] : '#'));
+			if (!empty($settings['link']['is_external'])) {
+			$this->add_render_attribute('header_link', 'target', '_blank');
 			}
+			if (!empty($settings['link']['nofollow'])) {
+			$this->add_render_attribute('header_link', 'rel', 'nofollow');
+			}
+			$title_url = $this->get_render_attribute_string('header_link'); 
+
+
+			$this->add_render_attribute('button_text', 'class','tf-button '. $settings['button_icon_position'] . ' ' . $btn_animation);
+			$this->add_render_attribute('button_text', 'href', esc_url($settings['link']['url'] ? $settings['link']['url'] : '#'));
+			if (!empty($settings['link']['is_external'])) {
+			  $this->add_render_attribute('button_text', 'target', '_blank');
+			}
+			if (!empty($settings['link']['nofollow'])) {
+			  $this->add_render_attribute('button_text', 'rel', 'nofollow');
+			}
+			$link_url = $this->get_render_attribute_string('button_text'); 
+
+			if ($settings['button_icon_position'] == 'bt_icon_after') {
+				$button =  sprintf ('<div class="tf-button-container %3$s"><a  %4$s >%1$s %2$s</a></div>',esc_attr($settings['button_text']) , $icon_button,  esc_attr($settings['button_align']),$link_url );
+			}else{
+				$button =  sprintf ('<div class="tf-button-container %3$s"><a  %4$s >%2$s %1$s </a></div>',esc_attr($settings['button_text']) , $icon_button,  esc_attr($settings['button_align']),$link_url );
+			}
+
+			
 			
 		}		
 
 		if ($settings['show_image_overlay'] == 'yes') {
-			$html_image_overlay = sprintf('<div class="image-overlay %1$s"></div>', $settings['image_overlay_effect']);
-		}
-
-		if ($image) {
-			$image = sprintf('<div class="image">%1$s %2$s</div>', $image, $html_image_overlay );
+			$html_image_overlay = sprintf('<div class="image-overlay %1$s"></div>', esc_attr($settings['image_overlay_effect']));
 		}
 
 		if ($settings['title'] != '') {
-			$html_title = sprintf('<%2$s class="title"><a href="%3$s" %4$s %5$s>%1$s</a></%2$s>', $settings['title'], $settings['wrap_heading'], $settings['link']['url'], $target, $nofollow);
+			if ( $settings['show_button'] != 'yes' ) {
+				$title_url = $this->add_render_attribute('header_link', 'href', '#');
+				if (!empty($settings['link']['is_external'])) {
+				$this->add_render_attribute('header_link', 'target', '_blank');
+				}
+				if (!empty($settings['link']['nofollow'])) {
+				$this->add_render_attribute('header_link', 'rel', 'nofollow');
+				}
+				$title_url = $this->get_render_attribute_string('header_link'); 
+			}
+
+			$html_title = sprintf('<%2$s class="title"><a %3$s>%1$s</a></%2$s>',  esc_attr($settings['title']) , \Elementor\Utils::validate_html_tag($settings['wrap_heading']), $title_url);
 		}
 
 		if ($settings['description'] != '') {
-			$html_description = sprintf('<div class="description">%1$s</div>', $settings['description']);
+			$html_description = sprintf('<div class="description">%1$s</div>', esc_attr($settings['description']));
 		}
 
 		if ( $settings['icon_name']['value'] != '' ) {
 			if ( !empty( $settings['icon_name']['value']['url'] ) ) {
 				$icon_name = sprintf(
 		           '<img class="logo_svg" src="%1$s" alt="%2$s"/>',
-		             $settings['icon_name']['value']['url'],
-		             $settings['icon_name']['value']['id']		            
+				   	esc_url($settings['icon_name']['value']['url']),
+					   esc_attr($settings['icon_name']['value']['id'])		            
 		        ); 
 
 		        $html_icon = sprintf('<div class="wrap-icon">%1$s</div>', $icon_name);
@@ -1484,14 +1407,14 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
 		}		
 
 		echo sprintf ( 
-			'<div class="tf-imagebox %5$s"> 
-                %1$s
-                <div class="content-only %8$s"> 
+			'<div class="tf-imagebox %6$s"> 
+                <div class="image">%1$s %5$s</div>
+                <div class="content-only %9$s"> 
                 	%8$s               	              
 					%2$s
 				</div>
-                <div class="content %6$s">	
-                	%7$s                
+                <div class="content %7$s">	
+                	%8$s                
 					%2$s
 	                %3$s
 	                %4$s
@@ -1501,6 +1424,7 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
             $html_title,
             $html_description,           
             $button,
+            $html_image_overlay,
             $settings['content_style'],
             $settings['content_effect'],
             $html_icon,
@@ -1508,5 +1432,7 @@ class TFImageBox_Widget extends \Elementor\Widget_Base {
         );
 			
 	}
+
+		
 
 }

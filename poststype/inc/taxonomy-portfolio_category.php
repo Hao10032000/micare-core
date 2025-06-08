@@ -7,15 +7,15 @@ get_header();
 
 $term_slug = $wp_query->tax_query->queries[0]['terms'][0];
 
-$portfolio_number_post = themesflat_get_opt( 'portfolio_number_post' ) ? themesflat_get_opt( 'portfolio_number_post' ) : 9;
+$portfolio_number_post = safe_themesflat_get_opt( 'portfolio_number_post' ) ? safe_themesflat_get_opt( 'portfolio_number_post' ) : 9;
 
-$columns = themesflat_get_opt('portfolio_grid_columns');
+$columns = safe_themesflat_get_opt('portfolio_grid_columns');
 
-$style = isset($_GET['style_layout']) ? $_GET['style_layout'] : themesflat_get_opt('style_archive');
+$style = isset($_GET['style_layout']) ? $_GET['style_layout'] : safe_themesflat_get_opt('style_archive');
 
 $paged = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
 
-$themesflat_paging_style = themesflat_get_opt('portfolio_archive_pagination_style');
+$themesflat_paging_style = safe_themesflat_get_opt('portfolio_archive_pagination_style');
 
     
 

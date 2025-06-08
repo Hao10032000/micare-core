@@ -100,11 +100,17 @@ add_action( 'after_setup_theme', 'add_image_sizes' );
 
 function add_image_sizes() {
 
-    add_image_size( 'themesflat-service-grid', 1000, 648, true );
+    add_image_size( 'themesflat-team-archive', 315, 315, true );
 
-    add_image_size( 'themesflat-service-single', 850, 512, true );
+    add_image_size( 'themesflat-team-archive2', 450, 495, true );
 
-    add_image_size( 'themesflat-service-style1', 877, 657, true );
+    add_image_size( 'themesflat-service-archive1', 600, 525, true );
+    add_image_size( 'themesflat-service-archive2', 465, 382, true );
+    add_image_size( 'themesflat-service-archive3', 435, 405, true );
+
+    add_image_size( 'themesflat-portfolio-single', 1935, 945, true );
+    add_image_size( 'themesflat-portfolio-archive1', 685, 900, true );
+    add_image_size( 'themesflat-portfolio-archive2', 615, 525, true );
 
 }
 
@@ -240,8 +246,7 @@ final class ThemesFlat_Addon_For_Elementor_micare {
 
             return;
 
-        }      
-
+        }   
 
 
         // Add Plugin actions
@@ -322,6 +327,13 @@ final class ThemesFlat_Addon_For_Elementor_micare {
         require_once plugin_dir_path( __FILE__ ).'/tf-post-format.php';
 
         require_once plugin_dir_path( __FILE__ ).'/tf-icons.php'; 
+
+
+        add_action( 'init', [ $this, 'tf_header_footer_post_type' ] );
+        add_action( 'add_meta_boxes', [ $this, 'tf_header_footer_register_metabox' ] );
+        add_action( 'save_post', [ $this, 'tf_header_footer_save_meta' ] );
+        add_filter( 'single_template', [ $this, 'tf_header_footer_load_canvas_template' ] );
+        add_action( 'wp', [ $this, 'hooks' ],100 );
 
           // Hook Animation All Widget
           add_action('elementor/element/before_section_end', function( $section, $section_id, $args ) {
@@ -539,6 +551,9 @@ final class ThemesFlat_Addon_For_Elementor_micare {
 
         \Elementor\Plugin::instance()->widgets_manager->register( new \TFStep_Widget() );
 
+        require_once( __DIR__ . '/widgets/widget-imagebox.php' );
+
+        \Elementor\Plugin::instance()->widgets_manager->register( new \TFImageBox_Widget() );
 
         require_once( __DIR__ . '/widgets/widget-tabs.php' );
 
@@ -555,6 +570,27 @@ final class ThemesFlat_Addon_For_Elementor_micare {
         require_once( __DIR__ . '/widgets/widget-group-features.php' );
 
         \Elementor\Plugin::instance()->widgets_manager->register( new \TFGroupFeatures_Widget() );
+
+        require_once( __DIR__ . '/widgets/widget-video.php' );
+        \Elementor\Plugin::instance()->widgets_manager->register( new \TF_Addon_Video_Widget() );
+
+        require_once( __DIR__ . '/widgets/widget-iconbox.php' );
+        \Elementor\Plugin::instance()->widgets_manager->register( new \TFIconBox_Widget() );
+
+        require_once( __DIR__ . '/widgets/widget-list-image.php' );
+        \Elementor\Plugin::instance()->widgets_manager->register( new \TFListImage_Widget() );
+
+        require_once( __DIR__ . '/widgets/widget-animated-headline.php' );
+        \Elementor\Plugin::instance()->widgets_manager->register( new \TFAnimated_Headline_Widget() );
+
+        require_once( __DIR__ . '/widgets/widget-sliderbeforeafter.php' );
+        \Elementor\Plugin::instance()->widgets_manager->register( new \TFSliderBeforeAfter() );
+
+        require_once( __DIR__ . '/widgets/widget-piechart.php' );
+        \Elementor\Plugin::instance()->widgets_manager->register( new \TFPieChart_Widget() );
+
+        require_once( __DIR__ . '/widgets/widget-slider.php' );
+        \Elementor\Plugin::instance()->widgets_manager->register( new \Custom_Swiper_Slider_Widget() );
 
     }
 
@@ -576,17 +612,17 @@ final class ThemesFlat_Addon_For_Elementor_micare {
 
         wp_register_style( 'owl-carousel', plugins_url( '/assets/css/owl.carousel.min.css', __FILE__ ) );
 
-        wp_register_style( 'tfc-animated', plugins_url( '/assets/css/tf-animated.css', __FILE__ ) );
+        wp_enqueue_style( 'tfc-animated', plugins_url( '/assets/css/tf-animated.css', __FILE__ ) );
 
         wp_register_style( 'magnific-popup', plugins_url( '/assets/css/magnific.popup.css', __FILE__ ) );
-
-        wp_enqueue_style('tfc-animated');
 
 
 
         //widget
 
         wp_register_style( 'tf-title-section', plugins_url( '/assets/css/title-section/tf-title-section.css', __FILE__ ) );
+
+        wp_register_style( 'tf-piechart', plugins_url( '/assets/css/counter/tf-piechart.css', __FILE__ ) );
 
         wp_register_style( 'tf-counter', plugins_url( '/assets/css/counter/tf-counter.css', __FILE__ ) );
 
@@ -604,11 +640,17 @@ final class ThemesFlat_Addon_For_Elementor_micare {
 
         wp_register_style( 'tf-iconbox', plugins_url( '/assets/css/iconbox/tf-iconbox.css', __FILE__ ) );
 
+        wp_register_style( 'tf-video', plugins_url( '/assets/css/video/tf-video.css', __FILE__ ) );
+
+        wp_register_style( 'tf-animated-headline', plugins_url( '/assets/css/title-section/tf-animated-headline.css', __FILE__ ) );
+
         wp_register_style( 'tf-raindrop', plugins_url( '/assets/css/raindrop/tf-raindrop.css', __FILE__ ) );  
 
         wp_register_style( 'jquery-justified', plugins_url( '/assets/css/jquery.justified.css', __FILE__ ) );
 
         wp_register_style( 'tf-road-map', plugins_url( '/assets/css/road-map/tf-road-map.css', __FILE__ ) );
+
+        wp_register_style( 'tf-beforeafter', plugins_url( '/assets/css/step/sliderbeforeafter.css', __FILE__ ) );
 
 
 
@@ -620,13 +662,7 @@ final class ThemesFlat_Addon_For_Elementor_micare {
 
          // flex-slider (E Slider)
 
-         wp_register_style( 'tf-flexslidercore', plugins_url( '/assets/css/flex-slider/tf-flexslider.css', __FILE__ ) );
-
-         wp_register_style( 'tf-flex-slidercore', plugins_url( '/assets/css/flex-slider/tf-flex-slider.css', __FILE__ ) );
-
- 
-
-     
+         wp_register_style( 'tf-flex-slidercore', plugins_url( '/assets/css/flex-slider/tf-flexslider.css', __FILE__ ) );
 
     }
 
@@ -641,6 +677,8 @@ final class ThemesFlat_Addon_For_Elementor_micare {
         wp_enqueue_script('jquery');
 
         wp_register_script( 'tfc-swiper', plugins_url( '/assets/js/swiper.js', __FILE__ ), [ 'jquery' ], false, true );
+
+        wp_register_script( 'magnific-popup', plugins_url( '/assets/js/magnific.popup.min.js', __FILE__ ), [ 'jquery' ], false, true );
 
         wp_register_script( 'jquery-easing', plugins_url( '/assets/js/jquery.easing.js', __FILE__ ), [ 'jquery' ], false, true );
 
@@ -659,15 +697,15 @@ final class ThemesFlat_Addon_For_Elementor_micare {
 
         wp_enqueue_script( 'tfc-lazyload', plugins_url( '/assets/js/lazy-load.js', __FILE__ ), [ 'jquery' ], false, true );
 
-        wp_enqueue_script( 'magnific-popup', plugins_url( '/assets/js/magnific.popup.min.js', __FILE__ ), [ 'jquery' ], false, true );
-
-        
-
 
 
         //widget
 
         wp_register_script( 'tf-counter', plugins_url( '/assets/js/counter/tf-counter.js', __FILE__ ), [ 'jquery' ], false, true ); 
+
+        wp_register_script( '3rd-piechart', plugins_url( '/assets/js/counter/piechart.js', __FILE__ ), [ 'jquery' ], false, true ); 
+
+        wp_register_script( 'tf-piechart', plugins_url( '/assets/js/counter/tf-piechart.js', __FILE__ ), [ 'jquery' ], false, true ); 
 
         wp_register_script( 'tf-testimonial1', plugins_url( '/assets/js/testimonial/tf-testimonial.js', __FILE__ ), [ 'jquery' ], false, true );
 
@@ -685,15 +723,17 @@ final class ThemesFlat_Addon_For_Elementor_micare {
 
         wp_register_script( 'tf-portfolio', plugins_url( '/assets/js/portfolio/portfolio.js', __FILE__ ), [ 'jquery' ], false, true );
 
+        wp_register_script( 'tf-video', plugins_url( '/assets/js/video/tf-video.js', __FILE__ ), [ 'jquery' ], false, true );
+
         wp_register_script( 'tf-title', plugins_url( '/assets/js/title/title.js', __FILE__ ), [ 'jquery' ], false, true );
         
         wp_register_script( 'splittext', plugins_url( '/assets/js/splittext.js', __FILE__ ), [ 'jquery' ], false, true );
 
         wp_register_script( 'tf-text-scroll', plugins_url( '/assets/js/tf-text-scroll.js', __FILE__ ), [ 'jquery' ], false, true );
 
-         // flex-slider (E Slider)
+        wp_register_script( 'tf-sliderbeforeafter', plugins_url( '/assets/js/step/sliderbeforeafter.js', __FILE__ ), [ 'jquery' ], false, true );
 
-         wp_register_script( 'tf-flexslidercore', plugins_url( '/assets/js/flex-slider/jquery.flexslider-min.js', __FILE__ ), [ 'jquery' ], false, true );
+         // flex-slider (E Slider)
 
          wp_register_script( 'tf-flex-slidercore', plugins_url( '/assets/js/flex-slider/tf-flexslider.js', __FILE__ ), [ 'jquery' ], false, true );
 
@@ -705,7 +745,7 @@ final class ThemesFlat_Addon_For_Elementor_micare {
 
         wp_register_script( 'scrolltrigger', plugins_url( '/assets/js/scrolltrigger.js', __FILE__ ), [ 'jquery' ], false, true );
 
-
+        wp_register_script( 'tf-jquery_event_move', plugins_url( '/assets/js/jquery_event_move.js', __FILE__ ), [ 'jquery' ], false, true );
 
     }
 

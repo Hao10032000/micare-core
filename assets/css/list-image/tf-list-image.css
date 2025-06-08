@@ -3,7 +3,44 @@
     display: -ms-flexbox;
     display: flex;
     overflow: hidden;
+    position: relative;
 }
+
+.overlay-list .tf-list-image::before,
+.overlay-list .tf-list-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.overlay-list .tf-list-image::before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff, transparent);
+}
+
+.overlay-list .tf-list-image::after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff, transparent);
+}
+
+.overlay-list.st2 .tf-list-image::before {
+    background: linear-gradient(to right, #D7ECE4, transparent);
+}
+
+.overlay-list.st2 .tf-list-image::after {
+    background: linear-gradient(to left, #D7ECE4, transparent);
+}
+
+@media (min-width: 992px) {
+    .overlay-list .tf-list-image::before, .overlay-list .tf-list-image::after {
+        width: 80px;
+    }
+}
+
 .tf-list-image .box-item {
     position: relative;
     -webkit-animation: slide-har 30s linear infinite;
@@ -17,11 +54,6 @@
 .tf-list-image .box-item .item {
     padding: 0 25px;
     width: 250px;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
 }
 
 .tf-list-image .box-item .item .image img {
@@ -40,10 +72,6 @@
 
 .tf-list-image.hover-image .item:hover .image img {
     filter: grayscale(0);
-}
-
-.tf-list-image:hover .item:not(:hover) {
-    filter: brightness(0.9) saturate(0) contrast(1.2) blur(2px);
 }
 
 .tf-list-image.hover-stop:hover .box-item {

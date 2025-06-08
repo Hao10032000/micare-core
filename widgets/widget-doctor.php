@@ -1607,7 +1607,8 @@ $this->end_controls_section();
 
 							'selectors' => [
 
-								'{{WRAPPER}} .wrap-doctor-post .doctor-post .tf-button-container a:hover' => 'color: {{VALUE}}',
+								'{{WRAPPER}} .wrap-doctor-post .doctor-post .tf-button-container a:hover,
+								 {{WRAPPER}} .wrap-doctor-post .doctor-post .tf-btn:hover span' => 'color: {{VALUE}} !important',
 							],
 
 							

@@ -41,7 +41,6 @@
           autoplay: auto,
           autoplayTimeout: 5000,
           smartSpeed: 850,
-          animateIn: "fadeIn",
           autoplayHoverPause: true,
           navText: [
             '<i class="' + prev_icon + '"></i>',

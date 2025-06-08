@@ -27,7 +27,7 @@ get_header();
 							?>	
 
 								<div class="content-top-infor">
-									<div class="featured-post"><?php the_post_thumbnail(); ?></div>
+									<div class="featured-post"><?php the_post_thumbnail('themesflat-portfolio-single'); ?></div>
 								</div>
 
 								<div class="group-infor-portfolio">

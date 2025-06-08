@@ -21,24 +21,24 @@ get_header(); ?>
 
 <?php 
 
-$portfolio_number_post = themesflat_get_opt( 'portfolio_number_post' ) ? themesflat_get_opt( 'portfolio_number_post' ) : 9;
+$portfolio_number_post = safe_themesflat_get_opt( 'portfolio_number_post' ) ? safe_themesflat_get_opt( 'portfolio_number_post' ) : 9;
 
-$columns = themesflat_get_opt('portfolio_grid_columns');
+$columns = safe_themesflat_get_opt('portfolio_grid_columns');
 
-$themesflat_paging_style = themesflat_get_opt('portfolio_archive_pagination_style');
+$themesflat_paging_style = safe_themesflat_get_opt('portfolio_archive_pagination_style');
 
-$style = isset($_GET['style_layout']) ? $_GET['style_layout'] : themesflat_get_opt('style_archive');
+$style = isset($_GET['style_layout']) ? $_GET['style_layout'] : safe_themesflat_get_opt('style_archive');
 
-$orderby = themesflat_get_opt('portfolio_order_by');
+$orderby = safe_themesflat_get_opt('portfolio_order_by');
 
 
-$order = themesflat_get_opt('portfolio_order_direction');
+$order = safe_themesflat_get_opt('portfolio_order_direction');
 
-$exclude = themesflat_get_opt('portfolio_exclude');
+$exclude = safe_themesflat_get_opt('portfolio_exclude');
 
-$show_filter = themesflat_get_opt('portfolio_show_filter');
+$show_filter = safe_themesflat_get_opt('portfolio_show_filter');
 
-$filter_category_order = themesflat_get_opt('portfolio_filter_category_order');	
+$filter_category_order = safe_themesflat_get_opt('portfolio_filter_category_order');	
 
 $terms_slug = wp_list_pluck( get_terms( 'portfolio_category','hide_empty=0'), 'slug' );
 
@@ -142,7 +142,7 @@ $query = new WP_Query( $query_args );
 				                            	    <a href="<?php echo get_the_permalink(); ?>">
 				                                        <?php 
 				                                            if ( has_post_thumbnail() ) { 
-				                                                $themesflat_thumbnail = "full";                              
+				                                                $themesflat_thumbnail = "themesflat-portfolio-archive2";                              
 				                                                the_post_thumbnail( $themesflat_thumbnail );
 				                                            }                                           
 				                                        ?>

@@ -12,7 +12,7 @@ function themesflat_register_doctor_post_type() {
 
     /*doctor*/
 
-    $doctor_slug = themesflat_get_opt('doctor_slug', 'doctor');
+    $doctor_slug = safe_themesflat_get_opt('doctor_slug', 'doctor');
 
     $labels = array(
 

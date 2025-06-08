@@ -881,7 +881,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'label' => esc_html__( 'Typography', 'themesflat-core' ),
 
-					'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .item .name',
+					'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .name',
 
 				]
 
@@ -899,7 +899,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .item .name' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .tfc-testimonial-carousel  .name' => 'color: {{VALUE}}',
 
 					],
 
@@ -921,7 +921,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .item .name' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-testimonial-carousel .name' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -957,7 +957,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'label' => esc_html__( 'Typography', 'themesflat-core' ),
 
-					'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .item .position',
+					'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .position',
 
 				]
 
@@ -975,7 +975,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .item .position' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .tfc-testimonial-carousel .position' => 'color: {{VALUE}}',
 
 					],
 
@@ -997,7 +997,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .item .position' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-testimonial-carousel .position' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 
@@ -1033,7 +1033,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'label' => esc_html__( 'Typography', 'themesflat-core' ),
 
-					'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .item .description',
+					'selector' => '{{WRAPPER}} .tfc-testimonial-carousel .description',
 
 				]
 
@@ -1053,7 +1053,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .item .description' => 'color: {{VALUE}}',
+						'{{WRAPPER}} .tfc-testimonial-carousel .description' => 'color: {{VALUE}}',
 
 					],
 
@@ -1077,7 +1077,7 @@ class TFTestimonialCarousel_Widget extends \Elementor\Widget_Base {
 
 					'selectors' => [
 
-						'{{WRAPPER}} .tfc-testimonial-carousel .item .description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .tfc-testimonial-carousel .description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 

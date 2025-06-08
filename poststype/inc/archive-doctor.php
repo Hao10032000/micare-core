@@ -20,15 +20,15 @@ get_header(); ?>
 
 <?php 
 
-$doctor_number_post = themesflat_get_opt( 'doctor_number_post' ) ? themesflat_get_opt( 'doctor_number_post' ) : 9;
+$doctor_number_post = safe_themesflat_get_opt( 'doctor_number_post' ) ? safe_themesflat_get_opt( 'doctor_number_post' ) : 9;
 
-$columns = themesflat_get_opt('doctor_grid_columns');
+$columns = safe_themesflat_get_opt('doctor_grid_columns');
 
-$orderby = themesflat_get_opt('doctor_order_by');
+$orderby = safe_themesflat_get_opt('doctor_order_by');
 
-$order = themesflat_get_opt('doctor_order_direction');
+$order = safe_themesflat_get_opt('doctor_order_direction');
 
-$exclude = themesflat_get_opt('doctor_exclude');
+$exclude = safe_themesflat_get_opt('doctor_exclude');
 
 $terms = get_terms( 'doctor_category', array( 'hide_empty' => false ) );
 
@@ -139,7 +139,7 @@ $query = new WP_Query( $args );
 
 if ( has_post_thumbnail() ) { 
 
-$themesflat_thumbnail = "full";                              
+$themesflat_thumbnail = "themesflat-team-archive2";                              
 
 the_post_thumbnail( $themesflat_thumbnail );
 

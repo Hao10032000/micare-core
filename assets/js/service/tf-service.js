@@ -92,13 +92,14 @@
 
                         0:{
 
-                            items:item3
-
+                            items:item3,
+                            margin: 10,
                         },
 
                         768:{
 
-                            items:item2
+                            items:item2,
+                            margin: 20,
 
                         },
 

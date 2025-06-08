@@ -2127,7 +2127,7 @@ $this->end_controls_section();
             <?php 
 				$attr['count'] = $count; 
 				$attr['settings'] = $settings; 
-				$attr['icon'] = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( themesflat_get_opt_elementor('services_post_icon') );
+				$attr['icon'] = \Elementor\Addon_Elementor_Icon_manager_micare::render_icon( safe_themesflat_get_opt_elementor('services_post_icon') );
 				tf_get_template_widget("service/{$settings['style']}", $attr);
 
 				$count++;

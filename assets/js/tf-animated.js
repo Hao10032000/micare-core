@@ -1,38 +1,44 @@
-(function( $ ) {
+(function($) {
     "use strict";
 
-    var themesflat_animation_fadeup = function (container, item) {
-        $(window).scroll(function () {
+    var themesflatAnimationFadeUp = function(container, item) {
+        $(window).on('scroll', function() {
             var windowBottom = $(this).scrollTop() + $(this).innerHeight();
-            $(container).each(function (index, value) {
-                var objectBottom = $(this).offset().top + $(this).outerHeight() * 0.1;
+            
+            $(container).each(function() {
+                var $this = $(this);
+                var objectBottom = $this.offset().top + $this.outerHeight() * 0.1;
                 
                 if (objectBottom < windowBottom) { 
-                    var seat = $(this).find(item);
-                    for (var i = 0; i < seat.length; i++) {
-                        (function (index) {
-                            setTimeout(function () {
-                                seat.eq(index).addClass('tfanimated');
-                            }, 200 * index);
-                        })(i);
-                    }
+                    var seat = $this.find(item);
+                    seat.each(function(index) {
+                        setTimeout(function() {
+                            $(this).addClass('tfanimated');
+                        }.bind(this), 200 * index);
+                    });
                 }
             });
-        }).scroll();
+        }).trigger('scroll'); 
     };
     
-    var themesflat_animation_classes_fadeup = function () {
-        themesflat_animation_fadeup(".tf-animated-column-elementor", ".elementor-column");
-        themesflat_animation_fadeup(".tf-animated-item", ".elementor-widget-container");
-        themesflat_animation_fadeup(".tf-animated-item-fade", ".elementor-widget-container");
-        themesflat_animation_fadeup(".tf-animated-item-left", ".elementor-widget-container");
-        themesflat_animation_fadeup(".tf-animated-item-right", ".elementor-widget-container");
-        themesflat_animation_fadeup(".tf-animated-item-zoom-slide", ".elementor-widget-container");
-        themesflat_animation_fadeup(".tf-animated-item-slide-right", ".elementor-widget-container");
+    var initAnimations = function() {
+        var animationConfigs = [
+            { container: ".tf-animated-column-elementor", item: ".elementor-column" },
+            { container: ".tf-animated-item", item: ".elementor-widget-container" },
+            { container: ".tf-animated-item-fade", item: ".elementor-widget-container" },
+            { container: ".tf-animated-item-left", item: ".elementor-widget-container" },
+            { container: ".tf-animated-item-right", item: ".elementor-widget-container" },
+            { container: ".tf-animated-item-zoom-slide", item: ".elementor-widget-container" },
+            { container: ".tf-animated-item-slide-right", item: ".elementor-widget-container" }
+        ];
+        
+        animationConfigs.forEach(function(config) {
+            themesflatAnimationFadeUp(config.container, config.item);
+        });
     };
 
     $(function() {
-        themesflat_animation_classes_fadeup();
+        initAnimations();
     });
 
 })(jQuery);
