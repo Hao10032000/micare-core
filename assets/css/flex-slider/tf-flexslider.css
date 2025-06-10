@@ -177,7 +177,7 @@ margin-bottom: 50px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+   transform: translate(-53%, -49%);
     opacity: 0;
     visibility: hidden;
         -webkit-transition: all 0.2s ease;

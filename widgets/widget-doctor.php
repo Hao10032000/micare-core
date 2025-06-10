@@ -1269,7 +1269,7 @@ $this->end_controls_section();
 
 					'selectors' => [
 
-						'{{WRAPPER}} .wrap-doctor-post .doctor-post .category-doctor' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+						'{{WRAPPER}} .wrap-doctor-post .doctor-post .position' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 					],
 

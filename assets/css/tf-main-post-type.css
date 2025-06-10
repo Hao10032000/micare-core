@@ -379,7 +379,7 @@
 }
 
 .tf-services-wrap.style3 .services-post .description {
-  font-weight: 400;
+  font-weight: 300;
   font-size: 16px;
   line-height: 26px;
   color: #666b68;
@@ -420,6 +420,14 @@
 
 .tf-services-wrap.style3 .services-post.box-1 .icon {
   color: #efd813;
+}
+.tf-services-wrap.style3 .services-post.box-1 .icon svg path {
+  color: #efd813;
+  fill: #efd813;
+}
+.tf-services-wrap.style3 .services-post.box-1 .icon svg  {
+  width: 50px;
+  height: 50px;
 }
 
 .tf-services-wrap.style3 .services-post.box-1 .title a {
@@ -1595,6 +1603,9 @@
   gap: 15px;
   bottom: -53px;
 }
+.tf-services-wrap.style4 .owl-dots {
+    display: none;
+}
 
 .tf-services-wrap .owl-dots button,
 .tf-services-wrap .owl-dots .owl-dot {
@@ -1706,9 +1717,10 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
+  display: none;
   gap: 15px;
-  bottom: -53px;
+  bottom: 0px;
+
 }
 
 .tf-doctor-wrap .owl-dots button,
@@ -1971,7 +1983,7 @@ box-shadow: 10px 4px 60px 0px rgba(193, 193, 193, 0.15);
   height: 210px;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
   display: inline-flex;
 }
 
@@ -2813,8 +2825,17 @@ box-shadow: 10px 4px 60px 0px rgba(193, 193, 193, 0.15);
   }
 }
 @media only screen and (max-width: 1170px) {
+  .doctor .style1 .wrap-doctor-post.column-4 .item{
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.33333%;
+    flex: 0 0 33.33333% ;
+    max-width: 33.33333% ;
+}
 }
 @media only screen and (max-width: 1024px) {
+  .tf-services-wrap.style4 .owl-dots {
+    display: flex;
+}
   .tfc-testimonial-carousel.style-2 .item-testimonial {
     padding: 47px 30px 50px 30px;
 }
@@ -2963,6 +2984,12 @@ box-shadow: 10px 4px 60px 0px rgba(193, 193, 193, 0.15);
 }
 
 @media only screen and (max-width: 767px) {
+  .tf-doctor-wrap .owl-dots {
+
+  display:flex;
+
+
+}
     .tf-doctor-wrap.style1 .doctor-post {
         border-right: 1px solid transparent;
 
@@ -2979,9 +3006,7 @@ box-shadow: 10px 4px 60px 0px rgba(193, 193, 193, 0.15);
   .tf-doctor-wrap.style2 .doctor-post .featured-post img {
     height: 100%;
 }
-  .tfc-testimonial-carousel.style-2 .owl-dots {
-    display: none !important;
-}
+
   .single-services .post-title {
     font-size: 35px;
     line-height: 1.3em;
@@ -3095,7 +3120,7 @@ box-shadow: 10px 4px 60px 0px rgba(193, 193, 193, 0.15);
     justify-content: center;
 }
   .nav-links {
-    gap: 60px;
+    gap: 0px;
     flex-wrap: wrap;
     flex-direction: column;
 }

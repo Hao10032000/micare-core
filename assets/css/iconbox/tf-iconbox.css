@@ -127,7 +127,7 @@
     -ms-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    vertical-align: middle;    
+   vertical-align: sub; 
 }
 
 .tficonbox.top .wrap-icon {
@@ -358,12 +358,9 @@
         margin-bottom: 30px;
     }
 
-    .tficonbox.left,
-    .tficonbox.right {
-        display: -webkit-block;
-        display: -webkit-block;
-        display: -ms-block;
-        display: block;
+        .tficonbox.left, .tficonbox.right {
+        gap: 20px;
+        align-items: center;
     }
 }
 
