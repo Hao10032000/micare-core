@@ -1932,7 +1932,8 @@ $this->end_controls_section();
 
 							'selectors' => [
 
-								'{{WRAPPER}} .wrap-services-post .services-post .tf-button-container a:hover' => 'color: {{VALUE}}',
+								'{{WRAPPER}} .wrap-services-post .services-post .tf-button-container a:hover,
+							     {{WRAPPER}} .wrap-services-post .services-post .tf-button-container a:hover i' => 'color: {{VALUE}}',
 							],
 
 							
