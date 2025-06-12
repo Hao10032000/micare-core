@@ -1,7 +1,7 @@
 (function($) {
     "use strict";
 
-    var themesflatAnimationFadeUp = function(container, item) {
+    var themesflatAnimationFadeUp = function(container, item, animatedClass = 'tfanimated') {
         $(window).on('scroll', function() {
             var windowBottom = $(this).scrollTop() + $(this).innerHeight();
             
@@ -13,14 +13,14 @@
                     var seat = $this.find(item);
                     seat.each(function(index) {
                         setTimeout(function() {
-                            $(this).addClass('tfanimated');
+                            $(this).addClass(animatedClass);
                         }.bind(this), 200 * index);
                     });
                 }
             });
         }).trigger('scroll'); 
     };
-    
+
     var initAnimations = function() {
         var animationConfigs = [
             { container: ".tf-animated-column-elementor", item: ".elementor-column" },
@@ -37,8 +37,21 @@
         });
     };
 
+    var textSplit = function() {
+        if ($(".tf-split-text").length) {
+            Splitting();
+            themesflatAnimationFadeUp(".tf-split-text", ".splitting", 'tf-animated');
+        }
+    };
+
+    // Run general animations
     $(function() {
         initAnimations();
+    });
+
+    // Run textSplit on Elementor section load
+    $(window).on('elementor/frontend/init', function() {
+        elementorFrontend.hooks.addAction('frontend/element_ready/tf-title-section.default', textSplit);
     });
 
 })(jQuery);
